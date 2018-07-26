@@ -8,7 +8,7 @@ if (typeof web3 !== "undefined") {
     console.log(web3)
     console.log(web3.version)
 
-    xyj.getBlock = function(fn){
+    xyj.getBlock = function (fn) {
         /* 获取当前区块 */
         if (typeof fn !== "function") {
             return 'need async function !.'
@@ -65,7 +65,7 @@ if (typeof web3 !== "undefined") {
 
     /* 获取合约相关数据 */
     // 3d 合约地址
-    var contractAddr = '0x096df91042a9e8748677a67de9c522f05c1d3814'
+    var contractAddr = '0x8382905282b5e396f05d0918727f6edea9f11e08'
     //  合约abi
     var contractAbi = [
         {
@@ -1297,6 +1297,30 @@ if (typeof web3 !== "undefined") {
     // airDropPot_ 空头相关
     // airDropTracker_  用于制胜空头
 
+    xyj.getTimeLeft = function (fn) {
+        /* 倒计时的时间 */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.getTimeLeft(function (err, res) {
+                if (!err) {
+                    if (res) {
+                        var web3_getTimeLeft = res.toNumber(10)
+                        fn(null, web3_getTimeLeft)
+                        console.log(web3_getTimeLeft);
+                        console.log('===当前合约time======');
+                    }
+                } else {
+                    fn('getTimeLeft error', null)
+                    console.error('getTimeLeft' + error);
+                }
+            })
+        } else {
+            fn('contractNet error at getTimeLeft', null)
+        }
+    }
+
     /* 实时播报 */
     contractNet.allEvents(function (err, res) {
         // 4种事件类型
@@ -1310,46 +1334,48 @@ if (typeof web3 !== "undefined") {
         }
         console.log('== 用于 实时播报 ====');
     })
-    /*
-    *      -functionhash- 0x8f38f309 (using ID for affiliate 用ID 邀请的 )
-         * -functionhash- 0x98a0871d (using address for affiliate 用address邀请的 )
-         * -functionhash- 0xa65b37a1 (using name for affiliate 用名字邀请 )
-         * @param _affCode   the ID/address/name of the player who gets the affiliate fee
-         * @param _team what team is the player playing for?
-    * */
 
-    // contractNet.buyXaddr(web3.toBigNumber('696e76656e746f72'), web3.toBigNumber('0000000000000000000000000000000000000000000000000000000000000002'), function (err, res) {
-    //     console.log(res)
-    //     console.log(res)
-    //     console.log('buyXaddr')
-    // })
+    contractNet.getBuyPrice(function (err, res) {
+        if (!err) {
+            if (res) {
+                var web3_getTimeLeft = res.toNumber(10)
+                console.log(web3_getTimeLeft);
+                console.log('===当前合123123me======');
+            }
+        } else {
+            fn('getTimeLeft error', null)
+            console.error('getTimeLeft' + error);
+        }
+    })
+
+    contractNet.buyXaddr(web3.toBigNumber('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8'), web3.toBigNumber('1'), {value: web3.toWei(0.0000375, "ether")}, function (err, res) {
+        console.log(res)
+        console.log(res)
+        console.log('buyXaddr')
+    })
+
+
+    xyj.buyXaddr = function (_affCode, _team, fn) {
+        /*
+        *
+        * -functionhash- 0x8f38f309 (using ID for affiliate 用ID 邀请的 )
+        * -functionhash- 0x98a0871d (using address for affiliate 用address邀请的 )
+        * -functionhash- 0xa65b37a1 (using name for affiliate 用名字邀请 )
+        *
+            @param _affCode   the ID/address/name of the player who gets the affiliate fee
+            @param _team what team is the player playing for?
+        *
+        * */
+        contractNet.buyXaddr(web3.toBigNumber('0'), web3.toBigNumber('1'), function (err, res) {
+            console.log(res)
+            console.log(res)
+            console.log('buyXaddr')
+        })
+    }
+
 
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
-
-xyj.getTimeLeft = function (fn) {
-    /* 倒计时的时间 */
-    if (typeof fn !== "function") {
-        return 'need async function !.'
-    }
-    if (contractNet) {
-        contractNet.getTimeLeft(function (err, res) {
-            if (!err) {
-                if (res) {
-                    var web3_getTimeLeft = res.toNumber(10)
-                    fn(null, web3_getTimeLeft)
-                    console.log(web3_getTimeLeft);
-                    console.log('===当前合约time======');
-                }
-            } else {
-                fn('getTimeLeft error', null)
-                console.error('getTimeLeft' + error);
-            }
-        })
-    } else {
-        fn('contractNet error at getTimeLeft', null)
-    }
 }
 
 console.log(xyj);
