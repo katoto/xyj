@@ -579,6 +579,7 @@ if (typeof web3 !== "undefined") {
     contractNet.name(function (err, res) {
         console.log(res)
     })
+    /* 倒计时的时间 */
     contractNet.getTimeLeft(function (err, res) {
         if (!err) {
             if (res) {
@@ -590,7 +591,16 @@ if (typeof web3 !== "undefined") {
             console.error('getTimeLeft' + error);
         }
     })
-
+    // contractNet.allEvents(function (err, res) {
+    //     if (!err) {
+    //         if (res) {
+    //             console.log(res.toString());
+    //             console.log('===当前合约time======');
+    //         }
+    //     } else {
+    //         console.error('getTimeLeft' + error);
+    //     }
+    // })
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
