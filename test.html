@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span style="color: #666;margin-left: 20px;" id="locale">xxx</span>
+    <h6 class="title" data-trans="gameName">分享奖励</h6>
+</body>
+<script src="./jquery-3.3.1.min.js"></script>
+<script>
+    "use strict";
+    var getTranslate = function () {},
+        setTranslate = function (e) {
+            var a;
+            a = {
+                    zh: {
+                        gameName: "狼人游戏",
+                    },
+                    en: {
+                        gameName: "DARK WOOD",
+                    }
+                }[/^zh/.test(e) ? "zh" : "en"],
+                getTranslate = function (e) {
+                    return a[e] || e
+                }
+        };
+    $(function () {
+        ! function e() {
+            var a = localStorage.language || window.navigator.language;
+            setTranslate(a);
+            var t = /^zh/.test(a);
+            $("#locale").text(t ? "EN" : "CN");
+            $("#locale").on("click", function () {
+                localStorage.setItem("language", t ? "en" : "zh");
+                setTranslate(a);
+                e();
+            });
+            var r = $("[data-trans]");
+            Array.prototype.forEach.call(r, function (e) {
+                var a = e.getAttribute("data-trans");
+                e.textContent = getTranslate(a)
+            })
+        }()
+    });
+</script>
+
+</html>

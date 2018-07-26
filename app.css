@@ -71,8 +71,8 @@ span {
 main {
     min-height: 100%;
     padding-bottom: 2.7rem;
-    background: url(../images/bottom-bg.png) center bottom no-repeat;
-    background-size: 100% auto
+    background: url(./purple_bg.png) center top no-repeat fixed;
+    background-size: 1920px;
 }
 
 * {
@@ -1330,10 +1330,21 @@ body {
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper img.pic {
     width: 100%;
+    max-width: 89px;
     margin-bottom: .2rem;
     -webkit-transition: .2s;
     -o-transition: .2s;
-    transition: .2s
+    transition: .2s;
+    border: 4px solid transparent;
+}
+
+.team-grid .tab-buy .select-team .team-container .team-wrapper:not(.team-wrapper--checked):hover img.pic {
+    border-color: #fea70a;
+    border-radius: 4px;
+}
+
+.team-wrapper--checked img.pic {
+    border-color: #fea70a !important;
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper span {
@@ -1482,6 +1493,7 @@ body {
         margin: 0 auto
     }
     .index-container .list {
+        max-width: 350px;
         margin-top: 0
     }
     .index-container .team-grid {
@@ -1496,20 +1508,27 @@ body {
 }
 
 .banner {
+    line-height: 1.5;
     text-align: center;
     color: #fff;
 }
 
 .banner .msg1 {
-    font-size: 2vw;
+    font-size: 0.6rem;
+    font-style: italic
 }
 
 .banner .msg2 {
-    font-size: 4vw;
+    font-size: 0.8rem;
 }
 
 .banner .msg3 {
-    font-size: 3vw;
+    font-size: 1.3rem;
+}
+
+.banner .headtimer {
+    display: block;
+    font-size: 34px;
 }
 
 .banner a {
