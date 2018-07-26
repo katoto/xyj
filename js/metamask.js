@@ -586,7 +586,6 @@ if (typeof web3 !== "undefined") {
         if (!err) {
             if (res) {
                 console.log(res);
-                console.log(res);
             }
         } else {
             console.error('allEvents' + error);
@@ -607,16 +606,16 @@ if (typeof web3 !== "undefined") {
         }
     })
 
-    contractNet.buyXaddr(function (err, res) {
-        if (!err) {
-            if (res) {
-                console.log(res.toString());
-                console.log('===当前合约time======');
-            }
-        } else {
-            console.error('getTimeLeft' + error);
-        }
-    })
+    // contractNet.buyXaddr(function (err, res) {
+    //     if (!err) {
+    //         if (res) {
+    //             console.log(res.toString());
+    //             console.log('===当前合约time======');
+    //         }
+    //     } else {
+    //         console.error('getTimeLeft' + error);
+    //     }
+    // })
 
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
