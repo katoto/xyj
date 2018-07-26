@@ -639,7 +639,6 @@ console.log('====xyz=======');
 
 /*
 *   transfer methods
-*
 * */
 function transKey(fromAddr, toAddr, keyVal, gas, sendData) {
     fromAddr = fromAddr || '0x81Fa761dB3bFA16aE9Bb7c41ec7993def65cf386';
