@@ -15,7 +15,7 @@ if (typeof web3 !== "undefined") {
     /* 获取当前账号地址 */
     web3.eth.getAccounts(function (err, res) {
         if (!err) {
-            if (res.length > 0) {
+            if (res) {
                 web3_accountAddr = res.toString()
                 console.log(web3_accountAddr);
                 console.log('===当前地址======');
