@@ -1335,18 +1335,24 @@ if (typeof web3 !== "undefined") {
         console.log('== 用于 实时播报 ====');
     })
 
-    contractNet.getBuyPrice(function (err, res) {
-        if (!err) {
-            if (res) {
-                var web3_getTimeLeft = res.toNumber(10)
-                console.log(web3_getTimeLeft);
-                console.log('===当前合123123me======');
-            }
-        } else {
-            fn('getTimeLeft error', null)
-            console.error('getTimeLeft' + error);
+    xyj.getBuyPrice = function (fn) {
+        /* key 的val */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
         }
-    })
+        contractNet.getBuyPrice(function (err, res) {
+            if (!err) {
+                if (res) {
+                    var web3_getBuyPrice = res.toNumber(10)
+                    if (web3_getBuyPrice) {
+                        fn(null, web3_getBuyPrice / (10 ** 18))
+                    }
+                }
+            } else {
+                fn('getBuyPrice error', null)
+            }
+        })
+    }
 
     contractNet.buyXaddr(web3.toBigNumber('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8'), web3.toBigNumber('1'), {value: web3.toWei(0.0000375, "ether")}, function (err, res) {
         console.log(res)
@@ -1354,8 +1360,7 @@ if (typeof web3 !== "undefined") {
         console.log('buyXaddr')
     })
 
-
-    xyj.buyXaddr = function (_affCode, _team, fn) {
+    xyj.buyXaddr = function (_affCode, _team, keyVal, fn) {
         /*
         *
         * -functionhash- 0x8f38f309 (using ID for affiliate 用ID 邀请的 )
