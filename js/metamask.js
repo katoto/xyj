@@ -1336,7 +1336,7 @@ if (typeof web3 !== "undefined") {
     })
 
     xyj.getBuyPrice = function (fn) {
-        /* key 的val */
+        /* key 的value */
         if (typeof fn !== "function") {
             return 'need async function !.'
         }
@@ -1354,11 +1354,11 @@ if (typeof web3 !== "undefined") {
         })
     }
 
-    contractNet.buyXaddr(web3.toBigNumber('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8'), web3.toBigNumber('1'), {value: web3.toWei(0.0000375, "ether")}, function (err, res) {
-        console.log(res)
-        console.log(res)
-        console.log('buyXaddr')
-    })
+    // contractNet.buyXaddr(web3.toBigNumber('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8'), web3.toBigNumber('1'), {value: web3.toWei(0.0000375, "ether")}, function (err, res) {
+    //     console.log(res)
+    //     console.log(res)
+    //     console.log('buyXaddr')
+    // })
 
     xyj.buyXaddr = function (_affCode, _team, keyVal, fn) {
         /*
