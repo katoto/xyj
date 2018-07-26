@@ -70,14 +70,28 @@ $(function () {
     $("#auth").on("click", function () {
         localStorage.eos_account ? logout() : fomoScatter()
     });
-    var n = $("#tabs"),
-        r = n.find(".tab-title span");
-    r.on("click", function (t) {
-        var e = t.target;
-        n.find(".tab-title span.active").removeClass("active");
-        var a = r.index(e);
-        $(e).addClass("active"), n.find(".tab-content.active").removeClass("active"), $(n.find(".tab-content")[a]).addClass("active")
-    });
+    // var n = $(".tabs");
+    // n.each(function () {
+    //     $(this).on("click", function (t) {
+    //         var e = t.target;
+    //         console.log(e);
+
+    //         var r = $(this).find(".tab-title span");
+    //         $(this).find(".tab-title span.active").removeClass("active");
+    //         var a = r.index(e);
+    //         $(e).addClass("active");
+    //         $(this).find(".tab-content.active").removeClass("active");
+    //         $(this).find(".tab-content").eq(a).addClass("active")
+    //     });
+    // })
+    var n = $(".tabs");
+    n.each(function () {
+        $(this).find('.tab-title span').on('click', function () {
+            var _index = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active')
+            $(this).parent().siblings().removeClass('active').eq(_index).addClass('active')
+        })
+    })
     var s = $(".team-container");
     s.on("click", ".team-wrapper", function (t) {
         for (var e = t.target;
