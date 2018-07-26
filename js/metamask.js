@@ -1,7 +1,9 @@
 var web3_accountAddr = 0
 var web3_gasPrice = 0
 
-var web3_getTimeLeft = 0
+var web3_contractNet = null
+var xyz = {}
+
 if (typeof web3 !== "undefined") {
     console.log(web3)
     console.log(web3.version)
@@ -574,7 +576,7 @@ if (typeof web3 !== "undefined") {
             "type": "event"
         }]
     // 通过abi 和地址获取已部署的合约对象
-    var contractNet = web3.eth.contract(contractAbi).at(contractAddr)
+    contractNet = web3.eth.contract(contractAbi).at(contractAddr)
     console.log(contractNet);
     // activate  一旦部署合约  就停用
     // airDropPot_ 空头相关
@@ -593,25 +595,47 @@ if (typeof web3 !== "undefined") {
         }
         console.log('== 用于 实时播报 ====');
     })
-
-    /* 倒计时的时间 */
-    contractNet.getTimeLeft(function (err, res) {
-        if (!err) {
-            if (res) {
-                web3_getTimeLeft = res.toNumber(10)
-                console.log(web3_getTimeLeft);
-                console.log('===当前合约time======');
-            }
-        } else {
-            console.error('getTimeLeft' + error);
-        }
-    })
-
-    // contractNet.buyXaddr('696e76656e746f72000000000000000000000000000000000000000000000000' , '0000000000000000000000000000000000000000000000000000000000000002')
+    /*
+    *      -functionhash- 0x8f38f309 (using ID for affiliate 用ID 邀请的 )
+         * -functionhash- 0x98a0871d (using address for affiliate 用address邀请的 )
+         * -functionhash- 0xa65b37a1 (using name for affiliate 用名字邀请 )
+         * @param _affCode   the ID/address/name of the player who gets the affiliate fee
+         * @param _team what team is the player playing for?
+    *
+    * */
+    // contractNet.buyXaddr(web3.toBigNumber('696e76656e746f72'), web3.toBigNumber('0000000000000000000000000000000000000000000000000000000000000002'), function (err, res) {
+    //     console.log(res)
+    //     console.log(res)
+    //     console.log('buyXaddr')
+    // })
 
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
+
+xyz.getTimeLeft = function (fn) {
+    /* 倒计时的时间 */
+    if (contractNet) {
+        contractNet.getTimeLeft(function (err, res) {
+            if (!err) {
+                if (res) {
+                    var web3_getTimeLeft = res.toNumber(10)
+                    fn(null, web3_getTimeLeft)
+                    console.log(web3_getTimeLeft);
+                    console.log('===当前合约time======');
+                }
+            } else {
+                fn('getTimeLeft error', null)
+                console.error('getTimeLeft' + error);
+            }
+        })
+    } else {
+        fn('contractNet error at getTimeLeft', null)
+    }
+}
+
+console.log(xyz);
+console.log('====xyz=======');
 
 /*
 *   transfer methods
