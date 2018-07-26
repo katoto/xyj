@@ -7,17 +7,23 @@ var xyj = {}
 if (typeof web3 !== "undefined") {
     console.log(web3)
     console.log(web3.version)
-    web3.eth.getBlock(48, function (error, result) {
-        if (!error) {
-            console.log((result));
-        } else {
-            console.error(error);
-        }
-    })
 
-    /* 获取当前账号地址 */
+    xyj.getBlock = function(fn){
+        /* 获取当前区块 */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        web3.eth.getBlock(48, function (error, result) {
+            if (!error) {
+                console.log((result));
+            } else {
+                console.error(error);
+            }
+        })
+    }
     xyj.getAccounts = function (fn) {
-        if(typeof fn !== "function"){
+        /* 获取当前账号地址 */
+        if (typeof fn !== "function") {
             return 'need async function !.'
         }
         web3.eth.getAccounts(function (err, res) {
@@ -35,22 +41,28 @@ if (typeof web3 !== "undefined") {
             }
         })
     }
-    /* 获取当前gasPrice */
-    xyj.getGasPrice = function(fn){
-
+    xyj.getGasPrice = function (fn) {
+        /* 获取当前gasPrice */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        web3.eth.getGasPrice(function (err, res) {
+            if (!err) {
+                if (res) {
+                    web3_gasPrice = res.toNumber(10)
+                    fn(null, web3_gasPrice)
+                    console.log(web3_gasPrice);
+                    console.log('===当前gas======');
+                } else {
+                    fn(new Error('getGasPrice error'), null)
+                }
+            } else {
+                fn(err, null)
+            }
+        })
     }
 
-    web3.eth.getGasPrice(function (err, res) {
-        if (!err) {
-            if (res) {
-                web3_gasPrice = res.toNumber(10)
-                console.log(web3_gasPrice);
-                console.log('===当前gas======');
-            }
-        } else {
-            console.error('getAccount' + error);
-        }
-    })
+
     /* 获取合约相关数据 */
     // 3d 合约地址
     var contractAddr = '0x096df91042a9e8748677a67de9c522f05c1d3814'
@@ -1316,9 +1328,9 @@ if (typeof web3 !== "undefined") {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-/* 倒计时的时间 */
 xyj.getTimeLeft = function (fn) {
-    if(typeof fn !== "function"){
+    /* 倒计时的时间 */
+    if (typeof fn !== "function") {
         return 'need async function !.'
     }
     if (contractNet) {
