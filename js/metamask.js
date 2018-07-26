@@ -1360,7 +1360,7 @@ if (typeof web3 !== "undefined") {
     //     console.log('buyXaddr')
     // })
 
-    xyj.buyXaddr = function (_affCode, _team, keyVal, fn) {
+    xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
         /*
         *
         * -functionhash- 0x8f38f309 (using ID for affiliate 用ID 邀请的 )
@@ -1371,13 +1371,23 @@ if (typeof web3 !== "undefined") {
             @param _team what team is the player playing for?
         *
         * */
-        contractNet.buyXaddr(web3.toBigNumber('0'), web3.toBigNumber('1'), function (err, res) {
-            console.log(res)
+        if (typeof _affCode !== 'string') {
+            return '_affCode need Sting (addr or name or ID)'
+        }
+        if (typeof _team !== 'string') {
+            return '_team need Sting (0,1,2,3)'
+        }
+        if (typeof totalVal === 'string') {
+            totalVal = parseFloat(totalVal)
+        }
+        if (!totalVal) {
+            return 'totalVal error'
+        }
+        contractNet.buyXaddr(_affCode, web3.toBigNumber(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
             console.log(res)
             console.log('buyXaddr')
         })
     }
-
 
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
