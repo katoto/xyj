@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="https://eosfo.io/assets/images/langlogo.ico" type="image/x-icon">
-    <title>狼人游戏</title>
+    <title>西游记游戏</title>
     <link rel="stylesheet" href="./app.css">
     <script>
         let deviceWidth = document.documentElement.clientWidth;
@@ -39,7 +39,7 @@
         <header>
             <h1>
                 <div style="display: flex;justify-content: flex-start;align-items: center;">
-                    <span class="title" data-trans="gameName">狼人游戏</span>
+                    <span class="title" data-trans="gameName">西游记游戏</span>
                     <ul class="info">
                         <li class="lottery-time-wrapper">
                             <i class="iconfont icon-daojishi"></i>
@@ -52,14 +52,14 @@
                     </ul>
                 </div>
                 <div>
-                    <span style="color: #FEA70A;" id="auth">
+                    <span style="color: #FEA70A;" id="auth" class="hide">
                         <em style="font-family: iconfont;"></em>
                         <span style="color: #FEA70A;" class="account_name">授权</span>
                     </span>
                     <span style="color: #666;margin-left: 20px;" id="locale">EN</span>
                 </div>
             </h1>
-            <div class="notice" id="notice">
+            <div class="notice hide" id="notice">
                 <h6>【公告】狼人游戏已升级上线</h6>
                 <span class="operator">
                     <span>查看全文</span>
@@ -152,10 +152,11 @@
                 </div>
             </section>
             <section class="team-grid">
-                <div class="tabs" id="tabs">
+                <div class="tabs">
                     <div class="tab-title">
                         <span class="active" data-trans="tabBuyTitle">购买</span>
                         <span data-trans="tabDrawTitle">提现</span>
+                        <span data-trans="tabDrawTitle">推荐奖励</span>
                     </div>
                     <div class="tab-content active">
                         <div class="tab-buy">
@@ -265,57 +266,143 @@
                             <button class="btn btn-put" data-trans="withdraw">全部提现</button>
                         </div>
                     </div>
+                    <div class="tab-content joinus">
+                        <p>让更多人参与西游记游戏</p>
+                        <div>
+                            购买一个代号来生成推广链接，并直接分享高达20%的佣金
+                            <a href="javascript:;" class="btn">注册一个专属的推广代号</a>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="list">
                 <div class="list-content">
-                    <p class="list-title round-title">第一轮</p>
-                    <h3 class="winner">
-                        <span data-trans="recentBuyer">最后购买者：</span>
-                        <span class="account">g44dqnzxgyge</span>
-                    </h3>
-                    <ul class="round-list">
-                        <li class="lottery_time">
-                            <span data-trans="remainingTime">本轮剩余时间：</span>
-                            <div style="display: inline-block;">
-                                <p>0小时47分16秒</p>
-                            </div>
-                            <em class="rule-btn"></em>
-                        </li>
-                        <li>
-                            <span data-trans="totalJackpot">奖励池总数</span>
-                            <div>
-                                <p class="total_prize_pool">94414.2176 EOS</p>
-                                <span class="total-usdt">= 804196.8676971177 USDT</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span data-trans="yourGems">你的宝石</span>
-                            <div>
-                                <p>
-                                    <span class="owner-keys"></span>
-                                    <em style="color:#66C9FF;font-size: .3rem;"></em>
-                                </p>
+                    <div class="tabs">
+                        <div class="tab-title">
+                            <span class="list-title round-title active">回合</span>
+                            <span class="list-title round-title">团队</span>
+                            <span class="list-title round-title">统计</span>
+                        </div>
+                        <div class="tab-content active">
+                            <h3 class="winner">
+                                <span data-trans="recentBuyer">最后购买者：</span>
+                                <span class="account">g44dqnzxgyge</span>
+                            </h3>
+                            <ul class="round-list">
+                                <li class="lottery_time">
+                                    <span data-trans="remainingTime">本轮剩余时间：</span>
+                                    <div style="display: inline-block;">
+                                        <p>0小时47分16秒</p>
+                                    </div>
+                                    <em class="rule-btn"></em>
+                                </li>
+                                <li>
+                                    <span data-trans="totalJackpot">奖励池总数</span>
+                                    <div>
+                                        <p class="total_prize_pool">94414.2176 EOS</p>
+                                        <span class="total-usdt">= 804196.8676971177 USDT</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span data-trans="yourGems">你的宝石</span>
+                                    <div>
+                                        <p>
+                                            <span class="owner-keys"></span>
+                                            <em style="color:#66C9FF;font-size: .3rem;"></em>
+                                        </p>
 
+                                    </div>
+                                </li>
+                                <li>
+                                    <span data-trans="rebate">分享奖励</span>
+                                    <div>
+                                        <p class="share-award">0.0000 EOS</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span data-trans="totalAward">总收益</span>
+                                    <div>
+                                        <p>
+                                            <span class="total-award">0</span>
+                                            <em style="color:#FA02FF;font-size: .5rem;vertical-align: top;"></em>
+                                        </p>
+                                        <span class="total-award-usdt">= 0 USDT</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content team">
+                            <h2>团队</h2>
+                            <ul class="team-box">
+                                <li>
+                                    <p class="team-name">鲸</p>
+                                    <img src="./werewolf.png" alt="">
+                                    <p class="team-jackpot"></p>
+                                </li>
+                                <li>
+                                    <p class="team-name">鲸</p>
+                                    <img src="./werewolf.png" alt="">
+                                    <p class="team-jackpot"></p>
+                                </li>
+                            </ul>
+                            <ul class="team-box">
+                                <li>
+                                    <p class="team-name">鲸</p>
+                                    <img src="./werewolf.png" alt="">
+                                    <p class="team-jackpot"></p>
+                                </li>
+                                <li>
+                                    <p class="team-name">鲸</p>
+                                    <img src="./werewolf.png" alt="">
+                                    <p class="team-jackpot"></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content statistics">
+                            <h2>统计</h2>
+                            <div class="jumbotron jumbotron-adjust teamscore">
+                                <div class="row nomarginb">
+                                    <div class="col-auto">
+                                        <p class="h4">梭哈总额</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="h2 text-right glow ethglitch">197.177
+                                            <!-- <i class="fab fa-ethereum ethglow"></i> -->
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row marginb">
+                                    <div class="col text-right">≙ 93,960.82 USDT</div>
+                                </div>
+                                <div class="row nomarginb">
+                                    <div class="col-auto">
+                                        <p class="h4">分配总额</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="h2 text-right glow ethglitch">157.002
+                                            <!-- <i class="fab fa-ethereum ethglow"></i> -->
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row marginb">
+                                    <div class="col text-right">≙74,816.31 USDT </div>
+                                </div>
+                                <div class="row nomarginb">
+                                    <div class="col-auto">
+                                        <p class="h4">购买时间</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="h2 text-right glow ethglitch">1.73 年</p>
+                                    </div>
+                                </div>
+                                <div class="row marginb">
+                                    <div class="col text-right"> 54,522,584 秒</div>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <span data-trans="rebate">分享奖励</span>
-                            <div>
-                                <p class="share-award">0.0000 EOS</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span data-trans="totalAward">总收益</span>
-                            <div>
-                                <p>
-                                    <span class="total-award">0</span>
-                                    <em style="color:#FA02FF;font-size: .5rem;vertical-align: top;"></em>
-                                </p>
-                                <span class="total-award-usdt">= 0 USDT</span>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+
+
                 </div>
             </section>
         </div>
@@ -399,4 +486,5 @@
 <button id="js_tranMask2" style="width: 100px;height: 30px;position: absolute;top: 10px;right: 10px;z-index: 10000;">唤起转账</button>
 <script src="./js/web3.min.js"></script>
 <script src="./js/metamask.js"></script>
+
 </html>
