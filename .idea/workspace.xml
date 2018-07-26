@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="477" column="66" lean-forward="true" selection-start-line="477" selection-start-column="66" selection-end-line="477" selection-end-column="66" />
+            <state relative-caret-position="9341">
+              <caret line="478" column="59" selection-start-line="478" selection-start-column="59" selection-end-line="478" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#head#0;n#html#0;n#!!top" />
@@ -33,21 +34,6 @@
                 <element signature="n#style#0;n#span#1;n#div#1;n#h1#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#section#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#button#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,8 +42,8 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="594" column="4" selection-start-line="594" selection-start-column="4" selection-end-line="594" selection-end-column="4" />
+            <state relative-caret-position="345">
+              <caret line="605" column="49" lean-forward="true" selection-start-line="605" selection-start-column="49" selection-end-line="605" selection-end-column="49" />
               <folding>
                 <element signature="e#402#685#0" />
                 <element signature="e#717#733#0" />
@@ -69,8 +55,8 @@
       <file leaf-file-name="3dcontract" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/3dcontract">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="378" column="60" lean-forward="true" selection-start-line="378" selection-start-column="60" selection-end-line="378" selection-end-column="60" />
+            <state relative-caret-position="197">
+              <caret line="352" column="21" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -137,11 +123,6 @@
               <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
               <item name="xyj" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xyj" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -187,25 +168,25 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="11578000" />
+      <workItem from="1532576542285" duration="12020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12043000" />
+    <option name="totallyTimeSpent" value="12485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0943098" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1459431" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33442265" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29520696" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -262,17 +243,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/3dcontract">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="378" column="60" lean-forward="true" selection-start-line="378" selection-start-column="60" selection-end-line="378" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="477" column="66" lean-forward="true" selection-start-line="477" selection-start-column="66" selection-end-line="477" selection-end-column="66" />
+        <state relative-caret-position="9341">
+          <caret line="478" column="59" selection-start-line="478" selection-start-column="59" selection-end-line="478" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#head#0;n#html#0;n#!!top" />
@@ -288,29 +262,21 @@
             <element signature="n#style#0;n#span#1;n#div#1;n#h1#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#section#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#button#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/3dcontract">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="352" column="21" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="594" column="4" selection-start-line="594" selection-start-column="4" selection-end-line="594" selection-end-column="4" />
+        <state relative-caret-position="345">
+          <caret line="605" column="49" lean-forward="true" selection-start-line="605" selection-start-column="49" selection-end-line="605" selection-end-column="49" />
           <folding>
             <element signature="e#402#685#0" />
             <element signature="e#717#733#0" />
