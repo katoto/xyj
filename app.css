@@ -292,6 +292,10 @@ header .notice .operator span:hover {
     margin: .6rem auto 0
 }
 
+.list .tabs {
+    margin: 0;
+}
+
 .list-content {
     width: 100%;
     background: #212238;
@@ -1601,4 +1605,57 @@ body {
     line-height: 0.8rem;
     font-size: 0.3rem;
     text-shadow: 0 0 2px #8a682b, 0 0 10px #cf9c41, 0 0 5px #e6ae49;
+    color: #000;
+}
+
+.statistics .row {
+    font-size: 0.4rem;
+    color: #fff;
+}
+
+.statistics .marginb {
+    font-size: 0.3rem;
+}
+
+.statistics>.teamscore {
+    padding: 0.2rem;
+}
+
+.glow {
+    text-shadow: 0 0 2px #2b002b, 0 0 10px #EFAD00, 0 0 5px #EFAD00;
+}
+
+.teamscore {
+    background-color: #24262E;
+    border-top: 1px solid #1d2024;
+    border-bottom: 1px solid #676b70;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.col-auto {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.text-right {
+    text-align: right !important;
 }
