@@ -1372,16 +1372,16 @@ if (typeof web3 !== "undefined") {
         *
         * */
         if (typeof _affCode !== 'string') {
-            return '_affCode need Sting (addr or name or ID)'
+            return '_affCode param 1 need Sting (addr or name or ID)'
         }
         if (typeof _team !== 'string') {
-            return '_team need Sting (0,1,2,3)'
+            return '_team param 2 need Sting (0,1,2,3)'
         }
         if (typeof totalVal === 'string') {
             totalVal = parseFloat(totalVal)
         }
         if (!totalVal) {
-            return 'totalVal error'
+            return 'totalVal param 3 error'
         }
         contractNet.buyXaddr(_affCode, web3.toBigNumber(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
             console.log(res)
