@@ -576,9 +576,24 @@ if (typeof web3 !== "undefined") {
     // 通过abi 和地址获取已部署的合约对象
     var contractNet = web3.eth.contract(contractAbi).at(contractAddr)
     console.log(contractNet);
-    contractNet.name(function (err, res) {
-        console.log(res)
+    // activate  一旦部署合约就停用
+    // airDropPot_ 空头相关
+    // airDropTracker_  用于制胜空头
+
+    /* 实时播报 */
+    contractNet.allEvents(function (err, res) {
+        // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
+        if (!err) {
+            if (res) {
+                console.log(res);
+                console.log(res);
+            }
+        } else {
+            console.error('allEvents' + error);
+        }
+        console.log('== 用于 实时播报 ====');
     })
+
     /* 倒计时的时间 */
     contractNet.getTimeLeft(function (err, res) {
         if (!err) {
@@ -591,16 +606,18 @@ if (typeof web3 !== "undefined") {
             console.error('getTimeLeft' + error);
         }
     })
-    // contractNet.allEvents(function (err, res) {
-    //     if (!err) {
-    //         if (res) {
-    //             console.log(res.toString());
-    //             console.log('===当前合约time======');
-    //         }
-    //     } else {
-    //         console.error('getTimeLeft' + error);
-    //     }
-    // })
+
+    contractNet.buyXaddr(function (err, res) {
+        if (!err) {
+            if (res) {
+                console.log(res.toString());
+                console.log('===当前合约time======');
+            }
+        } else {
+            console.error('getTimeLeft' + error);
+        }
+    })
+
 } else {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
