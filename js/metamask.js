@@ -1951,9 +1951,7 @@ if (typeof web3 !== "undefined") {
             if (!err) {
                 if (res) {
                     var web3_getBuyPrice = res.toNumber(10)
-                    if (web3_getBuyPrice) {
-                        fn(null, web3_getBuyPrice / (10 ** 18))
-                    }
+                    fn(null, web3_getBuyPrice / (10 ** 18))
                 }
             } else {
                 fn('getBuyPrice error', null)
