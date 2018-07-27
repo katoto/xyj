@@ -387,7 +387,7 @@ header .notice .operator span:hover {
 
 .list-content .round-list li>div p {
     color: #fea70a;
-    font-size: .36rem;
+    font-size: .3rem;
     line-height: .4rem;
     margin-top: .18rem;
     font-weight: 700
@@ -745,7 +745,8 @@ header .notice .operator span:hover {
     display: none;
     position: fixed;
     width: 100%;
-    top: 1.6rem;
+    height: 100%;
+    top: 0;
     left: 0;
     bottom: 0;
     z-index: 1000;
@@ -754,8 +755,7 @@ header .notice .operator span:hover {
 }
 
 .rule-layer .layer-content {
-    width: 6.8rem;
-    height: 100%;
+    width: 80%;
     background: #fff;
     border-radius: 10px;
     padding: .36rem .28rem;
