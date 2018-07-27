@@ -113,6 +113,14 @@ window.onload = function () {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
+    function formatNum3 (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
+    }
+
+    function formatNum2 (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
+    }
+
     // 渲染单价
     function renderPrice () {
         var price = xyj._keyPrice;
@@ -262,7 +270,7 @@ window.onload = function () {
             console.log(data)
             if (data && data.inviteName !== '') {
                 // 有推广代号
-                // $('.js_hasid').removeClass('hide');
+                $('.js_hasid').removeClass('hide');
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
                 $('#namelink').text('http://xyj/' + data.inviteName);
@@ -271,21 +279,22 @@ window.onload = function () {
                 $('.js_noid').removeClass('hide');
             }
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
-            $('.team-grid .share-award').text(data.shareEarn.toString() + ' ETH');
+            $('.team-grid .share-award').text(data.shareEarn.toString());
             $('.list-content .owner-keys').text(data.keys);
             
             getBuyPrice(function () {
-                $('.team-grid .total-award--eos').text((accMul(Number(data.keys), xyj._keyPrice)).toString() + 'ETH')
-            })
+                $('.team-grid .total-award--eth').text((accMul(Number(data.keys), xyj._keyPrice)).toString());
+            });
             
             $('.list-content .total-award').text(data.earn);
             $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
+            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
 
-            $('.team-grid .total-award').text(data.earn.toString() + 'ETH');
+            $('.team-grid .total-award').text(data.earn.toString());
         })
     })
 
-    $('.btn-buy').click(function () {
+    $('.btn-buy, .js_buy').click(function () {
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
@@ -295,7 +304,7 @@ window.onload = function () {
                     addr: xyj.buyXaddr,
                     name: xyj.buyXname
                 }[data.type]
-                fuc(data.str, xyj._team.toString(), accMul(xyj._keyPrice, xyj._keyNums), function () {
+                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, xyj._keyNums), function () {
                     // TODO: 购买成功后
                 });
             } else {
@@ -334,7 +343,7 @@ window.onload = function () {
             $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString() + ' ETH');
             $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString() + ' ETH');
             $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString() + ' ETH');
-            $('.js_keys_value').text(formatNum4(accMul(data.totalKey, xyj._keyPrice)));
+            $('.js_keys_value').text(formatNum3(accMul(data.totalKey, xyj._keyPrice)));
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
