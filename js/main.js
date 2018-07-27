@@ -283,7 +283,7 @@ window.onload = function () {
             $('.list-content .owner-keys').text(data.keys);
             
             getBuyPrice(function () {
-                $('.team-grid .total-award--eth').text((accMul(Number(data.keys), xyj._keyPrice)).toString());
+                $('.team-grid .total-award--eth').text((formatNum8(accMul(Number(data.keys), xyj._keyPrice))).toString());
             });
             
             $('.list-content .total-award').text(data.earn);
@@ -394,7 +394,7 @@ window.onload = function () {
         xyj.withdraw(function (error, res) {
             console.log('提现', error, res)
         })
-    })
+    });
 
     new ClipboardJS('.js_copy_btn')
 }

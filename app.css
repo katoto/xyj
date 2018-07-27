@@ -1910,3 +1910,10 @@ body {
 .pop-success.show {
     transform: translateX(0)
 }
+
+
+.alertify-notifier {
+    color: #FFF;
+    font-size: 19px;
+    font-weight: bold;
+}
