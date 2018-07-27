@@ -246,7 +246,7 @@ window.onload = function () {
             console.log(data)
             if (data && data.inviteName !== '') {
                 // 有推广代号
-                $('.js_hasid').removeClass('hide');
+                // $('.js_hasid').removeClass('hide');
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
                 $('#namelink').text('http://xyj/' + data.inviteName);
