@@ -6,7 +6,6 @@ var global_Second = 30
 var xyj = {}
 
 if (typeof web3 !== "undefined") {
-    console.log(web3.version)
     xyj.getAccounts = function (fn) {
         /* 获取当前账号地址 */
         if (typeof fn !== "function") {
@@ -2230,5 +2229,3 @@ if (typeof web3 !== "undefined") {
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-console.log(xyj);
-console.log('====xyj=======');
