@@ -28,15 +28,18 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="1382" column="24" lean-forward="true" selection-start-line="1382" selection-start-column="24" selection-end-line="1382" selection-end-column="24" />
+            <state relative-caret-position="395">
+              <caret line="1868" column="58" selection-start-line="1868" selection-start-column="58" selection-end-line="1868" selection-end-column="58" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
                 <element signature="e#1052#1060#0" />
-                <element signature="e#1527#35018#0" />
-                <element signature="e#35703#36381#0" />
+                <element signature="e#1968#35459#0" />
+                <element signature="e#35567#35795#0" />
+                <element signature="e#36518#37049#0" />
                 <element signature="e#35288#35600#0" />
+                <element signature="e#36880#36896#0" />
+                <element signature="e#39210#40597#0" />
                 <element signature="n#!!block;n#transKey#0" />
               </folding>
             </state>
@@ -46,8 +49,8 @@
       <file leaf-file-name="3dcontract" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/3dcontract">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="356" column="14" selection-start-line="356" selection-start-column="8" selection-end-line="356" selection-end-column="14" />
+            <state relative-caret-position="308">
+              <caret line="891" column="51" lean-forward="true" selection-start-line="891" selection-start-column="51" selection-end-line="891" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -71,7 +74,12 @@
       <find>airDropTracker_</find>
       <find>web3_getTimeLeft</find>
       <find>xyz</find>
+      <find>register</find>
+      <find>registerName</find>
+      <find>getPlayerVaults</find>
+      <find>getPlayerInfoByAddress</find>
       <find>buyXaddr</find>
+      <find>namegetPlayerInfoByAddress</find>
     </findStrings>
     <replaceStrings>
       <replace>xyj</replace>
@@ -100,8 +108,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="363" />
-    <option name="y" value="330" />
+    <option name="x" value="375" />
+    <option name="y" value="77" />
     <option name="width" value="1438" />
     <option name="height" value="860" />
   </component>
@@ -117,6 +125,11 @@
             <path>
               <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
               <item name="xyj" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xyj" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -163,25 +176,25 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="18785000" />
+      <workItem from="1532576542285" duration="25379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19250000" />
+    <option name="totallyTimeSpent" value="25844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09905163" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13804004" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36928105" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30827886" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -203,7 +216,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -255,22 +268,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/3dcontract">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="356" column="14" selection-start-line="356" selection-start-column="8" selection-end-line="356" selection-end-column="14" />
+        <state relative-caret-position="308">
+          <caret line="891" column="51" lean-forward="true" selection-start-line="891" selection-start-column="51" selection-end-line="891" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="1382" column="24" lean-forward="true" selection-start-line="1382" selection-start-column="24" selection-end-line="1382" selection-end-column="24" />
+        <state relative-caret-position="395">
+          <caret line="1868" column="58" selection-start-line="1868" selection-start-column="58" selection-end-line="1868" selection-end-column="58" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
             <element signature="e#1052#1060#0" />
-            <element signature="e#1527#35018#0" />
-            <element signature="e#35703#36381#0" />
+            <element signature="e#1968#35459#0" />
+            <element signature="e#35567#35795#0" />
+            <element signature="e#36518#37049#0" />
             <element signature="e#35288#35600#0" />
+            <element signature="e#36880#36896#0" />
+            <element signature="e#39210#40597#0" />
             <element signature="n#!!block;n#transKey#0" />
           </folding>
         </state>
