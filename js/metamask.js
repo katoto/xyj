@@ -1367,7 +1367,6 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-
     xyj.getCurrentRoundInfo = function (fn) {
         /* 当前信息 */
         if (typeof fn !== "function") {
@@ -1397,14 +1396,8 @@ if (typeof web3 !== "undefined") {
                         fn(null, {
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             currPot: res[6].toString(),
-                            whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
-                            bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
-                            sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
-                            bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
-                        })
-                        console.log({
-                            totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-                            currPot: res[6].toString(),
+                            endsTime: res[4].toNumber(),
+                            started: res[5],  // todo
                             whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
                             bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
                             sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
@@ -1420,33 +1413,6 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-
-    // contractNet.getCurrentRoundInfo(function (err, res) {
-    //     if (!err) {
-    //         if (res) {
-    //             console.log(res);
-    //             console.log('=========');
-    //             // fn(null, {
-    //             //     id: res[0].toString(),
-    //             //     inviteName: web3.toAscii(res[1]),
-    //             //     keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-    //             //     earn: (res[4].toNumber()) / (10 ** 18),
-    //             //     shareEarn: (res[5].toNumber()) / (10 ** 18),
-    //             // })
-    //             console.log({
-    //                 totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-    //                 currPot: res[6].toString(),
-    //                 whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
-    //                 bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
-    //                 sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
-    //                 bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
-    //             })
-    //         }
-    //     } else {
-    //         fn('getCurrentRoundInfo error', null)
-    //     }
-    // })
-
     xyj.registerNameXname = function (regName, _affCode, fn) {
         // * @param _nameString players desired name
         // * @param _affCode affiliate ID, address, or name of who referred you
@@ -1454,17 +1420,74 @@ if (typeof web3 !== "undefined") {
         if (typeof regName !== "string") {
             return 'need string regName !.'
         }
+        if (typeof _affCode !== "string") {
+            return 'need string _affCode name !.'
+        }
         if (typeof fn !== "function") {
             return 'need async function !.'
         }
         if (contractNet) {
-            contractNet.registerNameXname(regName, _affCode, function (err, res) {
+            contractNet.registerNameXname(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
                 if (!err) {
                     if (res) {
                         fn(null, true)
                     }
                 } else {
-                    fn('registerNameXname error', null)
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at registerNameXname', null)
+        }
+    }
+    xyj.registerNameXaddr = function (regName, _affCode, fn) {
+        // * @param _nameString players desired name
+        // * @param _affCode affiliate ID, address, or name of who referred you
+        // * @param _all set to true if you want this to push your info to all games
+        if (typeof regName !== "string") {
+            return 'need string regName !.'
+        }
+        if (typeof _affCode !== "string") {
+            return 'need string _affCode addr !.'
+        }
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.registerNameXaddr(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, true)
+                    }
+                } else {
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at registerNameXaddr', null)
+        }
+    }
+    xyj.registerNameXID = function (regName, _affCode, fn) {
+        // * @param _nameString players desired name
+        // * @param _affCode affiliate ID, address, or name of who referred you
+        // * @param _all set to true if you want this to push your info to all games
+        if (typeof regName !== "string") {
+            return 'need string regName !.'
+        }
+        if (typeof _affCode !== "number") {
+            return 'need number _affCode id !.'
+        }
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.registerNameXID(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, true)
+                    }
+                } else {
+                    fn(err, null)
                 }
             })
         } else {
@@ -1491,7 +1514,6 @@ if (typeof web3 !== "undefined") {
         })
     }
 
-
     /* 实时播报 */
     contractNet.allEvents(function (err, res) {
         // 4种事件类型
@@ -1506,7 +1528,6 @@ if (typeof web3 !== "undefined") {
         console.log('== 用于 实时播报 ====');
     })
 
-
     xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
         /*
         *
@@ -1515,10 +1536,10 @@ if (typeof web3 !== "undefined") {
         *
         * */
         if (typeof _affCode !== 'string') {
-            return '_affCode param 1 need Sting (addr or name or ID)'
+            return '_affCode param 1 need Sting ( addr )'
         }
-        if (typeof _team !== 'string') {
-            return '_team param 2 need Sting (0,1,2,3)'
+        if (typeof _team !== 'number') {
+            return '_team param 2 need number (0,1,2,3)'
         }
         if (typeof totalVal === 'string') {
             totalVal = parseFloat(totalVal)
@@ -1538,13 +1559,18 @@ if (typeof web3 !== "undefined") {
             }
         })
     }
-
-    xyj.buyXid = function (_affCode, _team, totalVal, fn) {
+    xyj.buyXname = function (_affCode, _team, totalVal, fn) {
+        /*
+        *
+            @param _affCode   the ID/address/name of the player who gets the affiliate fee
+            @param _team what team is the player playing for?
+        *
+        * */
         if (typeof _affCode !== 'string') {
-            return '_affCode param 1 need Sting (addr or name or ID)'
+            return '_affCode param 1 need Sting ( addr )'
         }
-        if (typeof _team !== 'string') {
-            return '_team param 2 need Sting (0,1,2,3)'
+        if (typeof _team !== 'number') {
+            return '_team param 2 need number (0,1,2,3)'
         }
         if (typeof totalVal === 'string') {
             totalVal = parseFloat(totalVal)
@@ -1552,20 +1578,47 @@ if (typeof web3 !== "undefined") {
         if (!totalVal) {
             return 'totalVal param 3 error'
         }
-        contractNet.buyXaddr(_affCode, web3.toBigNumber(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
+        contractNet.buyXname(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
             if (!err) {
                 if (res) {
-                    // var web3_getBuyPrice = res.toNumber(10)
-                    // if (web3_getBuyPrice) {
-                    //     fn(null, web3_getBuyPrice / (10 ** 18))
-                    // }
+                    fn(null, res)
                 } else {
-                    fn('buyXaddr error', null)
+                    fn('buyXname error', null)
                 }
             } else {
                 fn(err, null)
             }
-
+        })
+    }
+    xyj.buyXid = function (_affCode, _team, totalVal, fn) {
+        /*
+        *
+            @param _affCode   the ID/address/name of the player who gets the affiliate fee
+            @param _team what team is the player playing for?
+        *
+        * */
+        if (typeof _affCode !== 'number') {
+            return '_affCode param 1 need number ( id )'
+        }
+        if (typeof _team !== 'number') {
+            return '_team param 2 need number (0,1,2,3)'
+        }
+        if (typeof totalVal === 'string') {
+            totalVal = parseFloat(totalVal)
+        }
+        if (!totalVal) {
+            return 'totalVal param 3 error'
+        }
+        contractNet.buyXid(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
+            if (!err) {
+                if (res) {
+                    fn(null, res)
+                } else {
+                    fn('buyXid error', null)
+                }
+            } else {
+                fn(err, null)
+            }
         })
     }
 
