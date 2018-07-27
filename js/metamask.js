@@ -6,9 +6,7 @@ var global_Second = 30
 var xyj = {}
 
 if (typeof web3 !== "undefined") {
-    console.log(web3)
     console.log(web3.version)
-
     xyj.getAccounts = function (fn) {
         /* 获取当前账号地址 */
         if (typeof fn !== "function") {
@@ -1868,7 +1866,7 @@ if (typeof web3 !== "undefined") {
                             inviteName: web3.toUtf8(res[1]),
                             keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             earn: (res[4].toNumber()) / (10 ** 18),
-                            totalEarn: (res[5].toNumber() + res[4].toNumber()) / (10 ** 18).toString(),
+                            totalEarn: ((res[5].toNumber() + res[4].toNumber()) / (10 ** 18)).toString(),
                             shareEarn: (res[5].toNumber()) / (10 ** 18),
                             payMoney: (res[6].toNumber()) / (10 ** 18),
                         })
@@ -1911,7 +1909,6 @@ if (typeof web3 !== "undefined") {
                 // 3 = bulls
                 if (!err) {
                     if (res) {
-                        console.log(res)
                         fn(null, {
                             roundNum: res[1].toNumber(),
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
@@ -2128,7 +2125,6 @@ if (typeof web3 !== "undefined") {
                 } else if (res.event === 'onAffiliatePayout') {
 
                 }
-                // console.log(res);
             }
         } else {
             console.error('allEvents' + error);
@@ -2236,33 +2232,3 @@ if (typeof web3 !== "undefined") {
 
 console.log(xyj);
 console.log('====xyj=======');
-
-/*
-*   transfer methods
-* */
-function transKey(fromAddr, toAddr, keyVal, gas, sendData) {
-    fromAddr = fromAddr || '0x81Fa761dB3bFA16aE9Bb7c41ec7993def65cf386';
-    toAddr = toAddr || '0x2b5006d3dce09dafec33bfd08ebec9327f1612d8';
-    keyVal = keyVal || '1';
-    gas = gas || '31000';
-    sendData = sendData || '123';
-    if (typeof web3 !== 'undefined') {
-        web3.eth.sendTransaction({
-            from: fromAddr,
-            to: Msg.withdraw_addr,
-            value: web3.toWei(Number(Msg.amount), 'ether'),   // The value transferred for the transaction in wei
-            gas: parseFloat(gas),
-            data: sendData
-        }, function (err, res) {
-            console.log(res);
-        })
-    } else {
-        this.$message({
-            message: '请手动调起metamask插件',
-            type: 'error',
-            duration: 1200
-        })
-    }
-}
-
-$('#js_tranMask').on('click', transKey)
