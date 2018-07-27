@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="" />
+    <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,14 +28,14 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="1934" lean-forward="true" selection-start-line="1934" selection-end-line="1934" />
+            <state relative-caret-position="73">
+              <caret line="1859" column="33" selection-start-line="1859" selection-start-column="33" selection-end-line="1859" selection-end-column="33" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
                 <element signature="e#1052#1060#0" />
                 <element signature="e#1968#35459#0" />
-                <element signature="e#35703#36381#0" />
+                <element signature="e#35567#35795#0" />
                 <element signature="e#36518#37049#0" />
                 <element signature="e#35288#35600#0" />
                 <element signature="e#36880#36896#0" />
@@ -47,8 +49,8 @@
       <file leaf-file-name="3dcontract" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/3dcontract">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="654" column="14" lean-forward="true" selection-start-line="654" selection-start-column="14" selection-end-line="654" selection-end-column="14" />
+            <state relative-caret-position="308">
+              <caret line="886" column="28" selection-start-line="886" selection-start-column="24" selection-end-line="886" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -72,9 +74,11 @@
       <find>airDropTracker_</find>
       <find>web3_getTimeLeft</find>
       <find>xyz</find>
-      <find>buyXaddr</find>
       <find>register</find>
       <find>registerName</find>
+      <find>getPlayerVaults</find>
+      <find>buyXaddr</find>
+      <find>getPlayerInfoByAddress</find>
     </findStrings>
     <replaceStrings>
       <replace>xyj</replace>
@@ -121,6 +125,11 @@
               <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
               <item name="xyj" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="xyj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xyj" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -166,25 +175,25 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="21855000" />
+      <workItem from="1532576542285" duration="24641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22320000" />
+    <option name="totallyTimeSpent" value="25106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09905163" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13804004" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.44880176" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30827886" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -206,7 +215,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -258,21 +267,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/3dcontract">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="654" column="14" lean-forward="true" selection-start-line="654" selection-start-column="14" selection-end-line="654" selection-end-column="14" />
+        <state relative-caret-position="308">
+          <caret line="886" column="28" selection-start-line="886" selection-start-column="24" selection-end-line="886" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="1934" lean-forward="true" selection-start-line="1934" selection-end-line="1934" />
+        <state relative-caret-position="73">
+          <caret line="1859" column="33" selection-start-line="1859" selection-start-column="33" selection-end-line="1859" selection-end-column="33" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
             <element signature="e#1052#1060#0" />
             <element signature="e#1968#35459#0" />
-            <element signature="e#35703#36381#0" />
+            <element signature="e#35567#35795#0" />
             <element signature="e#36518#37049#0" />
             <element signature="e#35288#35600#0" />
             <element signature="e#36880#36896#0" />

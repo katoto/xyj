@@ -62,7 +62,6 @@ if (typeof web3 !== "undefined") {
         })
     }
 
-
     /* 获取合约相关数据 */
     // 3d 合约地址
     var contractAddr = '0x8382905282b5e396f05d0918727f6edea9f11e08'
@@ -1853,6 +1852,42 @@ if (typeof web3 !== "undefined") {
             fn('contractNet error at getTimeLeft', null)
         }
     }
+
+
+    contractNet.getPlayerInfoByAddress('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8',function (err, res) {
+        if (!err) {
+            if (res) {
+                console.log(res);
+                var currID = res[0].toString()
+                var currName = web3.toAscii(res[1])
+                var web3_getTimeLeft = res[0].toString()
+                console.log(web3_getTimeLeft);
+                console.log(currID);
+                console.log(currName);
+                // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")
+
+                //  转名字
+                // var str2 = web3.fromAscii('ethereum', 32);
+                // console.log(str2); // "0x657468657265756d000000000000000000000000000000000000000000000000"
+                console.log('===当242432ime======');
+            }
+        } else {
+            fn('getTimeLeft error', null)
+            console.error('getTimeLeft' + error);
+        }
+    })
+    // contractNet.getPlayerVaults('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8',function (err, res) {
+    //     if (!err) {
+    //         if (res) {
+    //             var web3_getTimeLeft = res
+    //             console.log(web3_getTimeLeft);
+    //             console.log('===当242432ime======');
+    //         }
+    //     } else {
+    //         fn('getTimeLeft error', null)
+    //         console.error('getTimeLeft' + error);
+    //     }
+    // })
 
     xyj.getBuyPrice = function (fn) {
         /* key 的value */
