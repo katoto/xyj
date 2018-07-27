@@ -8,19 +8,6 @@ if (typeof web3 !== "undefined") {
     console.log(web3)
     console.log(web3.version)
 
-    xyj.getBlock = function (fn) {
-        /* 获取当前区块 */
-        if (typeof fn !== "function") {
-            return 'need async function !.'
-        }
-        web3.eth.getBlock(48, function (error, result) {
-            if (!error) {
-                console.log((result));
-            } else {
-                console.error(error);
-            }
-        })
-    }
     xyj.getAccounts = function (fn) {
         /* 获取当前账号地址 */
         if (typeof fn !== "function") {
@@ -29,15 +16,12 @@ if (typeof web3 !== "undefined") {
         web3.eth.getAccounts(function (err, res) {
             if (!err) {
                 if (res) {
-                    web3_accountAddr = res.toString()
-                    fn(null, web3_accountAddr)
-                    console.log(web3_accountAddr);
-                    console.log('===当前地址======');
+                    fn(null, res.toString())
                 } else {
-                    fn(new Error('getAccounts error'), null)
+                    fn(err, null)
                 }
             } else {
-                fn(err, null)
+                fn('getAccounts err', null)
             }
         })
     }
@@ -49,15 +33,12 @@ if (typeof web3 !== "undefined") {
         web3.eth.getGasPrice(function (err, res) {
             if (!err) {
                 if (res) {
-                    web3_gasPrice = res.toNumber(10)
-                    fn(null, web3_gasPrice)
-                    console.log(web3_gasPrice);
-                    console.log('===当前gas======');
+                    fn(null, res.toNumber(10))
                 } else {
-                    fn(new Error('getGasPrice error'), null)
+                    fn(err, null)
                 }
             } else {
-                fn(err, null)
+                fn(new Error('getGasPrice error'), null)
             }
         })
     }
@@ -1299,6 +1280,10 @@ if (typeof web3 !== "undefined") {
     // activate  一旦部署合约  就停用
     // airDropPot_ 空头相关
     // airDropTracker_  用于制胜空头
+    // calcKeysReceived  计算当前的钱能得到多少keys
+    // getPlayerVaults  通过id 查询数额  winnings  general affiliate
+    // iWantXKeys  通过keys 计算多少钱
+
 
     xyj.getTimeLeft = function (fn) {
         /* 倒计时的时间 */
@@ -1309,21 +1294,16 @@ if (typeof web3 !== "undefined") {
             contractNet.getTimeLeft(function (err, res) {
                 if (!err) {
                     if (res) {
-                        var web3_getTimeLeft = res.toNumber(10)
-                        fn(null, web3_getTimeLeft)
-                        console.log(web3_getTimeLeft);
-                        console.log('===当前合约time======');
+                        fn(null, res.toNumber(10))
                     }
                 } else {
-                    fn('getTimeLeft error', null)
-                    console.error('getTimeLeft' + error);
+                    fn(err, null)
                 }
             })
         } else {
             fn('contractNet error at getTimeLeft', null)
         }
     }
-
     xyj.getPlayerInfoByAddress = function (addr, fn) {
         /* 倒计时的时间 */
         if (typeof addr !== "string") {
@@ -1345,14 +1325,7 @@ if (typeof web3 !== "undefined") {
                         // * @return player round eth
                         fn(null, {
                             id: res[0].toString(),
-                            inviteName: web3.toAscii(res[1]),
-                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-                            earn: (res[4].toNumber()) / (10 ** 18),
-                            shareEarn: (res[5].toNumber()) / (10 ** 18),
-                        })
-                        console.log({
-                            id: res[0].toString(),
-                            inviteName: web3.toAscii(res[1]),
+                            inviteName: web3.toUtf8(res[1]),
                             keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             earn: (res[4].toNumber()) / (10 ** 18),
                             shareEarn: (res[5].toNumber()) / (10 ** 18),
@@ -1366,7 +1339,6 @@ if (typeof web3 !== "undefined") {
             fn('contractNet error at getPlayerInfoByAddress', null)
         }
     }
-
     xyj.getCurrentRoundInfo = function (fn) {
         /* 当前信息 */
         if (typeof fn !== "function") {
@@ -1397,7 +1369,7 @@ if (typeof web3 !== "undefined") {
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             currPot: res[6].toString(),
                             endsTime: res[4].toNumber(),
-                            started: res[5],  // todo
+                            started: res[5].toNumber(),  // todo
                             whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
                             bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
                             sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
@@ -1412,6 +1384,59 @@ if (typeof web3 !== "undefined") {
             fn('contractNet error at getCurrentRoundInfo', null)
         }
     }
+    xyj.getBuyPrice = function (fn) {
+        /* key 的value */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        contractNet.getBuyPrice(function (err, res) {
+            if (!err) {
+                if (res) {
+                    var web3_getBuyPrice = res.toNumber(10)
+                    if (web3_getBuyPrice) {
+                        fn(null, web3_getBuyPrice / (10 ** 18))
+                    }
+                }
+            } else {
+                fn('getBuyPrice error', null)
+            }
+        })
+    }
+    xyj.iWantXKeys = function (keyNum, fn) {
+        if (typeof keyNum !== 'number') {
+            return 'keyNum need number'
+        }
+        if (contractNet) {
+            contractNet.iWantXKeys(parseFloat(keyNum), function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, true)
+                    }
+                } else {
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at registerNameXaddr', null)
+        }
+    }
+
+    xyj.withdraw = function (fn) {
+        /* key 的value */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        contractNet.withdraw(function (err, res) {
+            if (!err) {
+                if (res) {
+                    fn(null, true)
+                }
+            } else {
+                fn('withdraw error', null)
+            }
+        })
+    }
+
 
     xyj.registerNameXname = function (regName, _affCode, fn) {
         // * @param _nameString players desired name
@@ -1495,24 +1520,17 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-    xyj.getBuyPrice = function (fn) {
-        /* key 的value */
-        if (typeof fn !== "function") {
-            return 'need async function !.'
-        }
-        contractNet.getBuyPrice(function (err, res) {
-            if (!err) {
-                if (res) {
-                    var web3_getBuyPrice = res.toNumber(10)
-                    if (web3_getBuyPrice) {
-                        fn(null, web3_getBuyPrice / (10 ** 18))
-                    }
-                }
-            } else {
-                fn('getBuyPrice error', null)
+
+    contractNet.getPlayerVaults(6, function (err, res) {
+        if (!err) {
+            if (res) {
+                console.log(res)
+                console.log(res[1].toNumber() / (10 ** 18))
+                console.log('==========')
             }
-        })
-    }
+        }
+    })
+
 
     /* 实时播报 */
     contractNet.allEvents(function (err, res) {
