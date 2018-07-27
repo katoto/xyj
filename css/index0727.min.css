@@ -1,0 +1,305 @@
+.logo {
+  display: block;
+  width: 0.712504rem;
+  height: 0.731255rem;
+  margin: 0 0.150001rem;
+}
+
+.head-share {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.head-share p {
+  margin-left: 0.187501rem;
+  font-size: 0.300002rem;
+  color: #39ca68;
+  font-weight: bold;
+}
+
+.hide {
+  display: none !important;
+}
+
+.banner {
+  text-align: center;
+  color: #fff;
+}
+
+.banner .msg1,
+.banner .msg2 {
+  line-height: 1.350008rem;
+  font-size: 1.125007rem;
+}
+
+.banner .msg3 {
+  position: relative;
+  margin-top: 0.187501rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.781261rem;
+  line-height: 1.781261rem;
+  font-size: 1.462509rem;
+  font-weight: bold;
+  background: url(../img/bg-bannereth.png) no-repeat center;
+  background-size: 11.456322rem;
+}
+
+.banner .msg3 p {
+  background-image: -webkit-linear-gradient(top, #fff, #f5c751);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffeb67;
+}
+
+.banner .msg3::after {
+  content: "";
+  display: block;
+  margin-left: 0.375002rem;
+  width: 0.525003rem;
+  height: 0.881256rem;
+  overflow: hidden;
+  background: url(../img/icon-eth.png) no-repeat center;
+}
+
+.banner .headtimer {
+  display: block;
+  height: 1.350008rem;
+  line-height: 0.862505rem;
+  font-size: 0.637504rem;
+  font-weight: bold;
+  color: #f5c751;
+}
+
+.banner a {
+  position: relative;
+  display: block;
+  max-width: 22.312639rem;
+  width: 92%;
+  height: 0.937506rem;
+  margin: 0 auto;
+  line-height: 0.937506rem;
+  font-size: 0.412503rem;
+  color: #fff;
+  background: linear-gradient(to right, #5a4822, #bb9540, #5a4822);
+  -webkit-animation: pulse 0.75s infinite;
+          animation: pulse 0.75s infinite;
+}
+
+.banner a i {
+  display: block;
+  position: absolute;
+  left: 0.750005rem;
+  top: 0;
+  font-style: normal;
+  padding-left: 0.618754rem;
+}
+
+.banner a i::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.262502rem;
+  width: 0.393752rem;
+  height: 0.412503rem;
+  overflow: hidden;
+  background: url(../img/icon-diamond.png) no-repeat center;
+}
+
+.banner a:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.icon-diamond {
+  display: block;
+  overflow: hidden;
+  background: url(../img/icon-diamond.png) no-repeat center;
+  background-size: 0.393752rem;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(187, 149, 64, 0.8);
+  }
+
+  70% {
+    box-shadow: 0 0 0 0.093751rem rgba(187, 149, 64, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.187501rem rgba(187, 149, 64, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(187, 149, 64, 0.8);
+  }
+
+  70% {
+    box-shadow: 0 0 0 0.093751rem rgba(187, 149, 64, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.187501rem rgba(187, 149, 64, 0);
+  }
+}
+
+.put-forward-list {
+  margin-top: 0.375002rem;
+  background: #1b1b1b;
+  padding: 0 0.79245283rem;
+}
+
+.put-forward-list .put-forward {
+  padding: 0.656254rem 0 0.525003rem 0;
+}
+
+.put-forward-list .put-forward .title {
+  position: relative;
+  padding-left: 0.843755rem;
+  line-height: 0.618754rem;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.put-forward-list .put-forward .title.icon-diao::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.093751rem;
+  width: 0.393752rem;
+  height: 0.412503rem;
+  background: url(../img/icon-diamond.png) no-repeat center;
+  background-size: cover;
+}
+
+.put-forward-list .put-forward .title.icon-gift::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.05625rem;
+  width: 0.450003rem;
+  height: 0.487503rem;
+  background: url(../img/icon-gift.png) no-repeat center;
+  background-size: cover;
+}
+
+.put-forward-list .put-forward .title.icon-eth::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.093751rem;
+  width: 0.450003rem;
+  height: 0.450003rem;
+  background: url(../img/icon-eth2.png) no-repeat center;
+  background-size: cover;
+}
+
+.put-forward-list .put-forward .eth {
+  line-height: 0.862505rem;
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.put-forward-list .put-forward .eth::after {
+  content: 'ETH';
+  display: inline;
+  font-size: 0.375002rem;
+  margin-left: 0.187501rem;
+}
+
+.put-forward-list .put-forward .usdt {
+  font-size: 0.375002rem;
+  color: #39ca68;
+}
+
+.put-forward-list .put-forward + .put-forward {
+  border-top: 0.01875rem solid #262626;
+}
+
+.js_noid .tip {
+  margin-bottom: 0.375002rem;
+}
+
+.team-grid .btn2 {
+  display: block;
+  width: 3.712523rem;
+  height: 0.937506rem;
+  margin: 0 auto;
+  border: 0.01875rem solid #f5c751;
+  border-radius: 0.150001rem;
+  background: transparent;
+  outline: none;
+  font-size: 0.375002rem;
+  color: #f5c751;
+}
+
+@media (max-width: 550px) {
+  .banner .msg1,
+  .banner .msg2 {
+    line-height: 0.675004rem;
+    font-size: 0.562504rem;
+  }
+
+  .banner .msg3 {
+    margin-top: 0.104167rem;
+    height: 0.98959rem;
+    line-height: 0.98959rem;
+    font-size: 0.812505rem;
+    background: url(../img/bg-bannereth.png) no-repeat center;
+    background-size: 6.364623rem;
+  }
+
+  .banner .msg3::after {
+    margin-left: 0.187501rem;
+    width: 0.262502rem;
+    height: 0.440628rem;
+    overflow: hidden;
+    background: url(../img/icon-eth.png) no-repeat center;
+    background-size: cover;
+  }
+
+  .banner .headtimer {
+    height: 0.750005rem;
+    line-height: 0.47917rem;
+    font-size: 0.354169rem;
+  }
+
+  .banner a {
+    height: 0.520837rem;
+    line-height: 0.520837rem;
+    font-size: 0.229168rem;
+  }
+
+  .banner a i {
+    left: 0.416669rem;
+    padding-left: 0.343752rem;
+  }
+
+  .banner a i::before {
+    top: 0.145834rem;
+    width: 0.218751rem;
+    height: 0.229168rem;
+    overflow: hidden;
+    background: url(../img/icon-diamond.png) no-repeat center;
+    background-size: cover;
+  }
+
+  .banner a:hover {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
