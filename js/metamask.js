@@ -1367,7 +1367,6 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-
     xyj.getCurrentRoundInfo = function (fn) {
         /* 当前信息 */
         if (typeof fn !== "function") {
@@ -1398,7 +1397,7 @@ if (typeof web3 !== "undefined") {
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             currPot: res[6].toString(),
                             endsTime: res[4].toNumber(),
-                            started:res[5],  // todo
+                            started: res[5],  // todo
                             whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
                             bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
                             sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
@@ -1414,27 +1413,6 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-    // contractNet.getCurrentRoundInfo(function (err, res) {
-    //     if (!err) {
-    //         if (res) {
-    //             console.log(res);
-    //             console.log('=========');
-    //             console.log({
-    //                 totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-    //                 currPot: res[6].toString(),
-    //                 currPot1: res[4].toString(),
-    //                 currPot2: res[5].toNumber(),
-    //                 whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
-    //                 bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
-    //                 sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
-    //                 bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
-    //             })
-    //         }
-    //     } else {
-    //         fn('getCurrentRoundInfo error', null)
-    //     }
-    // })
-
     xyj.registerNameXname = function (regName, _affCode, fn) {
         // * @param _nameString players desired name
         // * @param _affCode affiliate ID, address, or name of who referred you
@@ -1442,17 +1420,74 @@ if (typeof web3 !== "undefined") {
         if (typeof regName !== "string") {
             return 'need string regName !.'
         }
+        if (typeof _affCode !== "string") {
+            return 'need string _affCode name !.'
+        }
         if (typeof fn !== "function") {
             return 'need async function !.'
         }
         if (contractNet) {
-            contractNet.registerNameXname(regName, _affCode, function (err, res) {
+            contractNet.registerNameXname(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
                 if (!err) {
                     if (res) {
                         fn(null, true)
                     }
                 } else {
-                    fn('registerNameXname error', null)
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at registerNameXname', null)
+        }
+    }
+    xyj.registerNameXaddr = function (regName, _affCode, fn) {
+        // * @param _nameString players desired name
+        // * @param _affCode affiliate ID, address, or name of who referred you
+        // * @param _all set to true if you want this to push your info to all games
+        if (typeof regName !== "string") {
+            return 'need string regName !.'
+        }
+        if (typeof _affCode !== "string") {
+            return 'need string _affCode addr !.'
+        }
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.registerNameXaddr(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, true)
+                    }
+                } else {
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at registerNameXaddr', null)
+        }
+    }
+    xyj.registerNameXID = function (regName, _affCode, fn) {
+        // * @param _nameString players desired name
+        // * @param _affCode affiliate ID, address, or name of who referred you
+        // * @param _all set to true if you want this to push your info to all games
+        if (typeof regName !== "string") {
+            return 'need string regName !.'
+        }
+        if (typeof _affCode !== "number") {
+            return 'need number _affCode id !.'
+        }
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.registerNameXID(regName.toString(), _affCode, true, {value: web3.toWei('0.01', "ether")}, function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, true)
+                    }
+                } else {
+                    fn(err, null)
                 }
             })
         } else {
