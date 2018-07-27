@@ -1913,15 +1913,22 @@ if (typeof web3 !== "undefined") {
                     if (res) {
                         console.log(res)
                         fn(null, {
+                            roundNum: res[1].toNumber(),
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             currPot: (res[5].toNumber()) / (10 ** 18),
                             startedTime: res[4].toNumber(),
                             endedTime: res[3].toNumber(),
 
-                            whales_0: (res[10].toNumber()) / (10 ** 18),
-                            bears_1: (res[11].toNumber()) / (10 ** 18),
-                            sneks_2: (res[12].toNumber()) / (10 ** 18),
-                            bulls_3: (res[13].toNumber()) / (10 ** 18),
+                            // whales_0: (res[10].toNumber()) / (10 ** 18),
+                            // bears_1: (res[11].toNumber()) / (10 ** 18),
+                            // sneks_2: (res[12].toNumber()) / (10 ** 18),
+                            // bulls_3: (res[13].toNumber()) / (10 ** 18),
+
+                            whales_0: (res[9].toNumber()) / (10 ** 18),
+                            bears_1: (res[10].toNumber()) / (10 ** 18),
+                            sneks_2: (res[11].toNumber()) / (10 ** 18),
+                            bulls_3: (res[12].toNumber()) / (10 ** 18),
+
                         })
                     }
                 } else {
@@ -2069,15 +2076,30 @@ if (typeof web3 !== "undefined") {
     }
 
 
-    contractNet.getPlayerVaults(6, function (err, res) {
-        if (!err) {
-            if (res) {
-                console.log(res)
-                console.log(res[1].toNumber() / (10 ** 18))
-                console.log('==========')
-            }
+    xyj.getRound = function (currRound, fn) {
+        if (typeof currRound !== undefined) {
+            return 'need number currRound id !.'
         }
-    })
+        if (contractNet) {
+            contractNet.round_(parseFloat(currRound), function (err, res) {
+                if (!err) {
+                    if (res) {
+                        var roundObj = {
+                            totalEth: (res[6].toNumber()) / (10 ** 18),
+                            distributionEth: (res[6].toNumber() - res[7].toNumber()) / (10 ** 18),
+                        }
+                        fn(null, roundObj)
+                    }
+                } else {
+                    fn(err, null)
+                }
+            })
+        } else {
+            fn('contractNet error at getRound', null)
+        }
+    }
+
+    // round_
 
 
     /* 实时播报 */
