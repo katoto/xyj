@@ -542,7 +542,7 @@
 }
 
 .statistics .teamscore li .uxdt::after {
-  content: ' UXDT';
+  content: ' USDT';
   font-size: 0.375002rem;
   font-size: 0.262502rem;
 }

@@ -125,7 +125,7 @@ window.onload = function () {
     function renderPrice () {
         var price = xyj._keyPrice;
         price = formatNum8(price);
-        $('#ethCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
+        $('#ethCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH');
     }
 
 
@@ -214,7 +214,15 @@ window.onload = function () {
         }
     });
 
-
+    $('#count').on('input', function () {
+        var keyNums = Number($(this).val())
+        if (keyNums === 0 || isNaN(keyNums)) {
+            xyj._keyNums = 1;
+        } else {
+            xyj._keyNums = keyNums;
+        }
+        renderPrice();
+    })
 
     // Key输入框事件
     $('#count').keyup(function () {
@@ -280,21 +288,22 @@ window.onload = function () {
             }
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.team-grid .share-award').text(data.shareEarn.toString());
-            $('.list-content .owner-keys').text(data.keys);
+            $('.list-content .owner-keys').text(data.keys.toString() + ' 个');
             
             getBuyPrice(function () {
                 $('.team-grid .js_your_key').text(Number(data.keys));
             });
             
-            $('.list-content .total-award').text(data.totalEarn);
-            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
-            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
+            $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
+            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
+            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
 
             $('.team-grid .total-award').text(data.totalEarn.toString());
         })
     })
 
     $('.btn-buy, .js_buy').click(function () {
+        var isJSBuy = $(this).hasClass('js_buy');
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
@@ -304,7 +313,7 @@ window.onload = function () {
                     addr: xyj.buyXaddr,
                     name: xyj.buyXname
                 }[data.type]
-                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, xyj._keyNums), function () {
+                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function () {
                     // TODO: 购买成功后
                 });
             } else {
@@ -335,17 +344,21 @@ window.onload = function () {
         console.log(data)
         getBuyPrice(function () {
             console.log(data)
-            $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString() + ' ETH');
-            $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString() + ' ETH');
-            $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString() + ' ETH');
-            $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString() + ' ETH');
-            $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString() + ' ETH');
+            $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString());
+            $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
+            $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
+            $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());
+            $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString());
             
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             console.log(data.purchasedTime, formatNum2(data.purchasedTime))
-            $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString() + ' 年');
-            $('.js_second').text(numberComma(data.purchasedSeconds) + ' 秒');
+            $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
+            $('.js_second').text(numberComma(data.purchasedSeconds));
+            if (data.lastBuyName && data.lastBuyName !== '') {
+                $('.round-list .winner').removeClass('hide');
+                $('.round-list .winner .account').text(data.lastBuyName);
+            }
         })
     });
 
@@ -355,9 +368,9 @@ window.onload = function () {
         }
         console.log(data);
         $('.js_keys_value').text(formatNum3(data.totalEth));
-        $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth) + ' USDT');
+        $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth));
         $('.js_dis_value').text(formatNum3(data.distributionEth));
-        $('.js_dis_usdt').text('≙ ' + formatUSDT(data.distributionEth) + ' USDT');
+        $('.js_dis_usdt').text('≙ ' + formatUSDT(data.distributionEth));
     })
 
 
@@ -407,5 +420,9 @@ window.onload = function () {
         })
     });
 
-    new ClipboardJS('.js_copy_btn')
+    new ClipboardJS('.js_copy_btn');
+
+    xyj.getCurrentRoundInfo(function (error, data) {
+
+    });
 }

@@ -1772,7 +1772,7 @@ var contractAbi = [
 if (typeof web3 === "undefined") {
     var isNoMetamask = true
     web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/WlvljmHqo75RhK1w1QJF"));
-    alert('You are not signed into metamask')
+    alertify.alert('You are not signed into metamask')
 }
 // 通过abi 和地址获取已部署的合约对象
 console.log(contractAddr);
@@ -2091,7 +2091,6 @@ xyj.getRound = function (fn) {
                             var roundObj = {
                                 totalEth: web3.fromWei(res[6].toNumber()),
                                 distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
-
                             }
                             fn(null, roundObj)
                         }
