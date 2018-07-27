@@ -1853,15 +1853,58 @@ if (typeof web3 !== "undefined") {
         }
     }
 
+    xyj.getPlayerInfoByAddress = function (addr, fn) {
+        /* 倒计时的时间 */
+        if (typeof addr !== "string") {
+            return 'need string addr !.'
+        }
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        if (contractNet) {
+            contractNet.getPlayerInfoByAddress('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8', function (err, res) {
+                if (!err) {
+                    if (res) {
+                        var currID = res[0].toString()
+                        var currName = web3.toAscii(res[1])
+                        var web3_getTimeLeft = res[0].toString()
+                        console.log(res[4].toString());
+                        console.log(currID);
+                        console.log(currName);
+                        // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")
 
-    contractNet.getPlayerInfoByAddress('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8',function (err, res) {
+                        //  转名字
+                        // var str2 = web3.fromAscii('ethereum', 32);
+                        // console.log(str2); // "0x657468657265756d000000000000000000000000000000000000000000000000"
+                        console.log('===当242432ime======');
+                        fn(null,{
+                            id:res[0].toString(),
+                            inviteName:web3.toAscii(res[1]),
+                            earn:(res[4].toNumber())/(10 ** 18)
+                        })
+                        console.log({
+                            id:res[0].toString(),
+                            inviteName:web3.toAscii(res[1]),
+                            earn:(res[4].toNumber())/(10 ** 18)
+                        })
+                    }
+                } else {
+                    fn('getPlayerInfoByAddress error', null)
+                }
+            })
+        } else {
+            fn('contractNet error at getPlayerInfoByAddress', null)
+        }
+    }
+
+    contractNet.getPlayerInfoByAddress('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8', function (err, res) {
         if (!err) {
             if (res) {
                 console.log(res);
                 var currID = res[0].toString()
                 var currName = web3.toAscii(res[1])
                 var web3_getTimeLeft = res[0].toString()
-                console.log(web3_getTimeLeft);
+                console.log(res[4].toString());
                 console.log(currID);
                 console.log(currName);
                 // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")
