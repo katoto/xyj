@@ -1533,9 +1533,8 @@ body {
 
 .banner a {
     display: block;
-    width: 95%;
     height: 48px;
-    margin: 0 auto;
+    margin: 0 .3rem;
     line-height: 48px;
     color: #fff;
     background-color: #f000f0;
@@ -1562,7 +1561,7 @@ body {
     color: #fff;
 }
 
-.joinus div {
+.joinus>div {
     margin-top: 0.3rem;
     background-color: #24262E;
     border-top: 1px solid #1d2024;
