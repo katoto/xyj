@@ -1868,7 +1868,7 @@ if (typeof web3 !== "undefined") {
                             inviteName: web3.toUtf8(res[1]),
                             keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             earn: (res[4].toNumber()) / (10 ** 18),
-                            totalEarn: (res[5].toNumber() + res[4].toNumber()) / (10 ** 18),
+                            totalEarn: (res[5].toNumber() + res[4].toNumber()) / (10 ** 18).toString(),
                             shareEarn: (res[5].toNumber()) / (10 ** 18),
                             payMoney: (res[6].toNumber()) / (10 ** 18),
                         })
