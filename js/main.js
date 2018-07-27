@@ -137,7 +137,7 @@ window.onload = function () {
                 console.log(error);
             } else {
                 xyj._keyPrice = price;
-                fn && fn()
+                fn && fn();
                 renderPrice();
             }
         });
@@ -334,9 +334,6 @@ window.onload = function () {
     xyj.getCurrentRoundInfo(function (error, data) {
         console.log(data)
         getBuyPrice(function () {
-            if (error) {
-                return;
-            }
             console.log(data)
             $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString() + ' ETH');
             $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString() + ' ETH');
@@ -347,13 +344,16 @@ window.onload = function () {
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
+            $('.js_year').text(data.purchasedTime.toString() + ' 年');
+            $('.js_second').text(data.purchasedSeconds.toString() + ' 秒');
         })
     });
 
 
     // 新建名字 按钮点击事件
-    $('.buyceo').click(function () {
+    $('.js_buyceo').click(function () {
         $('#vanity').addClass('show');
+        $('#nameInput').val('');
     });
 
     // 创建名字弹窗关闭事件
