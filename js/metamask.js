@@ -1917,6 +1917,7 @@ if (typeof web3 !== "undefined") {
                             currPot: (res[5].toNumber()) / (10 ** 18),
                             startedTime: res[4].toNumber(),
                             endedTime: res[3].toNumber(),
+
                             whales_0: (res[10].toNumber()) / (10 ** 18),
                             bears_1: (res[11].toNumber()) / (10 ** 18),
                             sneks_2: (res[12].toNumber()) / (10 ** 18),
