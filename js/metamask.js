@@ -2107,7 +2107,6 @@ xyj.getRound = function (fn) {
 
 // round_
 
-
 /* 实时播报 */
 contractNet.allEvents(function (err, res) {
     // 4种事件类型
