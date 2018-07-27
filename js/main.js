@@ -395,4 +395,6 @@ window.onload = function () {
             console.log('提现', error, res)
         })
     })
+
+    new ClipboardJS('.js_copy_btn')
 }
