@@ -81,7 +81,7 @@
                 </p>
             </div>
             <span class="headtimer">00:00:00</span>
-            <a href="javascript:;">
+            <a href="javascript:;" class="js_buy">
                 <i>X1</i>
                 Come on do it. Do you want to live forever?
             </a>
@@ -295,21 +295,21 @@
                                     <li>
                                         <p class="title">Wallet Referral</p>
                                         <p class="msg" id="mylink">http://xyj.me/</p>
-                                        <button class="btn2" id="copyCeoLink" data-clipboard-target="#ceolink">
+                                        <button class="btn2 js_copy_btn" id="copyCeoLink" data-clipboard-target="#mylink">
                                             Copy
                                         </button>
                                     </li>
                                     <li>
                                         <p class="title">Anyonmous Referral</p>
                                         <p class="msg" id="idlink">http://xyj.me/</p>
-                                        <button class="btn2" id="copyCeoLink" data-clipboard-target="#ceolinkid">
+                                        <button class="btn2 js_copy_btn" id="copyCeoLink" data-clipboard-target="#idlink">
                                             Copy
                                         </button>
                                     </li>
                                     <li>
                                         <p class="title">Vanity Referral</p>
                                         <p class="msg" id="namelink">http://xyj.me/</p>
-                                        <button class="btn2" id="copyCeoLink" data-clipboard-target="#ceolinkvanity">
+                                        <button class="btn2 js_copy_btn" id="copyCeoLink" data-clipboard-target="#namelink">
                                             Copy
                                         </button>
                                     </li>
@@ -621,6 +621,7 @@
     <!-- <script src="./eos.min.js" integrity="sha512-IDRAIcOGQTZN3jE/TvTiG3czpjzmWPiYi0+mwWbJVdYwPfbhD2YtzlpD4+rKE+MIuysseAenToyLNoO1whNFUg=="
         crossorigin="anonymous"></script> -->
     <!-- <script type="text/javascript" src="./translate.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="./js/web3.min.js"></script>
     <script src="./js/metamask.js"></script>
     <script src="./js/main.js"></script>
