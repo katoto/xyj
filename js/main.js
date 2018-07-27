@@ -344,8 +344,8 @@ window.onload = function () {
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
-            $('.js_year').text(data.purchasedTime);
-            $('.js_second').text(data.purchasedSeconds);
+            $('.js_year').text(data.purchasedTime.toString() + ' 年');
+            $('.js_second').text(data.purchasedSeconds.toString() + ' 秒');
         })
     });
 
