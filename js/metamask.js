@@ -1844,7 +1844,6 @@ if (typeof web3 !== "undefined") {
             contractNet.getPlayerInfoByAddress(addr, function (err, res) {
                 if (!err) {
                     if (res) {
-                        console.log(res)
                         // _pID,                               //0
                         //     plyr_[_pID].name,                   //1
                         //     plyrRnds_[_pID][_rID].keys,         //2
