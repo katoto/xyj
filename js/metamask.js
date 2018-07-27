@@ -1576,6 +1576,15 @@ if (typeof web3 !== "undefined") {
         // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
         if (!err) {
             if (res) {
+                if (res.event === 'onEndTx') {
+                    alertify.success('')
+                } else if (res.event === 'onNewName') {
+                    alertify.success('A new member has been added to our Advisory Board. Please welcome ' + '')
+                } else if (res.event === 'onWithdraw') {
+
+                } else if (res.event === 'onAffiliatePayout') {
+
+                }
                 // console.log(res);
             }
         } else {

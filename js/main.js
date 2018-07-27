@@ -352,8 +352,9 @@ window.onload = function () {
 
 
     // 新建名字 按钮点击事件
-    $('.buyceo').click(function () {
+    $('.js_buyceo').click(function () {
         $('#vanity').addClass('show');
+        $('#nameInput').val('');
     });
 
     // 创建名字弹窗关闭事件
