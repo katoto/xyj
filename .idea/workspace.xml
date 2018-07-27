@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="1589" column="5" lean-forward="true" selection-start-line="1589" selection-start-column="5" selection-end-line="1589" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="1480" lean-forward="true" selection-start-line="1480" selection-end-line="1480" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
@@ -44,6 +43,7 @@
                 <element signature="e#35288#35600#0" />
                 <element signature="e#36880#36896#0" />
                 <element signature="e#44071#45041#0" />
+                <element signature="e#45106#46076#0" />
                 <element signature="n#!!block;n#transKey#0" />
               </folding>
             </state>
@@ -198,12 +198,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="33037000" />
+      <workItem from="1532576542285" duration="33356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33502000" />
+    <option name="totallyTimeSpent" value="33821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -304,8 +304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="1589" column="5" lean-forward="true" selection-start-line="1589" selection-start-column="5" selection-end-line="1589" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="1480" lean-forward="true" selection-start-line="1480" selection-end-line="1480" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
@@ -319,6 +319,7 @@
             <element signature="e#35288#35600#0" />
             <element signature="e#36880#36896#0" />
             <element signature="e#44071#45041#0" />
+            <element signature="e#45106#46076#0" />
             <element signature="n#!!block;n#transKey#0" />
           </folding>
         </state>

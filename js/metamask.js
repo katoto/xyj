@@ -1479,7 +1479,6 @@ if (typeof web3 !== "undefined") {
         })
     }
 
-
     /* 实时播报 */
     contractNet.allEvents(function (err, res) {
         // 4种事件类型
@@ -1493,7 +1492,6 @@ if (typeof web3 !== "undefined") {
         }
         console.log('== 用于 实时播报 ====');
     })
-
 
     xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
         /*
