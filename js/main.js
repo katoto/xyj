@@ -5,12 +5,12 @@ window.onload = function () {
             return time < 10 ? '0' + time.toString() : time;
         }
         if (hour < 0) {
-            $('.headtimer, .lottery_time p').text('游戏已结束');
+            $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;
         }
-        $('.headtimer').text(formatTime(hour) + ':' + formatTime(min) + ':' + formatTime(second));
+        $('.headtimer, header .lottery_time').text(formatTime(hour) + ':' + formatTime(min) + ':' + formatTime(second));
         $('.lottery_time p').text(hour.toString() + '小时' + min.toString() + '分' + second.toString() + '秒');
     }
 
@@ -162,9 +162,27 @@ window.onload = function () {
     // 默认选钟唐僧队
     xyj._team = 0;
 
+    // 渲染邀请信息和个人盈利
     getAccounts(function (account) {
-        contractNet.getPlayerInfoByAddress(account, function () {
-            console.log(arguments)
+        $('.js_noid, .js_hasid').addClass('hide');
+        xyj.getPlayerInfoByAddress(account, function (error, data) {
+            if (error) {
+                return
+            }
+            console.log(data)
+            if (data && data.inviteName || true) {
+                // 有推广代号
+                $('.js_hasid').removeClass('hide');
+                $('#mylink').text('http://xyj/' + account);
+                $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
+                $('#namelink').text('http://xyj/' + (data.name || ''));
+            } else {
+                // 没有推广代号
+                $('.js_noid').removeClass('hide');
+            }
+            $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
+            $('.list-content .owner-keys').text(data.keys);
+            $('.list-content .total-award').text(data.earn);
         })
     })
 
