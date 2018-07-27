@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/index.min.css">
     <link rel="stylesheet" href="./css/index0727.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/alertify.min.css">
     <script>
         let deviceWidth = document.documentElement.clientWidth;
         if (deviceWidth > 400) {
@@ -180,7 +181,7 @@
                                 <div class="input-inner">
                                     <input id="count" type="number" placeholder="1 金钻">
                                 </div>
-                                <span class="eth-count" id="ethCount">@ 0.2025 ETH</span>
+                                <span class="eth-count" id="ethCount">@ 0 ETH</span>
                             </div>
                             <div class="count-container">
                                 <div class="count-wrapper" data-num="10">
@@ -262,7 +263,8 @@
                             <div class="put-forward-list">
                                 <div class="put-forward">
                                     <h6 class="title icon-diao" data-trans="withdrawAvailable">你的金钻</h6>
-                                    <div class="count total-award--eth">0</div>
+                                    <div class="count total-award--eth js_your_key">0</div>
+
                                 </div>
                                 <div class="put-forward">
                                     <h6 class="title icon-gift" data-trans="rebate">分享奖励</h6>
@@ -315,9 +317,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row">
+                            <div class="row hide">
                                 <div class="col">
-                                    <button href="" class="btn">
+                                    <button href="" class="btn js_buyceo">
                                         <svg class="svg-inline--fa fa-check fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 512 512" data-fa-i2svg="">
                                             <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
@@ -406,18 +408,18 @@
                                 <ul class="teamscore">
                                     <li>
                                         <p class="title">金钻总额</p>
-                                        <p class="eth">21619.3541</p>
-                                        <span class="uxdt">= 88842.5234 </span>
+                                        <p class="eth js_keys_value">21619.3541</p>
+                                        <span class="uxdt js_keys_usdt">= 88842.5234 </span>
                                     </li>
                                     <li>
                                         <p class="title">分配总额</p>
-                                        <p class="eth">21619.3541</p>
-                                        <span class="uxdt">= 88842.5234 </span>
+                                        <p class="eth js_dis_value">21619.3541</p>
+                                        <span class="uxdt js_dis_usdt">= 88842.5234 </span>
                                     </li>
                                     <li>
                                         <p class="title">购买时间</p>
-                                        <p class="years">1.73 年</p>
-                                        <span class="seconds">= 1,036,533,148 </span>
+                                        <p class="years  js_year ">1.73 年</p>
+                                        <span class="seconds js_second">= 1,036,533,148 </span>
                                     </li>
                                 </ul>
                             </div>
@@ -587,6 +589,7 @@
         crossorigin="anonymous"></script> -->
     <!-- <script type="text/javascript" src="./translate.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="./js/alertify.min.js"></script>
     <script src="./js/web3.min.js"></script>
     <script src="./js/metamask.js"></script>
     <script src="./js/main.js"></script>

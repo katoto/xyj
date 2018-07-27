@@ -137,7 +137,7 @@ window.onload = function () {
                 console.log(error);
             } else {
                 xyj._keyPrice = price;
-                fn && fn()
+                fn && fn();
                 renderPrice();
             }
         });
@@ -283,14 +283,14 @@ window.onload = function () {
             $('.list-content .owner-keys').text(data.keys);
             
             getBuyPrice(function () {
-                $('.team-grid .total-award--eth').text((accMul(Number(data.keys), xyj._keyPrice)).toString());
+                $('.team-grid .js_your_key').text(Number(data.keys));
             });
             
-            $('.list-content .total-award').text(data.earn);
-            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
-            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
+            $('.list-content .total-award').text(data.totalEarn);
+            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
+            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
 
-            $('.team-grid .total-award').text(data.earn.toString());
+            $('.team-grid .total-award').text(data.totalEarn.toString());
         })
     })
 
@@ -334,26 +334,37 @@ window.onload = function () {
     xyj.getCurrentRoundInfo(function (error, data) {
         console.log(data)
         getBuyPrice(function () {
-            if (error) {
-                return;
-            }
             console.log(data)
             $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString() + ' ETH');
             $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString() + ' ETH');
             $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString() + ' ETH');
             $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString() + ' ETH');
             $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString() + ' ETH');
-            $('.js_keys_value').text(formatNum3(accMul(data.totalKey, xyj._keyPrice)));
+            
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
-            $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
+            console.log(data.purchasedTime, formatNum2(data.purchasedTime))
+            $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString() + ' 年');
+            $('.js_second').text(numberComma(data.purchasedSeconds) + ' 秒');
         })
     });
 
+    xyj.getRound(function (error, data) {
+        if (error) {
+            return;
+        }
+        console.log(data);
+        $('.js_keys_value').text(formatNum3(data.totalEth));
+        $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth) + ' USDT');
+        $('.js_dis_value').text(formatNum3(data.distributionEth));
+        $('.js_dis_usdt').text('≙ ' + formatUSDT(data.distributionEth) + ' USDT');
+    })
+
 
     // 新建名字 按钮点击事件
-    $('.buyceo').click(function () {
+    $('.js_buyceo').click(function () {
         $('#vanity').addClass('show');
+        $('#nameInput').val('');
     });
 
     // 创建名字弹窗关闭事件
@@ -394,7 +405,7 @@ window.onload = function () {
         xyj.withdraw(function (error, res) {
             console.log('提现', error, res)
         })
-    })
+    });
 
     new ClipboardJS('.js_copy_btn')
 }
