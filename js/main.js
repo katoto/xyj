@@ -110,14 +110,14 @@ window.onload = function () {
     }
 
     function formatNum4 (num) {
-        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
     // 渲染单价
     function renderPrice () {
         var price = xyj._keyPrice;
         price = formatNum8(price);
-        $('#eosCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
+        $('#ethCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
     }
 
 
