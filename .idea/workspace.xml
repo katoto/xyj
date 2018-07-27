@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index0727.less" beforeDir="false" afterPath="$PROJECT_DIR$/css/index0727.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index0727.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index0727.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,6 +16,61 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="193">
+                  <caret line="339" column="60" selection-start-line="339" selection-start-column="60" selection-end-line="339" selection-end-column="60" />
+                  <folding>
+                    <element signature="n#style#0;n#section#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#section#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="n#ul#1;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="index0727.less" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/css/index0727.less">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="486" column="32" selection-start-line="486" selection-start-column="32" selection-end-line="486" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#3075#5153#0" />
+                    <element signature="e#3215#4700#0" />
+                    <element signature="e#4998#5066#0" />
+                    <element signature="e#6696#6797#0" />
+                    <element signature="e#7804#7844#0" />
+                    <element signature="e#9442#10120#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-373">
+                  <caret line="1620" selection-start-line="1620" selection-end-line="1625" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
@@ -41,6 +99,7 @@
         </entry>
       </file>
     </leaf>
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,6 +111,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>buyXaddr</find>
+      <find>registerNameXname</find>
+      <find>registerNameXaddr</find>
+=======
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
       <find>getAccounts</find>
       <find>getTimeLeft</find>
       <find>calcKeysReceived</find>
@@ -71,6 +136,16 @@
       <find>console.log(price);</find>
       <find>getCurrentRoundInfo</find>
       <find>round_</find>
+<<<<<<< HEAD
+      <find>round-list</find>
+      <find>.tabs .tab-content.round</find>
+      <find>team</find>
+      <find>.team-grid .tab-buy .count-container .count-wrapper</find>
+      <find>statistics</find>
+      <find>.teamscore</find>
+      <find>你的金钻</find>
+      <find>.statistic</find>
+=======
       <find>金钻总额</find>
       <find>total-award--eth</find>
       <find>onAffiliatePayout</find>
@@ -82,6 +157,7 @@
       <find>registerNameXaddr</find>
       <find>onWithdraw</find>
       <find>onWithdrawAndDistribute</find>
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
     </findStrings>
     <replaceStrings>
       <replace>xyj</replace>
@@ -98,6 +174,9 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/metamask.js" />
+        <option value="$PROJECT_DIR$/app.css" />
+        <option value="$PROJECT_DIR$/css/index0727.less" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -123,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,6 +213,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,34 +257,60 @@
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
       <workItem from="1532576542285" duration="44724000" />
+<<<<<<< HEAD
       <workItem from="1532683968700" duration="6831000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1532683968700" duration="2607000" />
+      <workItem from="1532688361837" duration="3156000" />
+=======
+      <workItem from="1532683968700" duration="6529000" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
+>>>>>>> c727e3d9d8f121b30f06340082633af8e8152449
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="52020000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="50952000" />
+=======
+    <option name="totallyTimeSpent" value="51718000" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
+>>>>>>> c727e3d9d8f121b30f06340082633af8e8152449
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13965885" />
+=======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13804004" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.21588367" />
+=======
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.24183007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
@@ -234,6 +339,11 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/metamask.js" />
+    <entry file="file://$PROJECT_DIR$/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/js/3dcontract" />
+=======
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43746">
@@ -263,6 +373,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4071">
@@ -275,6 +386,20 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/js/web3.min.js" />
+    <entry file="file://$PROJECT_DIR$/purple_bg.png" />
+    <entry file="file://$PROJECT_DIR$/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/js/3dcontract" />
+    <entry file="file://$PROJECT_DIR$/js/metamask.js" />
+    <entry file="file://$PROJECT_DIR$/css/index.less">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-373">
+          <caret line="1620" selection-start-line="1620" selection-end-line="1625" />
+=======
     <entry file="file://$PROJECT_DIR$/js/web3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -308,13 +433,52 @@
             <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#em#0;n#p#0;n#div#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="1870" column="46" selection-start-line="1870" selection-start-column="46" selection-end-line="1870" selection-end-column="46" />
+=======
+    <entry file="file://$PROJECT_DIR$/css/index0727.less">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="450">
+          <caret line="486" column="32" selection-start-line="486" selection-start-column="32" selection-end-line="486" selection-end-column="32" />
+          <folding>
+            <element signature="e#3075#5153#0" />
+            <element signature="e#3215#4700#0" />
+            <element signature="e#4998#5066#0" />
+            <element signature="e#6696#6797#0" />
+            <element signature="e#7804#7844#0" />
+            <element signature="e#9442#10120#0" />
+          </folding>
+=======
+        <state relative-caret-position="213">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="33" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="193">
+          <caret line="339" column="60" selection-start-line="339" selection-start-column="60" selection-end-line="339" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#1;n#div#1;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#section#2;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+=======
+        <state relative-caret-position="180">
+          <caret line="1840" column="9" lean-forward="true" selection-start-line="1840" selection-start-column="9" selection-end-line="1840" selection-end-column="9" />
+>>>>>>> c727e3d9d8f121b30f06340082633af8e8152449
           <folding>
             <element signature="e#689#1146#0" />
             <element signature="e#1286#34777#0" />
@@ -322,6 +486,7 @@
             <element signature="e#65276#66246#0" />
             <element signature="e#66305#67270#0" />
             <element signature="n#!!block;n#transKey#0" />
+>>>>>>> 162d7941dee84b32a102647e7863f235c3010035
           </folding>
         </state>
       </provider>

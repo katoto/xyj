@@ -293,15 +293,16 @@ header .notice .operator span:hover {
 .list-content {
     width: 100%;
     background: #212238;
-    border-radius: .08rem
+    border-radius: .15rem;
+	overflow: hidden;
 }
 
-.list-content .winner {
+/* .list-content .winner {
     font-size: .32rem;
     color: #fea70a;
     text-align: center;
     line-height: 3
-}
+} */
 
 .list-content .list-title {
     background: #111111;
@@ -1259,7 +1260,7 @@ body {
     background-color: transparent;
     border-radius: .08rem;
     height: 1.2rem;
-    margin-bottom: .36rem;
+    /*margin-bottom: .36rem;*/
     color: #fff
 }
 
@@ -1280,6 +1281,7 @@ body {
     color: #deb54b;
     font-size: .24rem;
     width: 24%;
+	height: 72px;
     line-height: .33rem;
     margin-right: .08rem;
     border-radius: .08rem;
@@ -1476,8 +1478,8 @@ body {
     padding: .36rem 0.75rem;
     overflow: hidden;
     display: none;
-    border-bottom-left-radius: 0.8rem;
-    border-bottom-right-radius: 0.8rem;
+    /*border-bottom-left-radius: 0.8rem;*/
+    /*border-bottom-right-radius: 0.8rem;*/
 }
 
 .tabs .tab-content.active {
@@ -1567,60 +1569,60 @@ body {
     font-size: 16px;
 } */
 
-.team-box {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-bottom: 10%;
-}
+/*.team-box {*/
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*text-align: center;*/
+    /*margin-bottom: 10%;*/
+/*}*/
 
-.team-box li {
-    width: 45%;
-    background-color: #24262E;
-    border-top: 1px solid #1d2024;
-    border-bottom: 1px solid #676b70;
-}
+/*.team-box li {*/
+    /*width: 45%;*/
+    /*background-color: #24262E;*/
+    /*border-top: 1px solid #1d2024;*/
+    /*border-bottom: 1px solid #676b70;*/
+/*}*/
 
-.team-box li .team-name {
-    line-height: 2.5;
-    font-size: 0.2666rem;
-    color: #fff;
-}
+/*.team-box li .team-name {*/
+    /*line-height: 2.5;*/
+    /*font-size: 0.2666rem;*/
+    /*color: #fff;*/
+/*}*/
 
-.team-box img {
-    width: 1rem;
-}
+/*.team-box img {*/
+    /*width: 1rem;*/
+/*}*/
 
-.team-jackpot {
-    height: 0.8rem;
-    line-height: 0.8rem;
-    font-size: 0.3rem;
-    text-shadow: 0 0 2px #8a682b, 0 0 10px #cf9c41, 0 0 5px #e6ae49;
-    color: #000;
-}
+/*.team-jackpot {*/
+    /*height: 0.8rem;*/
+    /*line-height: 0.8rem;*/
+    /*font-size: 0.3rem;*/
+    /*text-shadow: 0 0 2px #8a682b, 0 0 10px #cf9c41, 0 0 5px #e6ae49;*/
+    /*color: #000;*/
+/*}*/
 
-.statistics .row {
-    font-size: 0.4rem;
-    color: #fff;
-}
+/*.statistics .row {*/
+    /*font-size: 0.4rem;*/
+    /*color: #fff;*/
+/*}*/
 
-.statistics .marginb {
-    font-size: 0.3rem;
-}
+/*.statistics .marginb {*/
+    /*font-size: 0.3rem;*/
+/*}*/
 
-.statistics>.teamscore {
-    padding: 0.2rem;
-}
+/*.statistics>.teamscore {*/
+    /*padding: 0.2rem;*/
+/*}*/
 
 .glow {
     text-shadow: 0 0 2px #2b002b, 0 0 10px #EFAD00, 0 0 5px #EFAD00;
 }
 
-.teamscore {
-    background-color: #24262E;
-    border-top: 1px solid #1d2024;
-    border-bottom: 1px solid #676b70;
-}
+/*.teamscore {*/
+    /*background-color: #24262E;*/
+    /*border-top: 1px solid #1d2024;*/
+    /*border-bottom: 1px solid #676b70;*/
+/*}*/
 
 .row {
     display: -webkit-box;

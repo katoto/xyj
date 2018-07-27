@@ -88,7 +88,7 @@
             </a>
         </section>
         <div class="index-container">
-            <section class="list hide" style="margin: 0;">
+            <section class="list hide" style="margin: 0; display: none">
                 <div class="list-content">
                     <p class="list-title" data-trans="briefingTrader">实时成交</p>
                     <ul class="transaction-list" id="transactionList">
@@ -206,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="select-team">
-                                <h6 class="title" data-trans="chooseTeam">选择团队</h6>
+                                <h6 class="title choseteam" data-trans="chooseTeam">选择团队</h6>
                                 <div class="team-container">
                                     <div class="team-wrapper team-wrapper--checked" data-team="shifu">
                                         <img src="./img/a.png" alt="" class="pic">
@@ -263,7 +263,8 @@
                             <div class="put-forward-list">
                                 <div class="put-forward">
                                     <h6 class="title icon-diao" data-trans="withdrawAvailable">你的金钻</h6>
-                                    <div class="total-award--eth js_your_key">0</div>
+                                    <div class="count total-award--eth js_your_key">0</div>
+
                                 </div>
                                 <div class="put-forward">
                                     <h6 class="title icon-gift" data-trans="rebate">分享奖励</h6>
@@ -282,8 +283,8 @@
                         <div class="js_noid hide">
                             <p class="tip">让更多人参与造梦西游游戏</p>
                             <div class="joinus-btn">
-                                    购买一个代号来生成推广链接，并直接分享高达10%的佣金
-                                    <a href="javascript:;" class="btn buyceo">注册一个专属的推广代号</a>
+                                购买一个代号来生成推广链接，并直接分享高达10%的佣金
+                                <a href="javascript:;" class="btn buyceo">注册一个专属的推广代号</a>
                             </div>
                         </div>
                         <div class="js_hasid jumbotron jumbotron-adjust ">
@@ -338,129 +339,94 @@
                             <span class="list-title round-title">团队</span>
                             <span class="list-title round-title">统计</span>
                         </div>
-                        <div class="tab-content active">
-                            <h3 class="winner ">
-                                <span data-trans="recentBuyer">最后购买者：</span>
-                                <span class="account">g44dqnzxgyge</span>
-                            </h3>
+                        <div class="tab-content round active">
                             <ul class="round-list">
+                                <li class="winner">
+                                    <div data-trans="recentBuyer">最后购买者：</div>
+                                    <div class="account">g44dqnzxgyge</div>
+                                </li>
                                 <li class="lottery_time">
-                                    <span data-trans="remainingTime">本轮剩余时间：</span>
-                                    <div style="display: inline-block;">
+                                    <div data-trans="remainingTime">本轮剩余时间：</div>
+                                    <div class="dead-time">
                                         <p>0小时0分0秒</p>
                                     </div>
-                                    <em class="rule-btn" href="javascript:;" onclick="xyjindex.showPop('#rule-layer')"></em>
                                 </li>
                                 <li>
-                                    <span data-trans="totalJackpot">奖励池总数</span>
+                                    <div data-trans="totalJackpot">奖励池总数</div>
                                     <div>
-                                        <p class="total_prize_pool">0</p>
-                                        <span class="total-usdt">= 0 USDT</span>
+                                        <p class="total_prize_pool">21619.3541 </p>
+                                        <!-- <span class="total-usdt">= 0 USDT</span> -->
                                     </div>
                                 </li>
-                                <li>
-                                    <span data-trans="yourGems">你的金钻</span>
-                                    <div>
-                                        <p>
-                                            <span class="owner-keys"></span>
-                                            <em style="color:#66C9FF;font-size: .3rem;"></em>
-                                        </p>
 
-                                    </div>
+                            </ul>
+                            <ul class="round-list2">
+                                <li>
+                                    <span class="icon-diao" data-trans="yourGems">你的金钻</span>
+                                    <p class="owner-keys">21619.3541 EHT</p>
                                 </li>
                                 <li>
-                                    <span data-trans="rebate">分享奖励</span>
-                                    <div>
-                                        <p class="share-award">0.0000 ETH</p>
-                                    </div>
+                                    <span class="icon-gift" data-trans="rebate">分享奖励</span>
+                                    <p class="share-award">0.0000 ETH</p>
                                 </li>
                                 <li>
-                                    <span data-trans="totalAward">总收益</span>
-                                    <div>
-                                        <p>
-                                            <span class="total-award">0</span>
-                                            <em style="color:#FA02FF;font-size: .5rem;vertical-align: top;"></em>
-                                        </p>
-                                        <span class="total-award-usdt">= 0 USDT</span>
-                                    </div>
+                                    <span class="icon-eth" data-trans="totalAward">总收益</span>
+                                    <p class="total-award">21619.3541 EHT</p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="tab-content team">
+                        <div class="tab-content team ">
                             <h2>团队</h2>
                             <ul class="team-box">
                                 <li>
-                                    <p class="team-name">悟空</p>
+
                                     <img src="./img/a.png" alt="">
-                                    <p class="team-jackpot js_wukong">0 ETH</p>
+                                    <p class="team-name">悟空</p>
+                                    <p class="team-jackpot js_wukong">0 </p>
                                 </li>
                                 <li>
-                                    <p class="team-name">唐僧</p>
+
                                     <img src="./img/b.png" alt="">
-                                    <p class="team-jackpot js_shifu">0 ETH</p>
+                                    <p class="team-name">唐僧</p>
+                                    <p class="team-jackpot js_shifu">0 </p>
                                 </li>
-                            </ul>
-                            <ul class="team-box">
                                 <li>
-                                    <p class="team-name">八戒</p>
+
                                     <img src="./img/c.png" alt="">
-                                    <p class="team-jackpot js_bajie">0 ETH</p>
+                                    <p class="team-name">八戒</p>
+                                    <p class="team-jackpot js_bajie">0 </p>
                                 </li>
                                 <li>
-                                    <p class="team-name">沙僧</p>
                                     <img src="./img/d.png" alt="">
-                                    <p class="team-jackpot js_shaseng">0 ETH</p>
+                                    <p class="team-name">沙僧</p>
+                                    <p class="team-jackpot js_shaseng">0 </p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="tab-content statistics">
-                            <h2>统计</h2>
-                            <div class="teamscore">
-                                <div class="row nomarginb">
-                                    <div class="col-auto">
-                                        <p class="h4">购钻总额</p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="h2 text-right glow ethglitch js_keys_value">0
-                                            <!-- <i class="fab fa-ethereum ethglow"></i> -->
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row marginb">
-                                    <div class="col text-right js_keys_usdt">≙ 0 USDT</div>
-                                </div>
-                                <div class="row nomarginb">
-                                    <div class="col-auto">
-                                        <p class="h4">分配总额</p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="h2 text-right glow ethglitch js_dis_value">0
-                                            <!-- <i class="fab fa-ethereum ethglow"></i> -->
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row marginb">
-                                    <div class="col text-right js_dis_usdt">≙ 0 USDT </div>
-                                </div>
-                                <div class="row nomarginb">
-                                    <div class="col-auto">
-                                        <p class="h4">购买时间</p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="h2 text-right glow ethglitch js_year">0 年</p>
-                                    </div>
-                                </div>
-                                <div class="row marginb">
-                                    <div class="col text-right js_second">0 秒</div>
-                                </div>
+                        <div class="tab-content statistics ">
+                                <h2>统计</h2>
+                                <ul class="teamscore">
+                                    <li>
+                                        <p class="title">金钻总额</p>
+                                        <p class="eth js_keys_value">21619.3541</p>
+                                        <span class="uxdt js_keys_usdt">= 88842.5234 </span>
+                                    </li>
+                                    <li>
+                                        <p class="title">分配总额</p>
+                                        <p class="eth js_dis_value">21619.3541</p>
+                                        <span class="uxdt js_dis_usdt">= 88842.5234 </span>
+                                    </li>
+                                    <li>
+                                        <p class="title">购买时间</p>
+                                        <p class="years  js_year ">1.73 年</p>
+                                        <span class="seconds js_second">= 1,036,533,148 </span>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
                     </div>
-
-
                 </div>
             </section>
-        </div>
+            </div>
     </main>
     <div class="code-layer" id="code-layer">
         <div class="layer-content">
