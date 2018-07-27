@@ -234,6 +234,16 @@
   margin-bottom: 0.375002rem;
 }
 
+.js_noid .joinus-btn {
+  padding: 0.36rem 0.75rem;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.js_noid .joinus-btn .btn {
+  margin-top: 0.562504rem;
+}
+
 .team-grid .tip {
   margin-bottom: 0.375002rem;
 }
