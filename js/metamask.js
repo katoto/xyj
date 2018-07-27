@@ -1865,13 +1865,13 @@ if (typeof web3 !== "undefined") {
             contractNet.getPlayerInfoByAddress(addr, function (err, res) {
                 if (!err) {
                     if (res) {
-                            // * @return player ID
-                            // * @return player name
-                            // * @return keys owned (current round)
-                            // * @return winnings vault
-                            // * @return general vault
-                            // * @return affiliate vault
-                            // * @return player round eth
+                        // * @return player ID
+                        // * @return player name
+                        // * @return keys owned (current round)
+                        // * @return winnings vault
+                        // * @return general vault
+                        // * @return affiliate vault
+                        // * @return player round eth
                         fn(null, {
                             id: res[0].toString(),
                             inviteName: web3.toAscii(res[1]),

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
-    </list>
+    <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="1865" column="27" lean-forward="true" selection-start-line="1865" selection-start-column="27" selection-end-line="1865" selection-end-column="27" />
+            <state relative-caret-position="280">
+              <caret line="1866" column="30" selection-start-line="1866" selection-start-column="30" selection-end-line="1866" selection-end-column="30" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
@@ -191,12 +189,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="27669000" />
+      <workItem from="1532576542285" duration="27763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28134000" />
+    <option name="totallyTimeSpent" value="28228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -297,8 +295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="1865" column="27" lean-forward="true" selection-start-line="1865" selection-start-column="27" selection-end-line="1865" selection-end-column="27" />
+        <state relative-caret-position="280">
+          <caret line="1866" column="30" selection-start-line="1866" selection-start-column="30" selection-end-line="1866" selection-end-column="30" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
