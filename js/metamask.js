@@ -1864,10 +1864,11 @@ if (typeof web3 !== "undefined") {
                             id: res[0].toString(),
                             inviteName: web3.toUtf8(res[1]),
                             keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-                            earn: (res[4].toNumber()) / (10 ** 18),
-                            totalEarn: ((res[5].toNumber() + res[4].toNumber()) / (10 ** 18)).toString(),
-                            shareEarn: (res[5].toNumber()) / (10 ** 18),
-                            payMoney: (res[6].toNumber()) / (10 ** 18),
+                            // earn: (res[4].toNumber()) / (10 ** 18),
+                            earn: web3.fromWei(res[4].toNumber()),
+                            totalEarn: web3.fromWei(res[5].toNumber() + res[4].toNumber()),
+                            shareEarn: web3.fromWei(res[5].toNumber()),
+                            payMoney: web3.fromWei(res[6].toNumber()),
                         })
                     }
                 } else {
@@ -1911,14 +1912,14 @@ if (typeof web3 !== "undefined") {
                         fn(null, {
                             roundNum: res[1].toNumber(),
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-                            currPot: (res[5].toNumber()) / (10 ** 18),
+                            currPot: web3.fromWei(res[5].toNumber()),
                             startedTime: res[4].toNumber(),
                             endedTime: res[3].toNumber(),
 
-                            whales_0: (res[9].toNumber()) / (10 ** 18),
-                            bears_1: (res[10].toNumber()) / (10 ** 18),
-                            sneks_2: (res[11].toNumber()) / (10 ** 18),
-                            bulls_3: (res[12].toNumber()) / (10 ** 18),
+                            whales_0: web3.fromWei(res[9].toNumber()),
+                            bears_1: web3.fromWei(res[10].toNumber()),
+                            sneks_2: web3.fromWei(res[11].toNumber()) ,
+                            bulls_3: web3.fromWei(res[12].toNumber()) ,
 
                             purchasedSeconds: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second),
                             purchasedTime: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second) / (3600 * 24 * 365),
@@ -2069,14 +2070,14 @@ if (typeof web3 !== "undefined") {
 
     xyj.getRound = function (fn) {
         if (contractNet) {
-            this.getCurrentRoundInfo(function (error,result) {
-                if(result){
+            this.getCurrentRoundInfo(function (error, result) {
+                if (result) {
                     contractNet.round_(parseFloat(result.roundNum), function (err, res) {
                         if (!err) {
                             if (res) {
                                 var roundObj = {
-                                    totalEth: (res[6].toNumber()) / (10 ** 18),
-                                    distributionEth: (res[6].toNumber() - res[7].toNumber()) / (10 ** 18),
+                                    totalEth: web3.fromWei(res[6].toNumber()),
+                                    distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
                                 }
                                 fn(null, roundObj)
                             }
