@@ -2101,10 +2101,24 @@ if (typeof web3 !== "undefined") {
     /* 实时播报 */
     contractNet.allEvents(function (err, res) {
         // 4种事件类型
+        /**
+         * @dev prepares compression data and fires event for buy or reload tx's  onEndTx
+         */
+        //  onAffiliatePayout
+        // (fomo3d long only) fired whenever a player tries a buy after round timer  onBuyAndDistribute
+        // fired whenever a player registers a name   onNewName
+        // received pot swap deposit  // onPotSwapDeposit
+        // received pot swap deposit  // onPotSwapDeposit
+        // fire buy and distribute event    onReLoadAndDistribute
+        // fired whenever theres a withdraw   onWithdraw
+        // fired whenever a withdraw forces end round to be ran  onWithdrawAndDistribute
+
         // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
         // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
+
         if (!err) {
             if (res) {
+                console.log(res);
                 if (res.event === 'onEndTx') {
                     alertify.success('')
                 } else if (res.event === 'onNewName') {
