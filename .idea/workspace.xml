@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,15 +28,15 @@
       <file leaf-file-name="metamask.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="1428" column="4" selection-start-line="1428" selection-start-column="4" selection-end-line="1428" selection-end-column="4" />
+            <state relative-caret-position="247">
+              <caret line="1420" column="5" selection-start-line="1420" selection-start-column="5" selection-end-line="1420" selection-end-column="5" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
                 <element signature="e#1052#1060#0" />
                 <element signature="e#1967#35458#0" />
-                <element signature="e#35703#36381#0" />
                 <element signature="e#55457#56223#0" />
+                <element signature="e#55811#56659#0" />
                 <element signature="e#57298#59071#0" />
                 <element signature="e#36518#37049#0" />
                 <element signature="e#35288#35600#0" />
@@ -60,8 +59,8 @@
       <file leaf-file-name="3dcontract" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/3dcontract">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="352" column="53" selection-start-line="352" selection-start-column="48" selection-end-line="352" selection-end-column="53" />
+            <state relative-caret-position="21">
+              <caret line="814" selection-start-line="814" selection-end-line="827" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -93,9 +92,9 @@
       <find>register</find>
       <find>registers</find>
       <find>regist</find>
-      <find>getCurrentRoundInfo</find>
       <find>console.log(price)</find>
       <find>buyXaddr</find>
+      <find>getCurrentRoundInfo</find>
     </findStrings>
     <replaceStrings>
       <replace>xyj</replace>
@@ -196,12 +195,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="30349000" />
+      <workItem from="1532576542285" duration="31961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30814000" />
+    <option name="totallyTimeSpent" value="32426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -214,7 +213,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3638344" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.41830066" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -295,22 +294,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/3dcontract">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="352" column="53" selection-start-line="352" selection-start-column="48" selection-end-line="352" selection-end-column="53" />
+        <state relative-caret-position="21">
+          <caret line="814" selection-start-line="814" selection-end-line="827" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="1428" column="4" selection-start-line="1428" selection-start-column="4" selection-end-line="1428" selection-end-column="4" />
+        <state relative-caret-position="247">
+          <caret line="1420" column="5" selection-start-line="1420" selection-start-column="5" selection-end-line="1420" selection-end-column="5" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
             <element signature="e#1052#1060#0" />
             <element signature="e#1967#35458#0" />
-            <element signature="e#35703#36381#0" />
             <element signature="e#55457#56223#0" />
+            <element signature="e#55811#56659#0" />
             <element signature="e#57298#59071#0" />
             <element signature="e#36518#37049#0" />
             <element signature="e#35288#35600#0" />

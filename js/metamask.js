@@ -1367,6 +1367,86 @@ if (typeof web3 !== "undefined") {
         }
     }
 
+
+    xyj.getCurrentRoundInfo = function (fn) {
+        /* 当前信息 */
+        if (typeof fn !== "function") {
+            return 'need async function !.'
+        }
+        // * @return eth invested during ICO phase 1
+        // * @return round id2
+        // * @return total keys for round3
+        // * @return time round ends4
+        // * @return time round started5
+        // * @return current pot6
+
+        // * @return current team ID & player ID in lead 7
+        // * @return current player in leads address8
+        // * @return current player in leads name9
+
+        // * @return whales eth in for round10
+        // * @return bears eth in for round 11
+        // * @return sneks eth in for round  12
+        // * @return bulls eth in for round 13
+
+        // * @return airdrop tracker # & airdrop pot
+        if (contractNet) {
+            contractNet.getCurrentRoundInfo(function (err, res) {
+                if (!err) {
+                    if (res) {
+                        fn(null, {
+                            totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+                            currPot: res[6].toString(),
+                            whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
+                            bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
+                            sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
+                            bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
+                        })
+                        console.log({
+                            totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+                            currPot: res[6].toString(),
+                            whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
+                            bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
+                            sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
+                            bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
+                        })
+                    }
+                } else {
+                    fn('getCurrentRoundInfo error', null)
+                }
+            })
+        } else {
+            fn('contractNet error at getCurrentRoundInfo', null)
+        }
+    }
+
+
+    // contractNet.getCurrentRoundInfo(function (err, res) {
+    //     if (!err) {
+    //         if (res) {
+    //             console.log(res);
+    //             console.log('=========');
+    //             // fn(null, {
+    //             //     id: res[0].toString(),
+    //             //     inviteName: web3.toAscii(res[1]),
+    //             //     keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+    //             //     earn: (res[4].toNumber()) / (10 ** 18),
+    //             //     shareEarn: (res[5].toNumber()) / (10 ** 18),
+    //             // })
+    //             console.log({
+    //                 totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+    //                 currPot: res[6].toString(),
+    //                 whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
+    //                 bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
+    //                 sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
+    //                 bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
+    //             })
+    //         }
+    //     } else {
+    //         fn('getCurrentRoundInfo error', null)
+    //     }
+    // })
+
     xyj.registerNameXname = function (regName, _affCode, fn) {
         // * @param _nameString players desired name
         // * @param _affCode affiliate ID, address, or name of who referred you
@@ -1446,7 +1526,7 @@ if (typeof web3 !== "undefined") {
         if (!totalVal) {
             return 'totalVal param 3 error'
         }
-        contractNet.buyXaddr(_affCode, parseInt(_team) , {value: web3.toWei(totalVal, "ether")}, function (err, res) {
+        contractNet.buyXaddr(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
             if (!err) {
                 if (res) {
                     fn(null, res)
