@@ -105,14 +105,18 @@ window.onload = function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum (num) {
+    function formatNum8 (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
+    }
+
+    function formatNum4 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
     // 渲染单价
     function renderPrice () {
         var price = xyj._keyPrice;
-        price = formatNum(price);
+        price = formatNum8(price);
         $('#eosCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
     }
 
@@ -325,12 +329,12 @@ window.onload = function () {
                 return;
             }
             console.log(data)
-            $('.banner .msg3, .total_prize_pool').text(formatNum(data.currPot).toString() + ' ETH');
-            $('.list-content .js_wukong').text(formatNum(data.sneks_2).toString() + ' ETH');
-            $('.list-content .js_shifu').text(formatNum(data.whales_0).toString() + ' ETH');
-            $('.list-content .js_bajie').text(formatNum(data.bulls_3).toString() + ' ETH');
-            $('.list-content .js_shaseng').text(formatNum(data.bears_1).toString() + ' ETH');
-            $('.js_keys_value').text(formatNum(accMul(data.totalKey, xyj._keyPrice)));
+            $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString() + ' ETH');
+            $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString() + ' ETH');
+            $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString() + ' ETH');
+            $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString() + ' ETH');
+            $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString() + ' ETH');
+            $('.js_keys_value').text(formatNum4(accMul(data.totalKey, xyj._keyPrice)));
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
