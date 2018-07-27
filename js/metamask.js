@@ -1862,20 +1862,16 @@ if (typeof web3 !== "undefined") {
             return 'need async function !.'
         }
         if (contractNet) {
-            contractNet.getPlayerInfoByAddress('0x2b5006d3dce09dafec33bfd08ebec9327f1612d8', function (err, res) {
+            contractNet.getPlayerInfoByAddress(addr, function (err, res) {
                 if (!err) {
                     if (res) {
-                        var currID = res[0].toString()
-                        var currName = web3.toAscii(res[1])
-                        var web3_getTimeLeft = res[0].toString()
-                        console.log(Math.ceil());
-                        console.log(currID);
-                        console.log(currName);
-                        // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")
-                        //  转名字
-                        // var str2 = web3.fromAscii('ethereum', 32);
-                        // console.log(str2); // "0x657468657265756d000000000000000000000000000000000000000000000000"
-                        console.log('===当242432ime======');
+                            // * @return player ID
+                            // * @return player name
+                            // * @return keys owned (current round)
+                            // * @return winnings vault
+                            // * @return general vault
+                            // * @return affiliate vault
+                            // * @return player round eth
                         fn(null, {
                             id: res[0].toString(),
                             inviteName: web3.toAscii(res[1]),

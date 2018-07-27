@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d73db2-a67f-44d7-aff4-4c8374832641" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/metamask.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/metamask.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/js/metamask.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="257">
-              <caret line="1886" column="50" selection-start-line="1886" selection-start-column="50" selection-end-line="1886" selection-end-column="50" />
+              <caret line="1865" column="27" lean-forward="true" selection-start-line="1865" selection-start-column="27" selection-end-line="1865" selection-end-column="27" />
               <folding>
                 <element signature="e#207#223#0" />
                 <element signature="e#411#994#0" />
@@ -50,7 +49,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="1381">
               <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
             </state>
           </provider>
@@ -59,8 +58,8 @@
       <file leaf-file-name="3dcontract" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/3dcontract">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="867" column="31" lean-forward="true" selection-start-line="867" selection-start-column="31" selection-end-line="867" selection-end-column="31" />
+            <state relative-caret-position="101">
+              <caret line="861" selection-start-line="861" selection-end-line="867" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -192,12 +191,12 @@
       <option name="presentableId" value="Default" />
       <updated>1532575773503</updated>
       <workItem from="1532575775134" duration="465000" />
-      <workItem from="1532576542285" duration="27235000" />
+      <workItem from="1532576542285" duration="27669000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27700000" />
+    <option name="totallyTimeSpent" value="28134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -284,14 +283,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/3dcontract">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="867" column="31" lean-forward="true" selection-start-line="867" selection-start-column="31" selection-end-line="867" selection-end-column="31" />
+        <state relative-caret-position="101">
+          <caret line="861" selection-start-line="861" selection-end-line="867" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="1381">
           <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
         </state>
       </provider>
@@ -299,7 +298,7 @@
     <entry file="file://$PROJECT_DIR$/js/metamask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
-          <caret line="1886" column="50" selection-start-line="1886" selection-start-column="50" selection-end-line="1886" selection-end-column="50" />
+          <caret line="1865" column="27" lean-forward="true" selection-start-line="1865" selection-start-column="27" selection-end-line="1865" selection-end-column="27" />
           <folding>
             <element signature="e#207#223#0" />
             <element signature="e#411#994#0" />
