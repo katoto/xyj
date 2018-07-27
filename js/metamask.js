@@ -1919,11 +1919,6 @@ if (typeof web3 !== "undefined") {
                             startedTime: res[4].toNumber(),
                             endedTime: res[3].toNumber(),
 
-                            // whales_0: (res[10].toNumber()) / (10 ** 18),
-                            // bears_1: (res[11].toNumber()) / (10 ** 18),
-                            // sneks_2: (res[12].toNumber()) / (10 ** 18),
-                            // bulls_3: (res[13].toNumber()) / (10 ** 18),
-
                             whales_0: (res[9].toNumber()) / (10 ** 18),
                             bears_1: (res[10].toNumber()) / (10 ** 18),
                             sneks_2: (res[11].toNumber()) / (10 ** 18),
