@@ -1917,8 +1917,8 @@ if (typeof web3 !== "undefined") {
 
                             whales_0: web3.fromWei(res[9].toNumber()),
                             bears_1: web3.fromWei(res[10].toNumber()),
-                            sneks_2: web3.fromWei(res[11].toNumber()) ,
-                            bulls_3: web3.fromWei(res[12].toNumber()) ,
+                            sneks_2: web3.fromWei(res[11].toNumber()),
+                            bulls_3: web3.fromWei(res[12].toNumber()),
 
                             purchasedSeconds: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second),
                             purchasedTime: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second) / (3600 * 24 * 365),
@@ -2077,6 +2077,8 @@ if (typeof web3 !== "undefined") {
                                 var roundObj = {
                                     totalEth: web3.fromWei(res[6].toNumber()),
                                     distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
+                                    lastBuyAddr: res[7].toString(),
+                                    lastBuyName: web3.toUtf8(res[8])
                                 }
                                 fn(null, roundObj)
                             }
@@ -2226,6 +2228,7 @@ if (typeof web3 !== "undefined") {
     }
 
 } else {
+    alert('You are not signed into metamask')
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
