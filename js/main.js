@@ -286,11 +286,11 @@ window.onload = function () {
                 $('.team-grid .js_your_key').text(Number(data.keys));
             });
             
-            $('.list-content .total-award').text(data.earn);
-            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
-            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
+            $('.list-content .total-award').text(data.totalEarn);
+            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
+            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
 
-            $('.team-grid .total-award').text(data.earn.toString());
+            $('.team-grid .total-award').text(data.totalEarn.toString());
         })
     })
 

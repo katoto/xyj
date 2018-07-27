@@ -2108,7 +2108,7 @@ if (typeof web3 !== "undefined") {
                 if (res.event === 'onEndTx') {
                     alertify.success('')
                 } else if (res.event === 'onNewName') {
-                    alertify.success('A new member has been added to our Advisory Board. Please welcome ' + '')
+                    alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
                 } else if (res.event === 'onWithdraw') {
 
                 } else if (res.event === 'onAffiliatePayout') {
