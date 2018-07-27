@@ -1868,24 +1868,25 @@ if (typeof web3 !== "undefined") {
                         var currID = res[0].toString()
                         var currName = web3.toAscii(res[1])
                         var web3_getTimeLeft = res[0].toString()
-                        console.log(res[4].toString());
+                        console.log(Math.ceil());
                         console.log(currID);
                         console.log(currName);
                         // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")
-
                         //  转名字
                         // var str2 = web3.fromAscii('ethereum', 32);
                         // console.log(str2); // "0x657468657265756d000000000000000000000000000000000000000000000000"
                         console.log('===当242432ime======');
-                        fn(null,{
-                            id:res[0].toString(),
-                            inviteName:web3.toAscii(res[1]),
-                            earn:(res[4].toNumber())/(10 ** 18)
+                        fn(null, {
+                            id: res[0].toString(),
+                            inviteName: web3.toAscii(res[1]),
+                            earn: (res[4].toNumber()) / (10 ** 18),
+                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18))
                         })
                         console.log({
-                            id:res[0].toString(),
-                            inviteName:web3.toAscii(res[1]),
-                            earn:(res[4].toNumber())/(10 ** 18)
+                            id: res[0].toString(),
+                            inviteName: web3.toAscii(res[1]),
+                            earn: (res[4].toNumber()) / (10 ** 18),
+                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18))
                         })
                     }
                 } else {
@@ -1904,7 +1905,8 @@ if (typeof web3 !== "undefined") {
                 var currID = res[0].toString()
                 var currName = web3.toAscii(res[1])
                 var web3_getTimeLeft = res[0].toString()
-                console.log(res[4].toString());
+                console.log(Math.ceil((res[2].toNumber()) / (10 ** 18)));
+                console.log(123);
                 console.log(currID);
                 console.log(currName);
                 // web3.toAscii("0x6d6f72656d6f6e65790000000000000000000000000000000000000000000000")

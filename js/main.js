@@ -74,7 +74,7 @@ window.onload = function () {
     // 获取Key单价
     function getBuyPrice () {
         xyj.getBuyPrice(function (error, price) {
-            console.log(price);
+            // console.log(price);
             if (error) {
                 console.log(error);
             } else {
