@@ -282,8 +282,8 @@ header .notice .operator span:hover {
 
 .list {
     width: 100%;
-    padding: 0 .3rem;
-    margin: .6rem auto 0
+    /* padding: 0 .3rem;
+    margin: .6rem auto 0 */
 }
 
 .list .tabs {
@@ -312,7 +312,7 @@ header .notice .operator span:hover {
     border-radius: .08rem .08rem 0 0;
     font-weight: 700
 }
-
+/* 
 .list-content .round-list li {
     margin-top: .36rem;
     font-weight: 700;
@@ -330,11 +330,6 @@ header .notice .operator span:hover {
     font-size: .3rem;
     vertical-align: right;
     cursor: pointer
-}
-
-.list-content .round-list li:last-child {
-    background: #111111;
-    padding: .3rem .24rem .36rem
 }
 
 .list-content .round-list li:last-child>span {
@@ -408,7 +403,7 @@ header .notice .operator span:hover {
     font-size: .24rem;
     line-height: .28rem;
     margin-top: .02rem
-}
+} */
 
 .list-content .transaction-list {
     margin-bottom: .6rem;
@@ -1522,7 +1517,7 @@ body {
         margin: 0 auto
     }
     .index-container .list {
-        max-width: 350px;
+        max-width: 490px;
         margin-top: 0
     }
     .index-container .team-grid {
@@ -1909,4 +1904,11 @@ body {
 
 .pop-success.show {
     transform: translateX(0)
+}
+
+
+.alertify-notifier {
+    color: #FFF;
+    font-size: 19px;
+    font-weight: bold;
 }

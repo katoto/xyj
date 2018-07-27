@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/index.min.css">
     <link rel="stylesheet" href="./css/index0727.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/alertify.min.css">
     <script>
         let deviceWidth = document.documentElement.clientWidth;
         if (deviceWidth > 400) {
@@ -180,7 +181,7 @@
                                 <div class="input-inner">
                                     <input id="count" type="number" placeholder="1 金钻">
                                 </div>
-                                <span class="eth-count" id="ethCount">@ 0.2025 ETH</span>
+                                <span class="eth-count" id="ethCount">@ 0 ETH</span>
                             </div>
                             <div class="count-container">
                                 <div class="count-wrapper" data-num="10">
@@ -338,7 +339,7 @@
                             <span class="list-title round-title">统计</span>
                         </div>
                         <div class="tab-content active">
-                            <h3 class="winner hide">
+                            <h3 class="winner ">
                                 <span data-trans="recentBuyer">最后购买者：</span>
                                 <span class="account">g44dqnzxgyge</span>
                             </h3>
@@ -353,7 +354,7 @@
                                 <li>
                                     <span data-trans="totalJackpot">奖励池总数</span>
                                     <div>
-                                        <p class="total_prize_pool">0 ETH</p>
+                                        <p class="total_prize_pool">0</p>
                                         <span class="total-usdt">= 0 USDT</span>
                                     </div>
                                 </li>
@@ -622,6 +623,7 @@
         crossorigin="anonymous"></script> -->
     <!-- <script type="text/javascript" src="./translate.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="./js/alertify.min.js"></script>
     <script src="./js/web3.min.js"></script>
     <script src="./js/metamask.js"></script>
     <script src="./js/main.js"></script>
