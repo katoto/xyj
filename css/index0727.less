@@ -137,39 +137,39 @@
             line-height: 33px;
             font-size: 16px;
             color: #fff;
-            &.icon-diao{
-                &::before{
-                    content: '';
+            &.icon-diao {
+                &::before {
+                    content: "";
                     display: block;
                     position: absolute;
                     left: 0;
-                    top: 5px;;
+                    top: 5px;
                     width: 21px;
                     height: 22px;
                     background: url(../img/icon-diamond.png) no-repeat center;
                     background-size: cover;
                 }
             }
-            &.icon-gift{
-                &::before{
-                    content: '';
+            &.icon-gift {
+                &::before {
+                    content: "";
                     display: block;
                     position: absolute;
                     left: 0;
-                    top: 3px;;
+                    top: 3px;
                     width: 24px;
                     height: 26px;
                     background: url(../img/icon-gift.png) no-repeat center;
                     background-size: cover;
                 }
             }
-            &.icon-eth{
-                &::before{
-                    content: '';
+            &.icon-eth {
+                &::before {
+                    content: "";
                     display: block;
                     position: absolute;
                     left: 0;
-                    top: 5px;;
+                    top: 5px;
                     width: 24px;
                     height: 24px;
                     background: url(../img/icon-eth2.png) no-repeat center;
@@ -181,12 +181,11 @@
             line-height: 46px;
             font-size: 30px;
             color: #f5c751;
-            &::after{
-                content: 'ETH';
+            &::after {
+                content: "ETH";
                 display: inline;
                 font-size: 20px;
                 margin-left: 10px;
-
             }
         }
         .usdt {
@@ -194,17 +193,33 @@
             color: #39ca68;
         }
     }
-    .put-forward+.put-forward{
+    .put-forward + .put-forward {
         border-top: 1px solid #262626;
     }
 }
-.js_noid{
-    .tip{
+.js_noid {
+    .tip {
         margin-bottom: 20px;
     }
+    .joinus-btn{
+        padding: .36rem 0.75rem;
+        font-size: 16px;
+        color: #fff;
+        .btn {
+            margin-top: 30px;
+        }
+    }
 }
-.team-grid{
-    .btn2{
+.team-grid {
+    .tip {
+        margin-bottom: 20px;
+    }
+    .tip2 {
+        font-size: 16px;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .btn2 {
         display: block;
         width: 198px;
         height: 50px;
@@ -215,6 +230,42 @@
         outline: none;
         font-size: 20px;
         color: #f5c751;
+        transition: all 0.2s;
+        cursor: pointer;
+        &:hover{
+            background:#f5c751;
+            color: #fff; 
+        }
+    }
+}
+.joinus {
+    padding: 0.36rem 0 !important;
+    .tip2,
+    .tip {
+        padding: 0 0.75rem;
+    }
+    .referrals_cnt {
+        background: #1b1b1b;
+        padding: 0 40px 50px;;
+        li {
+            padding-top: 10px;
+            .title {
+                line-height: 35px;
+                font-size: 16px;
+                color: #fff;
+                font-weight: bold;
+            }
+            .msg {
+                margin-bottom: 10px;
+                line-height: 32px;
+                text-align: center;
+                font-size: 14px;
+                color: rgab(255, 255, 2550, 0.6);
+            }
+        }
+        li+li{
+            margin-top: 40px;
+        }
     }
 }
 

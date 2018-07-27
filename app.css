@@ -1149,6 +1149,7 @@ body {
     vertical-align: right;
     cursor: pointer
 }
+
 /* 
 .team-grid h6.title {
     position: relative;
@@ -1180,10 +1181,17 @@ body {
     height: .88rem;
     background-color: #987a35;
     background: linear-gradient(#d2aa46, #7b642c);
-    color: #fff;
     border-radius: .08rem;
     font-weight: 900;
-    cursor: pointer
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    line-height: 0.88rem;
+    color: #fff;
+}
+
+.team-grid .btn:hover {
+    background: linear-gradient(#111, #111);
 }
 
 .team-grid .tab-buy {
@@ -1312,7 +1320,8 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 5px 8px 10px;;
+    padding: 5px 8px 10px;
+    ;
     border-radius: .08rem;
     font-size: .18rem;
     color: #fff;
@@ -1395,6 +1404,7 @@ body {
     -webkit-box-shadow: #39ca68 0 0 16px 2px;
     box-shadow: #39ca68 0 0 16px 2px
 }
+
 /* 
 .team-grid .tab-put-forward .put-forward-list {
     margin-bottom: .5rem
@@ -1435,9 +1445,9 @@ body {
 
 .tabs {
     /* margin: 0 .3rem; */
-    border-radius: .05rem;
+    border-radius: .15rem;
+    overflow: hidden;
     background: #1e1e1e;
-    font-size: 0
 }
 
 .tabs .tab-title {
@@ -1521,6 +1531,7 @@ body {
 }
 
 /* xyj */
+
 /* 
 .joinus p {
     font-size: 0.3rem;
@@ -1553,6 +1564,7 @@ body {
     text-shadow: 0 0 2px #2b002b;
     color: white;
 } */
+
 /* 
 .team>h2,
 .statistics>h2 {
