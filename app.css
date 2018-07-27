@@ -1914,3 +1914,23 @@ body {
     font-size: 19px;
     font-weight: bold;
 }
+
+.ajs-hidden {
+    display: none;
+}
+
+.ajs-header, .ajs-commands {
+    display: none;
+}
+
+.ajs-content {
+    font-size: 20px;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.ajs-ok {
+    margin: 4px 50px 20px 0 !important;
+    padding: 10px 30px 10px;
+    cursor: pointer;
+}

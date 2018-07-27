@@ -2229,7 +2229,7 @@ if (typeof web3 !== "undefined") {
     }
 
 } else {
-    alert('You are not signed into metamask')
+    alertify.alert('You are not signed into metamask')
     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
