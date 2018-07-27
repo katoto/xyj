@@ -2076,25 +2076,23 @@ if (typeof web3 !== "undefined") {
         }
     }
 
-    xyj.getRound = function (currRound, fn) {
-        if (typeof currRound !== undefined) {
-            return 'need number currRound id !.'
-        }
-        console.log(xyj);
-        console.log(this);
-
+    xyj.getRound = function (fn) {
         if (contractNet) {
-            contractNet.round_(parseFloat(currRound), function (err, res) {
-                if (!err) {
-                    if (res) {
-                        var roundObj = {
-                            totalEth: (res[6].toNumber()) / (10 ** 18),
-                            distributionEth: (res[6].toNumber() - res[7].toNumber()) / (10 ** 18),
+            this.getCurrentRoundInfo(function (error,result) {
+                if(result){
+                    contractNet.round_(parseFloat(result.roundNum), function (err, res) {
+                        if (!err) {
+                            if (res) {
+                                var roundObj = {
+                                    totalEth: (res[6].toNumber()) / (10 ** 18),
+                                    distributionEth: (res[6].toNumber() - res[7].toNumber()) / (10 ** 18),
+                                }
+                                fn(null, roundObj)
+                            }
+                        } else {
+                            fn(err, null)
                         }
-                        fn(null, roundObj)
-                    }
-                } else {
-                    fn(err, null)
+                    })
                 }
             })
         } else {
