@@ -1879,14 +1879,16 @@ if (typeof web3 !== "undefined") {
                         fn(null, {
                             id: res[0].toString(),
                             inviteName: web3.toAscii(res[1]),
+                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             earn: (res[4].toNumber()) / (10 ** 18),
-                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18))
+                            shareEarn: (res[5].toNumber()) / (10 ** 18),
                         })
                         console.log({
                             id: res[0].toString(),
                             inviteName: web3.toAscii(res[1]),
+                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                             earn: (res[4].toNumber()) / (10 ** 18),
-                            keys: Math.ceil((res[2].toNumber()) / (10 ** 18))
+                            shareEarn: (res[5].toNumber()) / (10 ** 18),
                         })
                     }
                 } else {
@@ -1905,7 +1907,7 @@ if (typeof web3 !== "undefined") {
                 var currID = res[0].toString()
                 var currName = web3.toAscii(res[1])
                 var web3_getTimeLeft = res[0].toString()
-                console.log(Math.ceil((res[2].toNumber()) / (10 ** 18)));
+                console.log((res[6].toNumber() / (10 ** 18)));
                 console.log(123);
                 console.log(currID);
                 console.log(currName);
