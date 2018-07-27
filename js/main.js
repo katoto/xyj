@@ -1,4 +1,14 @@
 window.onload = function () {
+
+    function getDefaultAdvisor () {
+        return '0'
+    }
+
+    // 关闭创建弹窗
+    function closeVanity () {
+        $('#vanity').removeClass('show');
+    }
+
     // 渲染时间
     function renderTime (hour, min, second) {
         function formatTime (time) {
@@ -65,20 +75,45 @@ window.onload = function () {
         return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m)
     }
 
+    function accDiv (arg1, arg2) {
+        let t1 = 0
+        let t2 = 0
+        let r1
+        let r2
+        try {
+            t1 = arg1.toString().split('.')[1].length
+        } catch (e) {
+        }
+        try {
+            t2 = arg2.toString().split('.')[1].length
+        } catch (e) {
+        }
+        r1 = Number(arg1.toString().replace('.', ''))
+        r2 = Number(arg2.toString().replace('.', ''))
+        return (r1 / r2) * Math.pow(10, t2 - t1)
+    }
+
+    function formatNum (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
+    }
+
     // 渲染单价
     function renderPrice () {
-        $('#eosCount').text('@ ' + accMul(xyj._keyNums, xyj._keyPrice).toString() + ' ETH')
+        var price = xyj._keyPrice;
+        price = formatNum(price);
+        $('#eosCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
     }
 
 
     // 获取Key单价
-    function getBuyPrice () {
+    function getBuyPrice (fn) {
         xyj.getBuyPrice(function (error, price) {
             // console.log(price);
             if (error) {
                 console.log(error);
             } else {
                 xyj._keyPrice = price;
+                fn && fn()
                 renderPrice();
             }
         });
@@ -99,8 +134,47 @@ window.onload = function () {
 
     // 获取邀请者账号
     function getAdviceHash () {
-        // TODO: 邀请者账号
-        return false
+        let str = window.location.pathname.slice(1);
+        var type;
+        if (str === '') {
+            type = 'addr';
+            str = getDefaultAdvisor();
+        } else if (!isNaN(Number(str))) {
+            // id
+            type = 'id';
+            str = Number(str);
+        } else if (str.length > 32) {
+            // addr
+            type = 'addr';
+        } else {
+            // name
+            type = 'name';
+        }
+        return {
+            type: type,
+            str, str
+        }
+    }
+
+    function getRegisterName () {
+        return $.trim($('#nameInput').val());
+    }
+
+    function isVerifyName (name) {
+        var regaz = /^[a-z0-9\-\s]+$/;
+        var regonlyNum = /^[0-9]+$/;
+        return name.length <= 32 && regaz.test(name) && !regonlyNum.test(name) && name.indexOf('  ') === -1;
+    }
+
+    function getRandomName () {
+        var getRandomKey = function (list) {
+            return Math.floor(Math.random() * list.length);
+        }
+        var nouns = ["ninja", "truce", "harj", "finney", "szabo", "gwei", "laser", "justo", "satoshi", "mantso", "3D", "inventor", "theShocker", "aritz", "sumpunk", "cryptoknight", "randazz", "kadaz", "daok", "shenron", "notreally", "thecrypt", "stick figures", "mermaid eggs", "sea barnacles", "dragons", "jellybeans", "snakes", "dolls", "bushes", "cookies", "apples", "ice cream", "ukulele", "kazoo", "banjo", "opera singer", "circus", "trampoline", "carousel", "carnival", "locomotive", "hot air balloon", "praying mantis", "animator", "artisan", "artist", "colorist", "inker", "coppersmith", "director", "designer", "flatter", "stylist", "leadman", "limner", "make-up artist", "model", "musician", "penciller", "producer", "scenographer", "set decorator", "silversmith", "teacher", "auto mechanic", "beader", "bobbin boy", "clerk of the chapel", "filling station attendant", "foreman", "maintenance engineering", "mechanic", "miller", "moldmaker", "panel beater", "patternmaker", "plant operator", "plumber", "sawfiler", "shop foreman", "soaper", "stationary engineer", "wheelwright", "woodworkers"];
+   
+        var adjectives = ["adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish", "calamitous", "caustic", "cerulean", "comely", "concomitant", "contumacious", "corpulent", "crapulous", "defamatory", "didactic", "dilatory", "dowdy", "efficacious", "effulgent", "egregious", "endemic", "equanimous", "execrable", "fastidious", "feckless", "fecund", "friable", "fulsome", "garrulous", "guileless", "gustatory", "harjd", "heuristic", "histrionic", "hubristic", "incendiary", "insidious", "insolent", "intransigent", "inveterate", "invidious", "irksome", "jejune", "jocular", "judicious", "lachrymose", "limpid", "loquacious", "luminous", "mannered", "mendacious", "meretricious", "minatory", "mordant", "munificent", "nefarious", "noxious", "obtuse", "parsimonious", "pendulous", "pernicious", "pervasive", "petulant", "platitudinous", "precipitate", "propitious", "puckish", "querulous", "quiescent", "rebarbative", "recalcitant", "redolent", "rhadamanthine", "risible", "ruminative", "sagacious", "salubrious", "sartorial", "sclerotic", "serpentine", "spasmodic", "strident", "taciturn", "tenacious", "tremulous", "trenchant", "turbulent", "turgid", "ubiquitous", "uxorious", "verdant", "voluble", "voracious", "wheedling", "withering", "zealous"];
+
+        return nouns[getRandomKey(nouns)] + ' ' + adjectives[getRandomKey(adjectives)];
     }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -170,19 +244,25 @@ window.onload = function () {
                 return
             }
             console.log(data)
-            if (data && data.inviteName || true) {
+            if (data && data.inviteName !== '') {
                 // 有推广代号
                 $('.js_hasid').removeClass('hide');
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
-                $('#namelink').text('http://xyj/' + (data.name || ''));
+                $('#namelink').text('http://xyj/' + data.inviteName);
             } else {
                 // 没有推广代号
                 $('.js_noid').removeClass('hide');
             }
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
+            $('.team-grid .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.list-content .owner-keys').text(data.keys);
+            getBuyPrice(function () {
+                $('.team-grid .total-award--eos').text((accMul(Number(data.keys), xyj._keyPrice)).toString() + 'ETH')
+            })
+            
             $('.list-content .total-award').text(data.earn);
+            $('.team-grid .total-award').text(data.earn.toString() + 'ETH');
         })
     })
 
@@ -190,8 +270,14 @@ window.onload = function () {
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
-                xyj.buyXaddr(getAdviceHash() || '0', xyj._team.toString(), accMul(xyj._keyPrice, xyj._keyNums), function () {
-
+                var data = getAdviceHash();
+                var fuc = {
+                    id: xyj.buyXid,
+                    addr: xyj.buyXaddr,
+                    name: xyj.buyXname
+                }[data.type]
+                fuc(data.str, xyj._team.toString(), accMul(xyj._keyPrice, xyj._keyNums), function () {
+                    // TODO: 购买成功后
                 });
             } else {
                 // TODO: 未登录
@@ -214,4 +300,64 @@ window.onload = function () {
         $('.list-content .tabs .tab-content').removeClass('active');
         $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
     });
+
+
+    // 奖池和团队数据
+    xyj.getCurrentRoundInfo(function (error, data) {
+        if (error) {
+            return;
+        }
+        
+        $('.banner .msg3, .total_prize_pool').text(formatNum(data.currPot).toString() + ' ETH');
+        $('.list-content .js_wukong').text(formatNum(data.sneks).toString() + ' ETH');
+        $('.list-content .js_shifu').text(formatNum(data.whales).toString() + ' ETH');
+        $('.list-content .js_bajie').text(formatNum(data.bulls).toString() + ' ETH');
+        $('.list-content .js_shaseng').text(formatNum(data.bears).toString() + ' ETH');
+    });
+
+
+    // 新建名字 按钮点击事件
+    $('.buyceo').click(function () {
+        $('#vanity').addClass('show');
+    });
+
+    // 创建名字弹窗关闭事件
+    $('#vanity .col-auto').click(closeVanity);
+
+    // 创建名字点击事件
+    $('#namePurchase').click(function () {
+        getAccounts(function (account) {
+            if (account) {
+                var data = getAdviceHash();
+                var name = getRegisterName();
+                if (isVerifyName(name)) {
+                    var fuc = {
+                        id: xyj.registerNameXID,
+                        addr: xyj.registerNameXaddr,
+                        name: xyj.registerNameXname
+                    }[data.type]
+                    fuc(name, data.str, function () {
+                        // TODO: 购买名字成功后
+                        closeVanity();
+                    });
+                } else {
+                    // 不合法的名字
+                }
+            } else {
+                // TODO: 未登录
+            }
+        });
+    });
+
+    // 随机数点击事件
+    $('#randomName').click(function () {
+        $('#nameInput').val(getRandomName());
+    });
+
+    // 提现点击事件
+    $('.js_withdraw').click(function () {
+        xyj.withdraw(function (error, res) {
+            console.log('提现', error, res)
+        })
+    })
 }
