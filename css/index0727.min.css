@@ -173,7 +173,7 @@
 }
 
 .put-forward-list .put-forward .title.icon-diao::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -185,7 +185,7 @@
 }
 
 .put-forward-list .put-forward .title.icon-gift::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -197,7 +197,7 @@
 }
 
 .put-forward-list .put-forward .title.icon-eth::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -215,7 +215,7 @@
 }
 
 .put-forward-list .put-forward .eth::after {
-  content: 'ETH';
+  content: "ETH";
   display: inline;
   font-size: 0.375002rem;
   margin-left: 0.187501rem;
@@ -234,6 +234,16 @@
   margin-bottom: 0.375002rem;
 }
 
+.team-grid .tip {
+  margin-bottom: 0.375002rem;
+}
+
+.team-grid .tip2 {
+  font-size: 0.300002rem;
+  color: #ffffff;
+  margin-bottom: 0.187501rem;
+}
+
 .team-grid .btn2 {
   display: block;
   width: 3.712523rem;
@@ -245,6 +255,50 @@
   outline: none;
   font-size: 0.375002rem;
   color: #f5c751;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.team-grid .btn2:hover {
+  background: #f5c751;
+  color: #fff;
+}
+
+.joinus {
+  padding: 0.36rem 0 !important;
+}
+
+.joinus .tip2,
+.joinus .tip {
+  padding: 0 0.75rem;
+}
+
+.joinus .referrals_cnt {
+  background: #1b1b1b;
+  padding: 0 0.750005rem 0.937506rem;
+}
+
+.joinus .referrals_cnt li {
+  padding-top: 0.187501rem;
+}
+
+.joinus .referrals_cnt li .title {
+  line-height: 0.656254rem;
+  font-size: 0.300002rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.joinus .referrals_cnt li .msg {
+  margin-bottom: 0.187501rem;
+  line-height: 0.600004rem;
+  text-align: center;
+  font-size: 0.262502rem;
+  color: rgab(255, 255, 2550, 0.6);
+}
+
+.joinus .referrals_cnt li + li {
+  margin-top: 0.750005rem;
 }
 
 @media (max-width: 550px) {

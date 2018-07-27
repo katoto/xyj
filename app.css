@@ -1183,9 +1183,12 @@ body {
     color: #fff;
     border-radius: .08rem;
     font-weight: 900;
-    cursor: pointer
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
+.team-grid .btn:hover {
+    background: linear-gradient(#111, #111);
+}
 .team-grid .tab-buy {
     line-height: 0
 }
