@@ -366,4 +366,10 @@
     -webkit-animation: none;
             animation: none;
   }
+
+  .team-grid,
+  .list {
+    width: 92%;
+    margin: 0 auto 0.5rem;
+  }
 }
