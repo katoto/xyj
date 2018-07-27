@@ -1426,11 +1426,6 @@ if (typeof web3 !== "undefined") {
         console.log('== 用于 实时播报 ====');
     })
 
-    // contractNet.buyXaddr('0xA68236213B1a3658f99f19E802c32197f779C2a9', '1', {value: web3.toWei(0.1, "ether")}, function (err, res) {
-    //     console.log(res)
-    //     console.log(res)
-    //     console.log('buyXaddr')
-    // })
 
     xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
         /*
