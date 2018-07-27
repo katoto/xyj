@@ -65,6 +65,24 @@ window.onload = function () {
         return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m)
     }
 
+    function accDiv (arg1, arg2) {
+        let t1 = 0
+        let t2 = 0
+        let r1
+        let r2
+        try {
+            t1 = arg1.toString().split('.')[1].length
+        } catch (e) {
+        }
+        try {
+            t2 = arg2.toString().split('.')[1].length
+        } catch (e) {
+        }
+        r1 = Number(arg1.toString().replace('.', ''))
+        r2 = Number(arg2.toString().replace('.', ''))
+        return (r1 / r2) * Math.pow(10, t2 - t1)
+    }
+
     // 渲染单价
     function renderPrice () {
         $('#eosCount').text('@ ' + accMul(xyj._keyNums, xyj._keyPrice).toString() + ' ETH')
@@ -72,13 +90,14 @@ window.onload = function () {
 
 
     // 获取Key单价
-    function getBuyPrice () {
+    function getBuyPrice (fn) {
         xyj.getBuyPrice(function (error, price) {
             // console.log(price);
             if (error) {
                 console.log(error);
             } else {
-                xyj._keyPrice = price;
+                xyj._keyPrice = accDiv(Math.floor(accMul(Number(price), Math.pow(10, 8))), Math.pow(10, 8));
+                fn && fn()
                 renderPrice();
             }
         });
@@ -100,7 +119,7 @@ window.onload = function () {
     // 获取邀请者账号
     function getAdviceHash () {
         // TODO: 邀请者账号
-        return false
+        return window.location.pathname.slice(1)
     }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -170,7 +189,7 @@ window.onload = function () {
                 return
             }
             console.log(data)
-            if (data && data.inviteName || true) {
+            if (data && data.inviteName !== '') {
                 // 有推广代号
                 $('.js_hasid').removeClass('hide');
                 $('#mylink').text('http://xyj/' + account);
@@ -181,8 +200,14 @@ window.onload = function () {
                 $('.js_noid').removeClass('hide');
             }
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
+            $('.team-grid .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.list-content .owner-keys').text(data.keys);
+            getBuyPrice(function () {
+                $('.team-grid .total-award--eos').text((accMul(Number(data.keys), xyj._keyPrice)).toString() + 'ETH')
+            })
+            
             $('.list-content .total-award').text(data.earn);
+            $('.team-grid .total-award').text(data.earn.toString() + 'ETH');
         })
     })
 
