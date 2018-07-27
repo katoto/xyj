@@ -188,6 +188,17 @@
                 margin-left: 10px;
             }
         }
+        .count{
+            line-height: 46px;
+            font-size: 30px;
+            color: #f5c751;
+            &::after {
+                content: "个";
+                display: inline;
+                font-size: 20px;
+                margin-left: 10px;
+            }
+        }
         .usdt {
             font-size: 20px;
             color: #39ca68;
@@ -268,7 +279,222 @@
         }
     }
 }
-
+.tabs .tab-content.round,.tabs .tab-content.team,.tabs .tab-content.statistics  {
+    padding: 0;
+}
+.choseteam{
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    color: #fff;
+}
+.round {
+    .round-list{
+        padding: 28px 40px;
+          li{
+              display: flex;
+              justify-content: space-between;
+              height: 60px;
+              line-height: 60px;
+              overflow: hidden;
+              font-size: 16px;
+              color: #fff;
+          }
+        .account{
+            font-size: 16px;
+            color: #f5c751;
+        }
+        .dead-time{
+            font-size: 30px;
+            color: #f5c751;
+        }
+        .total_prize_pool{
+            font-size: 30px;
+            color: #f5c751;
+            &::after{
+                content: 'ETH';
+                display: inline;
+                font-size: 20px;
+            }
+        }
+    }
+    .round-list2{
+        padding: 28px 40px;
+        background: #1b1b1b;
+        li{
+            display: flex;
+            justify-content: space-between;
+            height: 66px;
+            line-height: 66px;
+            overflow: hidden;
+            font-size: 16px;
+            color: #fff;
+            span{
+                position: relative;
+                display: block;
+                padding-left: 45px;
+                &.icon-diao{
+                    &::before{
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top:22px;
+                        width: 21px;
+                        height: 22px;
+                        background: url(../img/icon-diamond.png) no-repeat center;
+                        background-size: cover;
+                    }
+                }
+                &.icon-gift{
+                    &::before{
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top:20px;
+                        width: 24px;
+                        height: 26px;
+                        background: url(../img/icon-gift.png) no-repeat center;
+                        background-size: cover;
+                    }
+                }
+                &.icon-eth{
+                    &::before{
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top:21px;
+                        width: 24px;
+                        height: 24px;
+                        background: url(../img/icon-eth2.png) no-repeat center;
+                        background-size: cover;
+                    }
+                }
+            }
+            p{
+                color: #f5c751;
+            }
+        }
+    }
+}
+.team{
+    position: relative;
+    >h2{
+        position: absolute;
+        left: 40px;
+        top: 0;
+        line-height: 60px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .team-box{
+        padding-top: 30px;
+        li{
+            line-height: 86px;
+            padding: 30px 40px;
+            overflow: hidden;
+            img{
+                float: left;
+                width: 66px;
+                height: 86px;
+                overflow: hidden;
+                border: 2px solid #000;
+                border-radius: 8px;
+            }
+            .team-name{
+                float: left;
+                margin-left: 30px;
+                font-size: 18px;
+                color: #ffffff;
+            }
+            .team-jackpot{
+                float: right;
+                font-size: 30px;
+                color: #f5c751;
+                &::after{
+                    content: 'ETH';
+                    font-size: 16px;
+                }
+            }
+        }
+        li:nth-child(2n){
+            background: #1b1b1b;
+        }
+    }
+}
+.statistics{
+    >h2{
+        text-indent: 40px;
+        line-height: 50px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .teamscore{
+        li{
+            position: relative;
+            height: 125px;
+            padding: 0 40px;
+            .title{
+                float: left;
+                line-height: 80px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .eth{
+                float: right;
+                line-height: 90px;
+                font-size: 30px;
+                color: #f5c751;
+                &::after{
+                    content: ' ETH';
+                    font-size: 20px;
+                }
+            }
+            .years{
+                float: right;
+                line-height: 90px;
+                font-size: 30px;
+                color: #f5c751;
+                &::after{
+                    content: ' Years';
+                    font-size: 20px;
+                }
+            }
+            .uxdt{
+                position: absolute;
+                right: 40px;
+                top: 67px;
+                line-height: 26px;
+                font-size: 20px;
+                color: #39ca68;
+                &::after{
+                    content: ' UXDT';
+                    font-size: 20px;
+                    font-size: 14px;
+                }
+            }
+            .seconds{
+                position: absolute;
+                right: 40px;
+                top: 67px;
+                line-height: 26px;
+                font-size: 20px;
+                color: #39ca68;
+                &::after{
+                    content: ' Seconds';
+                    font-size: 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+        li:nth-child(2n+1){
+            background: #1b1b1b;
+        }
+    }
+}
 @media (max-width: 550px) {
     .banner {
         .msg1,

@@ -221,6 +221,19 @@
   margin-left: 0.187501rem;
 }
 
+.put-forward-list .put-forward .count {
+  line-height: 0.862505rem;
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.put-forward-list .put-forward .count::after {
+  content: "个";
+  display: inline;
+  font-size: 0.375002rem;
+  margin-left: 0.187501rem;
+}
+
 .put-forward-list .put-forward .usdt {
   font-size: 0.375002rem;
   color: #39ca68;
@@ -309,6 +322,248 @@
 
 .joinus .referrals_cnt li + li {
   margin-top: 0.750005rem;
+}
+
+.tabs .tab-content.round,
+.tabs .tab-content.team,
+.tabs .tab-content.statistics {
+  padding: 0;
+}
+
+.choseteam {
+  height: 1.125007rem;
+  line-height: 1.125007rem;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.round .round-list {
+  padding: 0.525003rem 0.750005rem;
+}
+
+.round .round-list li {
+  display: flex;
+  justify-content: space-between;
+  height: 1.125007rem;
+  line-height: 1.125007rem;
+  overflow: hidden;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.round .round-list .account {
+  font-size: 0.300002rem;
+  color: #f5c751;
+}
+
+.round .round-list .dead-time {
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.round .round-list .total_prize_pool {
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.round .round-list .total_prize_pool::after {
+  content: 'ETH';
+  display: inline;
+  font-size: 0.375002rem;
+}
+
+.round .round-list2 {
+  padding: 0.525003rem 0.750005rem;
+  background: #1b1b1b;
+}
+
+.round .round-list2 li {
+  display: flex;
+  justify-content: space-between;
+  height: 1.237508rem;
+  line-height: 1.237508rem;
+  overflow: hidden;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.round .round-list2 li span {
+  position: relative;
+  display: block;
+  padding-left: 0.843755rem;
+}
+
+.round .round-list2 li span.icon-diao::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.412503rem;
+  width: 0.393752rem;
+  height: 0.412503rem;
+  background: url(../img/icon-diamond.png) no-repeat center;
+  background-size: cover;
+}
+
+.round .round-list2 li span.icon-gift::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.375002rem;
+  width: 0.450003rem;
+  height: 0.487503rem;
+  background: url(../img/icon-gift.png) no-repeat center;
+  background-size: cover;
+}
+
+.round .round-list2 li span.icon-eth::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.393752rem;
+  width: 0.450003rem;
+  height: 0.450003rem;
+  background: url(../img/icon-eth2.png) no-repeat center;
+  background-size: cover;
+}
+
+.round .round-list2 li p {
+  color: #f5c751;
+}
+
+.team {
+  position: relative;
+}
+
+.team > h2 {
+  position: absolute;
+  left: 0.750005rem;
+  top: 0;
+  line-height: 1.125007rem;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.team .team-box {
+  padding-top: 0.562504rem;
+}
+
+.team .team-box li {
+  line-height: 1.61251rem;
+  padding: 0.562504rem 0.750005rem;
+  overflow: hidden;
+}
+
+.team .team-box li img {
+  float: left;
+  width: 1.237508rem;
+  height: 1.61251rem;
+  overflow: hidden;
+  border: 0.0375rem solid #000;
+  border-radius: 0.150001rem;
+}
+
+.team .team-box li .team-name {
+  float: left;
+  margin-left: 0.562504rem;
+  font-size: 0.337502rem;
+  color: #ffffff;
+}
+
+.team .team-box li .team-jackpot {
+  float: right;
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.team .team-box li .team-jackpot::after {
+  content: 'ETH';
+  font-size: 0.300002rem;
+}
+
+.team .team-box li:nth-child(2n) {
+  background: #1b1b1b;
+}
+
+.statistics > h2 {
+  text-indent: 0.750005rem;
+  line-height: 0.937506rem;
+  font-size: 0.300002rem;
+  color: #fff;
+}
+
+.statistics .teamscore li {
+  position: relative;
+  height: 2.343765rem;
+  padding: 0 0.750005rem;
+}
+
+.statistics .teamscore li .title {
+  float: left;
+  line-height: 1.500009rem;
+  color: #fff;
+  font-size: 0.300002rem;
+  font-weight: bold;
+}
+
+.statistics .teamscore li .eth {
+  float: right;
+  line-height: 1.687511rem;
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.statistics .teamscore li .eth::after {
+  content: ' ETH';
+  font-size: 0.375002rem;
+}
+
+.statistics .teamscore li .years {
+  float: right;
+  line-height: 1.687511rem;
+  font-size: 0.562504rem;
+  color: #f5c751;
+}
+
+.statistics .teamscore li .years::after {
+  content: ' Years';
+  font-size: 0.375002rem;
+}
+
+.statistics .teamscore li .uxdt {
+  position: absolute;
+  right: 0.750005rem;
+  top: 1.256258rem;
+  line-height: 0.487503rem;
+  font-size: 0.375002rem;
+  color: #39ca68;
+}
+
+.statistics .teamscore li .uxdt::after {
+  content: ' UXDT';
+  font-size: 0.375002rem;
+  font-size: 0.262502rem;
+}
+
+.statistics .teamscore li .seconds {
+  position: absolute;
+  right: 0.750005rem;
+  top: 1.256258rem;
+  line-height: 0.487503rem;
+  font-size: 0.375002rem;
+  color: #39ca68;
+}
+
+.statistics .teamscore li .seconds::after {
+  content: ' Seconds';
+  font-size: 0.375002rem;
+  font-size: 0.262502rem;
+}
+
+.statistics .teamscore li:nth-child(2n+1) {
+  background: #1b1b1b;
 }
 
 @media (max-width: 550px) {
