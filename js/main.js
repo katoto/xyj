@@ -1,5 +1,17 @@
 window.onload = function () {
 
+    // 格式化金额
+    function numberComma (source, length = 3) {
+        source = String(source).split('.')
+        source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{' + length + '})+$)', 'ig'), '$1,')
+        return source.join('.')
+    }
+
+    function formatUSDT (eth) {
+        var usd = 464.68;
+        return numberComma(accMul(usd, eth).toFixed(2))
+    }
+
     function getDefaultAdvisor () {
         return '0'
     }
@@ -257,11 +269,14 @@ window.onload = function () {
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.team-grid .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.list-content .owner-keys').text(data.keys);
+            
             getBuyPrice(function () {
                 $('.team-grid .total-award--eos').text((accMul(Number(data.keys), xyj._keyPrice)).toString() + 'ETH')
             })
             
             $('.list-content .total-award').text(data.earn);
+            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.earn) + ' USDT');
+
             $('.team-grid .total-award').text(data.earn.toString() + 'ETH');
         })
     })
@@ -304,15 +319,22 @@ window.onload = function () {
 
     // 奖池和团队数据
     xyj.getCurrentRoundInfo(function (error, data) {
-        if (error) {
-            return;
-        }
-        
-        $('.banner .msg3, .total_prize_pool').text(formatNum(data.currPot).toString() + ' ETH');
-        $('.list-content .js_wukong').text(formatNum(data.sneks).toString() + ' ETH');
-        $('.list-content .js_shifu').text(formatNum(data.whales).toString() + ' ETH');
-        $('.list-content .js_bajie').text(formatNum(data.bulls).toString() + ' ETH');
-        $('.list-content .js_shaseng').text(formatNum(data.bears).toString() + ' ETH');
+        console.log(data)
+        getBuyPrice(function () {
+            if (error) {
+                return;
+            }
+            console.log(data)
+            $('.banner .msg3, .total_prize_pool').text(formatNum(data.currPot).toString() + ' ETH');
+            $('.list-content .js_wukong').text(formatNum(data.sneks_2).toString() + ' ETH');
+            $('.list-content .js_shifu').text(formatNum(data.whales_0).toString() + ' ETH');
+            $('.list-content .js_bajie').text(formatNum(data.bulls_3).toString() + ' ETH');
+            $('.list-content .js_shaseng').text(formatNum(data.bears_1).toString() + ' ETH');
+            $('.js_keys_value').text(formatNum(accMul(data.totalKey, xyj._keyPrice)));
+    
+            $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
+            $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
+        })
     });
 
 
