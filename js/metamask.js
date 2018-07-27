@@ -1923,6 +1923,8 @@ if (typeof web3 !== "undefined") {
                             purchasedSeconds: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second),
                             purchasedTime: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second) / (3600 * 24 * 365),
 
+                            lastBuyAddr: res[7].toString(),
+                            lastBuyName: web3.toUtf8(res[8])
                         })
                     }
                 } else {
@@ -2077,8 +2079,7 @@ if (typeof web3 !== "undefined") {
                                 var roundObj = {
                                     totalEth: web3.fromWei(res[6].toNumber()),
                                     distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
-                                    lastBuyAddr: res[7].toString(),
-                                    lastBuyName: web3.toUtf8(res[8])
+
                                 }
                                 fn(null, roundObj)
                             }
