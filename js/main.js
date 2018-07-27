@@ -93,9 +93,15 @@ window.onload = function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
+    function formatNum (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
+    }
+
     // 渲染单价
     function renderPrice () {
-        $('#eosCount').text('@ ' + accMul(xyj._keyNums, xyj._keyPrice).toString() + ' ETH')
+        var price = xyj._keyPrice;
+        price = formatNum(price);
+        $('#eosCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH')
     }
 
 
@@ -106,7 +112,7 @@ window.onload = function () {
             if (error) {
                 console.log(error);
             } else {
-                xyj._keyPrice = accDiv(Math.floor(accMul(Number(price), Math.pow(10, 8))), Math.pow(10, 8));
+                xyj._keyPrice = price;
                 fn && fn()
                 renderPrice();
             }
@@ -238,12 +244,12 @@ window.onload = function () {
                 return
             }
             console.log(data)
-            if (data && data.inviteName !== web3.toAscii('0x0000000000000000000000000000000000000000000000000000000000000000') && data.inviteName !== '') {
+            if (data && data.inviteName !== '') {
                 // 有推广代号
                 $('.js_hasid').removeClass('hide');
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
-                $('#namelink').text('http://xyj/' + (data.name || ''));
+                $('#namelink').text('http://xyj/' + data.inviteName);
             } else {
                 // 没有推广代号
                 $('.js_noid').removeClass('hide');
@@ -302,11 +308,11 @@ window.onload = function () {
             return;
         }
         
-        $('.banner .msg3, .total_prize_pool').text(data.currPot + ' ETH');
-        $('.list-content .js_wukong').text(data.sneks + ' ETH');
-        $('.list-content .js_shifu').text(data.whales + ' ETH');
-        $('.list-content .js_bajie').text(data.bulls + ' ETH');
-        $('.list-content .js_shaseng').text(data.bears + ' ETH');
+        $('.banner .msg3, .total_prize_pool').text(formatNum(data.currPot).toString() + ' ETH');
+        $('.list-content .js_wukong').text(formatNum(data.sneks).toString() + ' ETH');
+        $('.list-content .js_shifu').text(formatNum(data.whales).toString() + ' ETH');
+        $('.list-content .js_bajie').text(formatNum(data.bulls).toString() + ' ETH');
+        $('.list-content .js_shaseng').text(formatNum(data.bears).toString() + ' ETH');
     });
 
 
@@ -347,4 +353,11 @@ window.onload = function () {
     $('#randomName').click(function () {
         $('#nameInput').val(getRandomName());
     });
+
+    // 提现点击事件
+    $('.js_withdraw').click(function () {
+        xyj.withdraw(function (error, res) {
+            console.log('提现', error, res)
+        })
+    })
 }
