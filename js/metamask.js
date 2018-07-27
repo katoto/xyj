@@ -1344,12 +1344,12 @@ if (typeof web3 !== "undefined") {
         if (typeof fn !== "function") {
             return 'need async function !.'
         }
-        // * @return eth invested during ICO phase 1
-        // * @return round id2
-        // * @return total keys for round3
-        // * @return time round ends4
-        // * @return time round started5
-        // * @return current pot6
+        // * @return eth invested during ICO phase 0
+        // * @return round id 1
+        // * @return total keys for round2
+        // * @return time round ends 3
+        // * @return time round started4
+        // * @return current pot  5
 
         // * @return current team ID & player ID in lead 7
         // * @return current player in leads address8
@@ -1365,15 +1365,16 @@ if (typeof web3 !== "undefined") {
             contractNet.getCurrentRoundInfo(function (err, res) {
                 if (!err) {
                     if (res) {
+                        console.log(res)
                         fn(null, {
                             totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
-                            currPot: res[6].toString(),
-                            endsTime: res[4].toNumber(),
-                            started: res[5].toNumber(),  // todo
-                            whales: Math.ceil((res[10].toNumber()) / (10 ** 18)),
-                            bears: Math.ceil((res[11].toNumber()) / (10 ** 18)),
-                            sneks: Math.ceil((res[12].toNumber()) / (10 ** 18)),
-                            bulls: Math.ceil((res[13].toNumber()) / (10 ** 18)),
+                            currPot: (res[5].toNumber()) / (10 ** 18),
+                            startedTime: res[4].toNumber(),
+                            endedTime: res[3].toNumber(),  // todo
+                            whales: (res[10].toNumber()) / (10 ** 18),
+                            bears: (res[11].toNumber()) / (10 ** 18),
+                            sneks: (res[12].toNumber()) / (10 ** 18),
+                            bulls: (res[13].toNumber()) / (10 ** 18),
                         })
                     }
                 } else {
