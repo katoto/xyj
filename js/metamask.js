@@ -1518,6 +1518,7 @@ if (typeof web3 !== "undefined") {
     contractNet.allEvents(function (err, res) {
         // 4种事件类型
         // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
+        // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
         if (!err) {
             if (res) {
                 // console.log(res);
