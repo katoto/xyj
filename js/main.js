@@ -283,7 +283,7 @@ window.onload = function () {
             $('.list-content .owner-keys').text(data.keys);
             
             getBuyPrice(function () {
-                $('.team-grid .total-award--eth').text((formatNum8(accMul(Number(data.keys), xyj._keyPrice))).toString());
+                $('.team-grid .js_your_key').text(Number(data.keys));
             });
             
             $('.list-content .total-award').text(data.earn);
@@ -340,14 +340,25 @@ window.onload = function () {
             $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString() + ' ETH');
             $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString() + ' ETH');
             $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString() + ' ETH');
-            $('.js_keys_value').text(formatNum3(accMul(data.totalKey, xyj._keyPrice)));
+            
     
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
-            $('.js_keys_usdt').text('≙ ' + formatUSDT(accMul(data.totalKey, xyj._keyPrice)) + ' USDT');
-            $('.js_year').text(data.purchasedTime.toString() + ' 年');
-            $('.js_second').text(data.purchasedSeconds.toString() + ' 秒');
+            console.log(data.purchasedTime, formatNum2(data.purchasedTime))
+            $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString() + ' 年');
+            $('.js_second').text(numberComma(data.purchasedSeconds) + ' 秒');
         })
     });
+
+    xyj.getRound(function (error, data) {
+        if (error) {
+            return;
+        }
+        console.log(data);
+        $('.js_keys_value').text(formatNum3(data.totalEth));
+        $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth) + ' USDT');
+        $('.js_dis_value').text(formatNum3(data.distributionEth));
+        $('.js_dis_usdt').text('≙ ' + formatUSDT(data.distributionEth) + ' USDT');
+    })
 
 
     // 新建名字 按钮点击事件
