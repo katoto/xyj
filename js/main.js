@@ -293,7 +293,7 @@ window.onload = function () {
     });
 
     // 默认选钟唐僧队
-    xyj._team = 0;
+    xyj._team = 2;
 
     window.refreshPersonInfo = function () {
         // 渲染邀请信息和个人盈利
