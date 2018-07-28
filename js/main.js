@@ -1,5 +1,23 @@
 window.onload = function () {
 
+
+    // 购买、提现、推荐奖励 tab 点击事件
+    $('.team-grid .tabs .tab-title span').click(function () {
+        $('.team-grid .tabs .tab-title span').removeClass('active');
+        $(this).addClass('active');
+        $('.team-grid .tabs .tab-content').removeClass('active');
+        $('.team-grid .tabs .tab-content').eq($(this).index()).addClass('active');
+    });
+
+    // 回合、团队、统计 tab 点击事件
+    $('.list-content .tabs .tab-title span').click(function () {
+        $('.list-content .tabs .tab-title span').removeClass('active');
+        $(this).addClass('active');
+        $('.list-content .tabs .tab-content').removeClass('active');
+        $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
+    });
+
+
     // 格式化金额
     function numberComma (source, length = 3) {
         source = String(source).split('.')
@@ -322,21 +340,6 @@ window.onload = function () {
         });
     });
 
-    // 购买、提现、推荐奖励 tab 点击事件
-    $('.team-grid .tabs .tab-title span').click(function () {
-        $('.team-grid .tabs .tab-title span').removeClass('active');
-        $(this).addClass('active');
-        $('.team-grid .tabs .tab-content').removeClass('active');
-        $('.team-grid .tabs .tab-content').eq($(this).index()).addClass('active');
-    });
-
-    // 回合、团队、统计 tab 点击事件
-    $('.list-content .tabs .tab-title span').click(function () {
-        $('.list-content .tabs .tab-title span').removeClass('active');
-        $(this).addClass('active');
-        $('.list-content .tabs .tab-content').removeClass('active');
-        $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
-    });
 
 
     // 奖池和团队数据

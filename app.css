@@ -1301,13 +1301,12 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
     margin-bottom: .5rem
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1316,7 +1315,6 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     padding: 5px 8px 10px;
-    ;
     border-radius: .08rem;
     font-size: .18rem;
     color: #fff;
@@ -1326,11 +1324,6 @@ body {
     cursor: pointer;
     background: #000;
 }
-
-.team-grid .tab-buy .select-team .team-container .team-wrapper+.team-wrapper {
-    margin-left: 10px;
-}
-
 .tab-buy .count-wrapper:hover {
     background: #a28338;
 }
