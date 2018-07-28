@@ -403,10 +403,11 @@ window.onload = function () {
                 console.log(data.purchasedTime, formatNum2(data.purchasedTime))
                 $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
                 $('.js_second').text(numberComma(data.purchasedSeconds));
-                if (data.lastBuyName && data.lastBuyName !== '') {
-                    $('.round-list .winner').removeClass('hide');
-                    $('.round-list .winner .account').text(data.lastBuyName);
-                }
+                /* hide lastBuy Name */
+                // if (data.lastBuyName && data.lastBuyName !== '') {
+                //     $('.round-list .winner').removeClass('hide');
+                //     $('.round-list .winner .account').text(data.lastBuyName);
+                // }
             })
         });
     };
