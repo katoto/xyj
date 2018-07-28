@@ -114,10 +114,11 @@ xyj.getPlayerInfoByAddress = function (addr, fn) {
                         keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
                         // earn: (res[4].toNumber()) / (10 ** 18),
                         earn: web3.fromWei(res[4].toNumber()),
-                        totalEarn: web3.fromWei(res[5].toNumber() + res[4].toNumber()),
+                        totalEarn: web3.fromWei(res[5].toNumber() + res[3].toNumber() + res[4].toNumber()),
                         shareEarn: web3.fromWei(res[5].toNumber()),
                         payMoney: web3.fromWei(res[6].toNumber()),
-                        winningValue:web3.fromWei(res[3].toNumber())
+                        winningValue_3: web3.fromWei(res[3].toNumber()),
+                        winningValue_4: web3.fromWei(res[4].toNumber()),
                     })
                 }
             } else {
