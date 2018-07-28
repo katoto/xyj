@@ -3349,15 +3349,19 @@ contractNet.allEvents(function (err, res) {
 
     if (!err) {
         if (res) {
-            console.log(res);
             if (res.event === 'onEndTx') {
-                alertify.success('')
+                if (xyj._account === res.args.playerAddress) {
+                    alertify.success('您已成功购买' + Math.ceil((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                } else if (web3.toUtf8(res.args.playerName) !== '') {
+                    alertify.success(web3.toUtf8(res.args.playerName) + '已成功购买' + Math.ceil((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                }
+                xyj._account && window.refreshPersonInfo();
+                window.refreshInfo();
+                window.refreshTime();
             } else if (res.event === 'onNewName') {
                 alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
             } else if (res.event === 'onWithdraw') {
-
-            } else if (res.event === 'onAffiliatePayout') {
-
+                xyj._account && window.refreshPersonInfo();
             }
         }
     } else {

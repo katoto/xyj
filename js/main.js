@@ -1,3 +1,6 @@
+window.refreshPersonInfo = null;
+window.refreshInfo = null;
+window.refreshTime = null;
 window.onload = function () {
 
 
@@ -225,14 +228,18 @@ window.onload = function () {
 
     xyj._keyNums = 1
 
-    // 获取合约剩余时间
-    xyj.getTimeLeft(function (error, time) {
-        if (error) {
-            console.log(error);
-        } else {
-            updateInterval(time);
-        }
-    });
+    window.refreshTime = function () {
+        // 获取合约剩余时间
+        xyj.getTimeLeft(function (error, time) {
+            if (error) {
+                console.log(error);
+            } else {
+                updateInterval(time);
+            }
+        });
+    };
+    window.refreshTime();
+
 
     $('#count').on('input', function () {
         var keyNums = Number($(this).val())
@@ -278,9 +285,9 @@ window.onload = function () {
         var team = $(this).attr('data-team');
         var teamId = {
             'shifu': 0,
-            'wukong': 1,
-            'bajie': 2,
-            'shaseng': 3
+            'wukong': 2,
+            'bajie': 3,
+            'shaseng': 1
         }[team];
         xyj._team = teamId;
     });
@@ -288,40 +295,43 @@ window.onload = function () {
     // 默认选钟唐僧队
     xyj._team = 0;
 
-    // 渲染邀请信息和个人盈利
-    getAccounts(function (account) {
-        $('.js_noid, .js_hasid').addClass('hide');
-        xyj.getPlayerInfoByAddress(account, function (error, data) {
-            if (error) {
-                return
-            }
-            console.log(data)
-            if (data && data.inviteName !== '') {
-                // 有推广代号
-                $('.js_hasid').removeClass('hide');
-                $('#mylink').text('http://xyj/' + account);
-                $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
-                $('#namelink').text('http://xyj/' + data.inviteName);
-                xyj._inviteName = data.inviteName;
-            } else {
-                // 没有推广代号
-                $('.js_noid').removeClass('hide');
-            }
-            $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
-            $('.team-grid .share-award').text(data.shareEarn.toString());
-            $('.list-content .owner-keys').text(data.keys.toString() + ' 个');
+    window.refreshPersonInfo = function () {
+        // 渲染邀请信息和个人盈利
+        getAccounts(function (account) {
+            $('.js_noid, .js_hasid').addClass('hide');
+            xyj.getPlayerInfoByAddress(account, function (error, data) {
+                if (error) {
+                    return
+                }
+                console.log(data)
+                if (data && data.inviteName !== '') {
+                    // 有推广代号
+                    $('.js_hasid').removeClass('hide');
+                    $('#mylink').text('http://xyj/' + account);
+                    $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
+                    $('#namelink').text('http://xyj/' + data.inviteName);
+                    xyj._inviteName = data.inviteName;
+                } else {
+                    // 没有推广代号
+                    $('.js_noid').removeClass('hide');
+                }
+                $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
+                $('.team-grid .share-award').text(data.shareEarn.toString());
+                $('.list-content .owner-keys').text(data.keys.toString() + ' 个');
 
-            getBuyPrice(function () {
-                $('.team-grid .js_your_key').text(Number(data.keys));
+                getBuyPrice(function () {
+                    $('.team-grid .js_your_key').text(Number(data.keys));
+                });
+
+                $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
+                $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
+                $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
+                $('.team-grid .total-award').text(data.totalEarn.toString());
             });
+        });
+    };
+    window.refreshPersonInfo();
 
-            $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
-            $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-            $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-
-            $('.team-grid .total-award').text(data.totalEarn.toString());
-        })
-    })
 
     $('.btn-buy, .js_buy').click(function () {
         var isJSBuy = $(this).hasClass('js_buy');
@@ -337,36 +347,37 @@ window.onload = function () {
                 fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function () {
                     // TODO: 购买成功后
                 });
-            } else {
-                // TODO: 未登录
             }
         });
     });
 
 
-
-    // 奖池和团队数据
-    xyj.getCurrentRoundInfo(function (error, data) {
-        console.log(data)
-        getBuyPrice(function () {
+    window.refreshInfo = function () {
+        // 奖池和团队数据
+        xyj.getCurrentRoundInfo(function (error, data) {
             console.log(data)
-            $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString());
-            $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
-            $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
-            $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());
-            $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString());
+            getBuyPrice(function () {
+                console.log(data)
+                $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString());
+                $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
+                $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
+                $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());
+                $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString());
 
 
-            $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
-            console.log(data.purchasedTime, formatNum2(data.purchasedTime))
-            $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
-            $('.js_second').text(numberComma(data.purchasedSeconds));
-            if (data.lastBuyName && data.lastBuyName !== '') {
-                $('.round-list .winner').removeClass('hide');
-                $('.round-list .winner .account').text(data.lastBuyName);
-            }
-        })
-    });
+                $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
+                console.log(data.purchasedTime, formatNum2(data.purchasedTime))
+                $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
+                $('.js_second').text(numberComma(data.purchasedSeconds));
+                if (data.lastBuyName && data.lastBuyName !== '') {
+                    $('.round-list .winner').removeClass('hide');
+                    $('.round-list .winner .account').text(data.lastBuyName);
+                }
+            })
+        });
+    };
+    window.refreshInfo();
+
 
     xyj.getRound(function (error, data) {
         if (error) {
@@ -410,10 +421,8 @@ window.onload = function () {
                         closeVanity();
                     });
                 } else {
-                    // 不合法的名字
+                    alertify.alert('输入的名字不符合规则');
                 }
-            } else {
-                // TODO: 未登录
             }
         });
     });
@@ -436,11 +445,7 @@ window.onload = function () {
 
     $('.js_share').click(function () {
         $('#sharing-rewards span').eq(2).click();
-        if (xyj._account && xyj._account !== '') {
-            if (xyj._inviteName) {
-                
-            }
-        } else {
+        if (!(xyj._account && xyj._account !== '')) {
             alertify.alert('您的metamask未登录');
         }
     })
