@@ -428,10 +428,10 @@ window.onload = function () {
     $('#namePurchase').click(function () {
         getAccounts(function (account) {
             if (account) {
-                showLoading();
                 var data = getAdviceHash();
                 var name = getRegisterName();
                 if (isVerifyName(name)) {
+                    showLoading();
                     var fuc = {
                         id: xyj.registerNameXID,
                         addr: xyj.registerNameXaddr,
