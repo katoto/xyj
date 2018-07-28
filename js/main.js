@@ -372,6 +372,9 @@ window.onload = function () {
     window.refreshInfo = function () {
         // 奖池和团队数据
         xyj.getCurrentRoundInfo(function (error, data) {
+            if (error) {
+                return
+            }
             console.log(data)
             getBuyPrice(function () {
                 console.log(data)
