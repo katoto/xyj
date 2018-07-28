@@ -165,12 +165,13 @@ window.onload = function () {
     // 获取我的账号
     function getAccounts(fn) {
         xyj.getAccounts(function (error, account) {
-            if (error) {
-                console.log(error)
-                fn(false)
+            xyj._account = account;
+            if (error || account === '') {
+                console.log(error);
+                alertify.alert('您的metamask未登录');
             } else {
-                console.log(account)
-                fn(account)
+                console.log(account);
+                fn(account);
             }
         })
     }
@@ -301,6 +302,7 @@ window.onload = function () {
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
                 $('#namelink').text('http://xyj/' + data.inviteName);
+                xyj._inviteName = data.inviteName;
             } else {
                 // 没有推广代号
                 $('.js_noid').removeClass('hide');
@@ -380,8 +382,12 @@ window.onload = function () {
 
     // 新建名字 按钮点击事件
     $('.js_buyceo').click(function () {
-        $('#vanity').addClass('show');
-        $('#nameInput').val('');
+        if (xyj._account && xyj._account !== '') {
+            $('#vanity').addClass('show');
+            $('#nameInput').val('');
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
     });
 
     // 创建名字弹窗关闭事件
@@ -419,14 +425,25 @@ window.onload = function () {
 
     // 提现点击事件
     $('.js_withdraw').click(function () {
-        xyj.withdraw(function (error, res) {
-            console.log('提现', error, res)
-        })
+        if (xyj._account && xyj._account !== '') {
+            xyj.withdraw(function (error, res) {
+                console.log('提现', error, res)
+            })
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
     });
+
+    $('.js_share').click(function () {
+        $('#sharing-rewards span').eq(2).click();
+        if (xyj._account && xyj._account !== '') {
+            if (xyj._inviteName) {
+                
+            }
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
+    })
 
     new ClipboardJS('.js_copy_btn');
-
-    xyj.getCurrentRoundInfo(function (error, data) {
-
-    });
 }

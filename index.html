@@ -60,13 +60,13 @@
                     </span>
                     <span style="color: #666;margin-left: 20px;" id="locale">EN</span>
                 </div>
-                <div class="head-share">
+                <a class="head-share js_share" href="#sharing-rewards">
                     <img src="./img/icon-gift.png" alt="">
                     <p>Sharing rewards</p>
-                </div>
+                </a>
             </h1>
             <div class="notice hide" id="notice">
-                <h6>【公告】狼人游戏已升级上线</h6>
+                <h6>【公告】西游游戏已升级上线</h6>
                 <span class="operator">
                     <span>查看全文</span>
                     <span id="closeNotice" style="padding: 0.01rem 0.2rem">X</span>
@@ -167,7 +167,7 @@
             </section>
             <section class="team-grid">
                 <div class="tabs">
-                    <div class="tab-title">
+                    <div class="tab-title" id="sharing-rewards">
                         <span class="active" data-trans="tabBuyTitle">购买</span>
                         <span data-trans="tabDrawTitle">提现</span>
                         <span data-trans="Recommended">推荐奖励</span>
@@ -181,7 +181,7 @@
                                 <div class="input-inner">
                                     <input id="count" type="number" placeholder="1 金钻" min="1">
                                 </div>
-                                <span class="eth-count" id="ethCount">@ 0 ETH</span>
+                                <span class="eth-count" id="ethCount">@ 12345678 ETH</span>
                             </div>
                             <div class="count-container">
                                 <div class="count-wrapper" data-num="10">
@@ -259,7 +259,7 @@
                     </div>
                     <div class="tab-content ">
                         <div class="tab-put-forward">
-                            <div class="tip" data-trans="drawTip">*提示：最低10个ETH起提，本轮结束自动提现至账户</div>
+                            <div class="tip" data-trans="drawTip">*提示：最低0.1个ETH起提，本轮结束自动提现至账户</div>
                             <div class="put-forward-list">
                                 <div class="put-forward">
                                     <h6 class="title icon-diao" data-trans="withdrawAvailable">你的金钻</h6>
@@ -279,15 +279,15 @@
                             <button class="btn btn-put js_withdraw" data-trans="withdraw">全部提现</button>
                         </div>
                     </div>
-                    <div class="tab-content joinus ">
-                        <div class="js_noid hide">
+                    <div class="tab-content joinus">
+                        <div class="js_noid">
                             <p class="tip">让更多人参与造梦西游游戏</p>
                             <div class="joinus-btn">
                                 购买一个代号来生成推广链接，并直接分享高达10%的佣金
-                                <a href="javascript:;" class="btn js_buyceo">注册一个专属的推广代号</a>
+                                <a href="javascript:;" class="btn buyceo js_buyceo">注册一个专属的推广代号</a>
                             </div>
                         </div>
-                        <div class="js_hasid jumbotron jumbotron-adjust ">
+                        <div class="js_hasid jumbotron jumbotron-adjust hide">
                             <p class="tip2">Advisory Board</p>
                             <p class="tip">Advise others to invest in this exit scam and we'll reward you 10% of everything they lose. In
                                 Ethereum.
@@ -436,19 +436,6 @@
         </div>
         <span class="close-btn" disabled=""></span>
     </div>
-    <div class="loading-layer" style="display: none;">
-        <div class="loading-container">
-            <div class="loading-content">
-                <div class="loading-progress" style="width: 99%;">
-                    <span class="loading-icon">
-                    loading
-                    </span>
-                </div>
-            </div>
-            <p>loading
-                <span class="percentage">99</span>%</p>
-        </div>
-    </div>
     <div class="rule-layer" id="rule-layer">
         <div class="layer-content">
             <p>本轮剩余时间</p>
@@ -553,11 +540,11 @@
     </div>
     <div class="notice-layer" id="noticeLayer">
         <div class="layer-content">
-            <h1>【公告】狼人游戏已升级上线</h1>
-            <p>狼人游戏已完成升级，修复黑客造成的数据问题，攻击者并未影响用户的资产和奖励池的安全。已完成数据映射和合约升级，用户可以正常提取分红奖励，并将继续参与购买、最后获奖者竞争和团队奖励。</p>
+            <h1>【公告】西游游戏已升级上线</h1>
+            <p>西游游戏已完成升级，修复黑客造成的数据问题，攻击者并未影响用户的资产和奖励池的安全。已完成数据映射和合约升级，用户可以正常提取分红奖励，并将继续参与购买、最后获奖者竞争和团队奖励。</p>
             <p>【备注】用户需要在 SCATTER 钱包“权限”中删除原有授权身份，再点击右上角“授权”即可。</p>
             <div class="from">
-                <span>狼人游戏团队</span>
+                <span>西游游戏团队</span>
                 <span>2018.7.26 </span>
             </div>
         </div>
@@ -580,7 +567,7 @@
         </div>
     </div>
     <div class="pop-success">
-        其次，活动的说明：感谢本次所有参加狼人游戏的玩家
+        其次，活动的说明：感谢本次所有参加西游游戏的玩家
     </div>
     <script src="./jquery-3.3.1.min.js"></script>
     <!-- <script type="text/javascript" src="./app.js"></script> -->
