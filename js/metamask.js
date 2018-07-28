@@ -1951,10 +1951,6 @@ xyj.getBuyPrice = function (fn) {
         return 'need async function !.'
     }
     contractNet.getBuyPrice(function (err, res) {
-        console.log('-----------')
-        console.log(err)
-        console.log(res)
-        console.log('==========')
         if (!err) {
             if (res) {
                 var web3_getBuyPrice = res.toNumber(10)
@@ -2152,15 +2148,18 @@ xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
     *
     * */
     if (typeof _affCode !== 'string') {
+        fn('_affCode param 1 need Sting ( addr )', null)
         return '_affCode param 1 need Sting ( addr )'
     }
     if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
         return '_team param 2 need number (0,1,2,3)'
     }
     if (typeof totalVal === 'string') {
         totalVal = parseFloat(totalVal)
     }
     if (!totalVal) {
+        fn('totalVal param 3 error', null)
         return 'totalVal param 3 error'
     }
     contractNet.buyXaddr(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
@@ -2183,15 +2182,18 @@ xyj.buyXname = function (_affCode, _team, totalVal, fn) {
     *
     * */
     if (typeof _affCode !== 'string') {
+        fn('_affCode param 1 need Sting ( addr )', null)
         return '_affCode param 1 need Sting ( addr )'
     }
     if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
         return '_team param 2 need number (0,1,2,3)'
     }
     if (typeof totalVal === 'string') {
         totalVal = parseFloat(totalVal)
     }
     if (!totalVal) {
+        fn('totalVal param 3 error', null)
         return 'totalVal param 3 error'
     }
     contractNet.buyXname(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
@@ -2214,15 +2216,18 @@ xyj.buyXid = function (_affCode, _team, totalVal, fn) {
     *
     * */
     if (typeof _affCode !== 'number') {
+        fn('_affCode param 1 need number ( id )', null)
         return '_affCode param 1 need number ( id )'
     }
     if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
         return '_team param 2 need number (0,1,2,3)'
     }
     if (typeof totalVal === 'string') {
         totalVal = parseFloat(totalVal)
     }
     if (!totalVal) {
+        fn('totalVal param 3 error', null)
         return 'totalVal param 3 error'
     }
     contractNet.buyXid(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
