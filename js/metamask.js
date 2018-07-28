@@ -384,7 +384,8 @@ contractNet.allEvents(function (err, res) {
                 xyj._account && window.refreshPersonInfo();
                 window.refreshInfo();
             } else if (res.event === 'onNewName') {
-                alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
+                // alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
+                alertify.success('全体起立，热烈欢迎' + web3.toUtf8(res.args.playerName) + '加入到我们推荐大队!');
             } else if (res.event === 'onWithdraw') {
                 xyj._account && window.refreshPersonInfo();
             }
