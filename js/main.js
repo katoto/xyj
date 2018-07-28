@@ -439,6 +439,7 @@ window.onload = function () {
                     }[data.type]
                     fuc(name, data.str, function (error) {
                         // TODO: 购买名字成功后
+                        hideLoading();
                         if (error) {
                             alertify.error('注册名字已取消');
                         } else {
