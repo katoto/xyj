@@ -1553,11 +1553,21 @@ xyj.getRound = function (fn) {
                 contractNet.round_(parseFloat(result.roundNum), function (err, res) {
                     if (!err) {
                         if (res) {
-                            var roundObj = {
-                                totalEth: web3.fromWei(res[6].toNumber()),
-                                distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
-                                roundPot:web3.fromWei(res[7].toNumber())
+                            var roundObj = null
+                            if (res[6].toNumber() - res[7].toNumber() < 0) {
+                                roundObj = {
+                                    totalEth: web3.fromWei(res[6].toNumber()),
+                                    distributionEth: 0,
+                                    roundPot: web3.fromWei(res[7].toNumber())
+                                }
+                            } else {
+                                roundObj = {
+                                    totalEth: web3.fromWei(res[6].toNumber()),
+                                    distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
+                                    roundPot: web3.fromWei(res[7].toNumber())
+                                }
                             }
+
                             fn(null, roundObj)
                         }
                     } else {
@@ -1589,7 +1599,7 @@ contractNet.allEvents(function (err, res) {
 
     // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
     // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
-    
+
     if (!err) {
         if (res) {
             if (res.event === 'onEndTx') {

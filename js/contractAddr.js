@@ -1227,7 +1227,7 @@ var contractAbi = [
 ]
 
 // test2
-var contractAddr = '0x5209496ac1e203d9cf06ace7d0a3e3df1bdabd00'
+var contractAddr = '0xce3ee94699fedee4d58ec1a7a3942022dcad5a35'
 var contractAbi = [
     {
         "anonymous": false,
