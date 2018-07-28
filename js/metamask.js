@@ -2163,10 +2163,6 @@ xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
         return 'totalVal param 3 error'
     }
     contractNet.buyXaddr(_affCode, parseInt(_team), {value: web3.toWei(totalVal, "ether")}, function (err, res) {
-        console.log('-----------')
-        console.log(err)
-        console.log(res)
-        console.log('==========')
         if (!err) {
             if (res) {
                 fn(null, res)
