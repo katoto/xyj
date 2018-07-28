@@ -61,7 +61,7 @@ window.onload = function () {
         if (hour < 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
             $('.js_buy').addClass('isOver');
-            $('.js_buy .js_buy_text').text('立即上路取经');
+            $('.js_buy .js_buy_text').text('立即上路取"金"');
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;
