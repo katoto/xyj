@@ -42,14 +42,13 @@
                 <div style="display: flex;justify-content: flex-start;align-items: center;">
                     <img class="logo" src="./img/logo.png" alt="">
                     <span class="title" data-trans="gameName">造梦西游</span>
-                    <ul class="info hide">
+                    <ul class="info ">
                         <li class="lottery-time-wrapper">
                             <i class="iconfont icon-daojishi"></i>
                             <span class="lottery_time" style="color: #fff;">00:47:16</span>
                         </li>
                         <li>
-                            <i class="iconfont icon-diamond"></i>
-                            <span class="owner-keys" style="color: #fff;"></span>
+                            <span class="owner-keys" style="color: #fff;">合约地址</span>
                         </li>
                     </ul>
                 </div>
@@ -60,10 +59,10 @@
                     </span>
                     <span style="color: #666;margin-left: 20px;" id="locale">EN</span>
                 </div>
-                <a class="head-share js_share" href="#sharing-rewards">
+                <div class="head-share">
                     <img src="./img/icon-gift.png" alt="">
                     <p>Sharing rewards</p>
-                </a>
+                </div>
             </h1>
             <div class="notice hide" id="notice">
                 <h6>【公告】西游游戏已升级上线</h6>
@@ -74,7 +73,7 @@
             </div>
         </header>
         <section class="banner">
-            <p class="msg1">这是最后的致富机会</p>
+            <p class="msg1">这是最后的机会</p>
             <p class="msg2">快来西方取“金”！</p>
             <div class="msg3">
                 <p>
@@ -167,7 +166,7 @@
             </section>
             <section class="team-grid">
                 <div class="tabs">
-                    <div class="tab-title" id="sharing-rewards">
+                    <div class="tab-title">
                         <span class="active" data-trans="tabBuyTitle">购买</span>
                         <span data-trans="tabDrawTitle">提现</span>
                         <span data-trans="Recommended">推荐奖励</span>
@@ -181,7 +180,7 @@
                                 <div class="input-inner">
                                     <input id="count" type="number" placeholder="1 金钻" min="1">
                                 </div>
-                                <span class="eth-count" id="ethCount">@ 12345678 ETH</span>
+                                <span class="eth-count" id="ethCount">@ 0 ETH</span>
                             </div>
                             <div class="count-container">
                                 <div class="count-wrapper" data-num="10">
@@ -206,6 +205,7 @@
                                 </div>
                             </div>
                             <div class="select-team">
+                                <button class="btn btn-buy" data-trans="buyBtn">使用 ETH 购买</button>
                                 <h6 class="title choseteam" data-trans="chooseTeam">选择团队</h6>
                                 <div class="team-container">
                                     <div class="team-wrapper team-wrapper--checked" data-team="shifu">
@@ -254,12 +254,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-buy" data-trans="buyBtn">使用 ETH 购买</button>
                         </div>
                     </div>
                     <div class="tab-content ">
                         <div class="tab-put-forward">
-                            <div class="tip" data-trans="drawTip">*提示：最低0.1个ETH起提，本轮结束自动提现至账户</div>
+                            <div class="tip" data-trans="drawTip">*提示：最低10个ETH起提，本轮结束自动提现至账户</div>
                             <div class="put-forward-list">
                                 <div class="put-forward">
                                     <h6 class="title icon-diao" data-trans="withdrawAvailable">你的金钻</h6>
@@ -279,7 +278,7 @@
                             <button class="btn btn-put js_withdraw" data-trans="withdraw">全部提现</button>
                         </div>
                     </div>
-                    <div class="tab-content joinus">
+                    <div class="tab-content joinus ">
                         <div class="js_noid">
                             <p class="tip">让更多人参与造梦西游游戏</p>
                             <div class="joinus-btn">
@@ -436,6 +435,7 @@
         </div>
         <span class="close-btn" disabled=""></span>
     </div>
+
     <div class="rule-layer" id="rule-layer">
         <div class="layer-content">
             <p>本轮剩余时间</p>
@@ -568,6 +568,12 @@
     </div>
     <div class="pop-success">
         其次，活动的说明：感谢本次所有参加西游游戏的玩家
+    </div>
+    <div class="loading-layer" >
+        加载中...
+    </div>
+    <div class="buy-loading">
+        Please check your Metamask...
     </div>
     <script src="./jquery-3.3.1.min.js"></script>
     <!-- <script type="text/javascript" src="./app.js"></script> -->
