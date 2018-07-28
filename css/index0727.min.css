@@ -627,4 +627,9 @@
     width: 92%;
     margin: 0 auto 0.5rem;
   }
+
+  .team-grid .tab-buy .select-team .team-container .team-wrapper:nth-child(1),
+  .team-grid .tab-buy .select-team .team-container .team-wrapper:nth-child(2) {
+    margin-bottom: 0.187501rem;
+  }
 }
