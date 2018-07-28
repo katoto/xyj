@@ -1774,8 +1774,6 @@ if (typeof web3 === "undefined") {
     web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/WlvljmHqo75RhK1w1QJF"));
     alertify.alert('You are not signed into metamask')
 }
-// 通过abi 和地址获取已部署的合约对象
-console.log(contractAddr);
 
 // 通过abi 和地址获取已部署的合约对象
 contractNet = web3.eth.contract(contractAbi).at(contractAddr)
@@ -1953,6 +1951,10 @@ xyj.getBuyPrice = function (fn) {
         return 'need async function !.'
     }
     contractNet.getBuyPrice(function (err, res) {
+        console.log('-----------')
+        console.log(err)
+        console.log(res)
+        console.log('==========')
         if (!err) {
             if (res) {
                 var web3_getBuyPrice = res.toNumber(10)
@@ -1997,7 +1999,6 @@ xyj.withdraw = function (fn) {
         }
     })
 }
-
 
 xyj.registerNameXname = function (regName, _affCode, fn) {
     // * @param _nameString players desired name
@@ -2106,7 +2107,6 @@ xyj.getRound = function (fn) {
 }
 
 // round_
-
 /* 实时播报 */
 contractNet.allEvents(function (err, res) {
     // 4种事件类型
