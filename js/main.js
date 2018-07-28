@@ -20,6 +20,16 @@ window.onload = function () {
         $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
     });
 
+    function showLoading () {
+        $('.buy-loading').show();
+        $('html body').addClass('stop');
+    }
+
+    function hideLoading () {
+        $('.buy-loading').hide();
+        $('html body').removeClass('stop');
+    }
+
 
     // 格式化金额
     function numberComma(source, length = 3) {
@@ -29,7 +39,7 @@ window.onload = function () {
     }
 
     function formatUSDT(eth) {
-        var usd = 464.68;
+        var usd = 472;
         return numberComma(accMul(usd, eth).toFixed(2))
     }
 
@@ -50,6 +60,7 @@ window.onload = function () {
 
         if (hour < 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
+            xyj._isOver = true;
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;
@@ -127,19 +138,23 @@ window.onload = function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum8(num) {
+    function formatNum8 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
-    function formatNum4(num) {
+    function formatNum6 (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 6))), Math.pow(10, 6));
+    }
+
+    function formatNum4 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
-    function formatNum3(num) {
+    function formatNum3 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
     }
 
-    function formatNum2(num) {
+    function formatNum2 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
     }
 
@@ -298,8 +313,8 @@ window.onload = function () {
     window.refreshPersonInfo = function () {
         // 渲染邀请信息和个人盈利
         getAccounts(function (account) {
-            $('.js_noid, .js_hasid').addClass('hide');
             xyj.getPlayerInfoByAddress(account, function (error, data) {
+                $('.js_noid, .js_hasid').addClass('hide');
                 if (error) {
                     return
                 }
@@ -323,10 +338,10 @@ window.onload = function () {
                     $('.team-grid .js_your_key').text(Number(data.keys));
                 });
 
-                $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
+                $('.list-content .total-award').text(formatNum6(data.totalEarn).toString() + ' ETH');
                 $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
                 $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-                $('.team-grid .total-award').text(data.totalEarn.toString());
+                $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
         });
     };
@@ -334,18 +349,34 @@ window.onload = function () {
 
 
     $('.btn-buy, .js_buy').click(function () {
+        var num = Number($('#count').val());
         var isJSBuy = $(this).hasClass('js_buy');
+        if (isNaN(num) || parseInt($('#count').val(), 10) === 0 || num !== parseInt(num, 10) || num < 0) {
+            alertify.alert('请输入正确的金钻数量');
+            return;
+        }
+        if (xyj._isOver) {
+            alertify.alert('游戏已结束');
+            return;
+        }
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
+                showLoading();
                 var data = getAdviceHash();
                 var fuc = {
                     id: xyj.buyXid,
                     addr: xyj.buyXaddr,
                     name: xyj.buyXname
                 }[data.type]
-                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function () {
+                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function (error, data) {
                     // TODO: 购买成功后
+                    hideLoading();
+                    if (error) {
+                        alertify.error('已取消购买金钻');
+                    } else {
+                        alertify.success('下单成功');
+                    }
                 });
             }
         });
@@ -355,6 +386,9 @@ window.onload = function () {
     window.refreshInfo = function () {
         // 奖池和团队数据
         xyj.getCurrentRoundInfo(function (error, data) {
+            if (error) {
+                return
+            }
             console.log(data)
             getBuyPrice(function () {
                 console.log(data)
@@ -393,6 +427,10 @@ window.onload = function () {
 
     // 新建名字 按钮点击事件
     $('.js_buyceo').click(function () {
+        if (xyj._isOver) {
+            alertify.alert('游戏已结束');
+            return;
+        }
         if (xyj._account && xyj._account !== '') {
             $('#vanity').addClass('show');
             $('#nameInput').val('');
@@ -406,19 +444,31 @@ window.onload = function () {
 
     // 创建名字点击事件
     $('#namePurchase').click(function () {
+        if (xyj._isOver) {
+            alertify.alert('游戏已结束');
+            return;
+        }
         getAccounts(function (account) {
             if (account) {
                 var data = getAdviceHash();
                 var name = getRegisterName();
                 if (isVerifyName(name)) {
+                    showLoading();
                     var fuc = {
                         id: xyj.registerNameXID,
                         addr: xyj.registerNameXaddr,
                         name: xyj.registerNameXname
                     }[data.type]
-                    fuc(name, data.str, function () {
+                    fuc(name, data.str, function (error) {
                         // TODO: 购买名字成功后
-                        closeVanity();
+                        hideLoading();
+                        if (error) {
+                            alertify.error('已取消注册名字');
+                        } else {
+                            closeVanity();
+                            alertify.success('下单成功');
+                        }
+                        
                     });
                 } else {
                     alertify.alert('输入的名字不符合规则');

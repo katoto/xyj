@@ -6,6 +6,7 @@ var global_Second = 30
 var xyj = {}
 
 // 3d 合约地址
+/*
 var contractAddr = '0x5f60d2d3d5b76bf50747ed9729cb8193b39ed917'
 //  合约abi
 var contractAbi = [
@@ -1231,6 +1232,10 @@ var contractAbi = [
         "type": "function"
     }
 ]
+*/
+
+// test
+console.log(contractAddr);
 
 if (typeof web3 === "undefined") {
     var isNoMetamask = true
@@ -1548,10 +1553,21 @@ xyj.getRound = function (fn) {
                 contractNet.round_(parseFloat(result.roundNum), function (err, res) {
                     if (!err) {
                         if (res) {
-                            var roundObj = {
-                                totalEth: web3.fromWei(res[6].toNumber()),
-                                distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
+                            var roundObj = null
+                            if (res[6].toNumber() - res[7].toNumber() < 0) {
+                                roundObj = {
+                                    totalEth: web3.fromWei(res[6].toNumber()),
+                                    distributionEth: 0,
+                                    roundPot: web3.fromWei(res[7].toNumber())
+                                }
+                            } else {
+                                roundObj = {
+                                    totalEth: web3.fromWei(res[6].toNumber()),
+                                    distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
+                                    roundPot: web3.fromWei(res[7].toNumber())
+                                }
                             }
+
                             fn(null, roundObj)
                         }
                     } else {
@@ -1588,9 +1604,9 @@ contractNet.allEvents(function (err, res) {
         if (res) {
             if (res.event === 'onEndTx') {
                 if (xyj._account === res.args.playerAddress) {
-                    alertify.success('您已成功购买' + Math.floor((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                    alertify.success('您已成功购买' + (res.args.keysBought / (10 ** 18)).toFixed(0) + '个金钻');
                 } else if (web3.toUtf8(res.args.playerName) !== '') {
-                    alertify.success(web3.toUtf8(res.args.playerName) + '已成功购买' + Math.floor((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                    alertify.success(web3.toUtf8(res.args.playerName) + '已成功购买' + (res.args.keysBought / (10 ** 18)).toFixed(0) + '个金钻');
                 }
                 xyj._account && window.refreshPersonInfo();
                 window.refreshInfo();

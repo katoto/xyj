@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/index0727.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/alertify.min.css">
+    <script src="js/contractAddr.js"></script>
     <script>
         let deviceWidth = document.documentElement.clientWidth;
         if (deviceWidth > 400) {
@@ -59,10 +60,10 @@
                     </span>
                     <span style="color: #666;margin-left: 20px;" id="locale">EN</span>
                 </div>
-                <div class="head-share">
+                <a class="head-share js_share" href="#sharing-rewards">
                     <img src="./img/icon-gift.png" alt="">
                     <p>分享奖励</p>
-                </div>
+                </a>
             </h1>
             <div class="notice hide" id="notice">
                 <h6>【公告】西游游戏已升级上线</h6>
@@ -166,7 +167,7 @@
             </section>
             <section class="team-grid">
                 <div class="tabs">
-                    <div class="tab-title">
+                    <div class="tab-title" id="sharing-rewards">
                         <span class="active" data-trans="tabBuyTitle">购买</span>
                         <span data-trans="tabDrawTitle">提现</span>
                         <span data-trans="Recommended">推荐奖励</span>
@@ -208,7 +209,7 @@
                                 <button class="btn btn-buy" data-trans="buyBtn">使用 ETH 购买</button>
                                 <h6 class="title choseteam" data-trans="chooseTeam">选择团队</h6>
                                 <div class="team-container">
-                                    <div class="team-wrapper team-wrapper--checked" data-team="shifu">
+                                    <div class="team-wrapper team-wrapper--checked" data-team="wukong">
                                         <img src="./img/a.png" alt="" class="pic">
                                         <span class="name">悟空</span>
                                         <span class="desc">大部分收益</span>
@@ -219,7 +220,7 @@
                                             <strong>62%</strong>
                                         </span>
                                     </div>
-                                    <div class="team-wrapper" data-team="wukong">
+                                    <div class="team-wrapper" data-team="shifu">
                                         <img src="./img/b.png" alt="" class="pic">
                                         <span class="name">唐僧</span>
                                         <span class="desc">平均分配</span>
@@ -572,7 +573,7 @@
     <div class="loading-layer" >
         加载中...
     </div>
-    <div class="buy-loading">
+    <div class="buy-loading show">
         Please check your Metamask...
     </div>
     <script src="./jquery-3.3.1.min.js"></script>
