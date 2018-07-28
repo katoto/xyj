@@ -350,7 +350,7 @@ window.onload = function () {
     $('.btn-buy, .js_buy').click(function () {
         var num = Number($('#count').val());
         var isJSBuy = $(this).hasClass('js_buy');
-        if (isNaN(num) || num === 0) {
+        if (isNaN(num)) {
             alertify.alert('请输入正确的金钻数量');
             return;
         }
