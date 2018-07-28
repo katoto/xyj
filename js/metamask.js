@@ -373,6 +373,8 @@ contractNet.allEvents(function (err, res) {
     // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
     // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
 
+    //onBuyAndDistribute
+
     if (!err) {
         if (res) {
             window.refreshTime();
@@ -389,6 +391,8 @@ contractNet.allEvents(function (err, res) {
                 alertify.success('全体起立，热烈欢迎' + web3.toUtf8(res.args.playerName) + '加入到我们推荐大队!');
             } else if (res.event === 'onWithdraw') {
                 xyj._account && window.refreshPersonInfo();
+            } else if (res.event === 'onBuyAndDistribute') {
+                window.refreshInfo();
             }
         }
     } else {
