@@ -88,8 +88,6 @@ window.onload = function () {
 
     // 更新计数器
     function updateInterval(time) {
-        console.log('刷新时间');
-        console.log(time);
         if (xyj._timer) {
             clearInterval(xyj._timer);
         }
@@ -160,6 +158,7 @@ window.onload = function () {
     function formatNum6 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 6))), Math.pow(10, 6));
     }
+    window.formatNum6 = formatNum6;
 
     function formatNum4 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
@@ -414,6 +413,7 @@ window.onload = function () {
                 console.log(data.purchasedTime, formatNum2(data.purchasedTime))
                 $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
                 $('.js_second').text(numberComma(data.purchasedSeconds));
+                $('.js_round').text('#' + data.roundNum);
                 /* hide lastBuy Name */
                 // if (data.lastBuyName && data.lastBuyName !== '') {
                 //     $('.round-list .winner').removeClass('hide');
@@ -489,7 +489,14 @@ window.onload = function () {
     // 提现点击事件
     $('.js_withdraw').click(function () {
         if (xyj._account && xyj._account !== '') {
+            showLoading();
             xyj.withdraw(function (error, res) {
+                if (error) {
+                    alertify.error('提现已取消');
+                } else {
+                    alertify.success('下单成功');
+                }
+                hideLoading();
                 console.log('提现', error, res)
             })
         } else {
