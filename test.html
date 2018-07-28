@@ -11,6 +11,7 @@
 <body>
     <span style="color: #666;margin-left: 20px;" id="locale">xxx</span>
     <h6 class="title" data-trans="gameName">分享奖励</h6>
+    <h6 class="title" data-trans="name">name</h6>
 </body>
 <script src="./jquery-3.3.1.min.js"></script>
 <script>
@@ -21,9 +22,11 @@
             a = {
                     zh: {
                         gameName: "狼人游戏",
+                        name:'zhname'
                     },
                     en: {
                         gameName: "DARK WOOD",
+                        name:'enname'
                     }
                 },
                 getTranslate = function (e) {
@@ -33,18 +36,17 @@
     $(function () {
         ! function e() {
             var a = localStorage.language || window.navigator.language;
-            // setTranslate(a);
+            setTranslate(a);
             var t = /^zh/.test(a);
-            $("#locale").text(t ? "EN" : "CN");
-            $("#locale").on("click", function () {
+            $("#locale").text(t ? "EN" : "CN"), $("#locale").on("click", function () {
                 localStorage.setItem("language", t ? "en" : "zh");
-                // setTranslate(a);
-                // e();
+                setTranslate(a);
+                e();
             });
             var r = $("[data-trans]");
             Array.prototype.forEach.call(r, function (e) {
-                var a = e.getAttribute("data-trans");
-                e.textContent = getTranslate(a)
+                var _index = e.getAttribute("data-trans");
+                e.textContent = getTranslate(_index)
             })
         }()
     });
