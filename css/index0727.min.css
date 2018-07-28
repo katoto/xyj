@@ -114,6 +114,12 @@
           animation: none;
 }
 
+.banner a.isOver {
+  background: #684AFF;
+  -webkit-animation: none;
+          animation: none;
+}
+
 .icon-diamond {
   display: block;
   overflow: hidden;
