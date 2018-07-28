@@ -2125,7 +2125,6 @@ contractNet.allEvents(function (err, res) {
         if (res) {
             console.log(res);
             if (res.event === 'onEndTx') {
-                alertify.success('')
             } else if (res.event === 'onNewName') {
                 alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
             } else if (res.event === 'onWithdraw') {
