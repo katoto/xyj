@@ -355,10 +355,6 @@ window.onload = function () {
             alertify.alert('请输入正确的金钻数量');
             return;
         }
-        if (xyj._isOver) {
-            alertify.alert('游戏已结束');
-            return;
-        }
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
@@ -428,10 +424,6 @@ window.onload = function () {
 
     // 新建名字 按钮点击事件
     $('.js_buyceo').click(function () {
-        if (xyj._isOver) {
-            alertify.alert('游戏已结束');
-            return;
-        }
         if (xyj._account && xyj._account !== '') {
             $('#vanity').addClass('show');
             $('#nameInput').val('');
@@ -445,10 +437,6 @@ window.onload = function () {
 
     // 创建名字点击事件
     $('#namePurchase').click(function () {
-        if (xyj._isOver) {
-            alertify.alert('游戏已结束');
-            return;
-        }
         getAccounts(function (account) {
             if (account) {
                 var data = getAdviceHash();
