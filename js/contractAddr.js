@@ -1,5 +1,6 @@
+
 // 3d 合约地址
-var contractAddr = '0x5f60d2d3d5b76bf50747ed9729cb8193b39ed917'
+var contractAddr = '0xd5f1ad2ee328bc754d1e3fa93b654b3aed8a3d2f'
 //  合约abi
 var contractAbi = [
     {
@@ -1225,7 +1226,8 @@ var contractAbi = [
     }
 ]
 
-var contractAddr = '0xd5f1ad2ee328bc754d1e3fa93b654b3aed8a3d2f'
+// test2
+var contractAddr = '0x5209496ac1e203d9cf06ace7d0a3e3df1bdabd00'
 var contractAbi = [
     {
         "anonymous": false,

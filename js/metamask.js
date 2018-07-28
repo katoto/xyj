@@ -1556,6 +1556,7 @@ xyj.getRound = function (fn) {
                             var roundObj = {
                                 totalEth: web3.fromWei(res[6].toNumber()),
                                 distributionEth: web3.fromWei(res[6].toNumber() - res[7].toNumber()),
+                                roundPot:web3.fromWei(res[7].toNumber())
                             }
                             fn(null, roundObj)
                         }
