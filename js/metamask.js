@@ -373,6 +373,7 @@ contractNet.allEvents(function (err, res) {
 
     if (!err) {
         if (res) {
+            window.refreshTime();
             if (res.event === 'onEndTx') {
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success('您已成功购买' + (res.args.keysBought / (10 ** 18)).toFixed(0) + '个金钻');
@@ -381,7 +382,6 @@ contractNet.allEvents(function (err, res) {
                 }
                 xyj._account && window.refreshPersonInfo();
                 window.refreshInfo();
-                window.refreshTime();
             } else if (res.event === 'onNewName') {
                 alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
             } else if (res.event === 'onWithdraw') {
