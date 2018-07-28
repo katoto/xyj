@@ -165,12 +165,13 @@ window.onload = function () {
     // 获取我的账号
     function getAccounts(fn) {
         xyj.getAccounts(function (error, account) {
-            if (error) {
-                console.log(error)
-                fn(false)
+            xyj._account = account;
+            if (error || account === '') {
+                console.log(error);
+                alertify.alert('您的metamask未登录');
             } else {
-                console.log(account)
-                fn(account)
+                console.log(account);
+                fn(account);
             }
         })
     }
@@ -380,8 +381,12 @@ window.onload = function () {
 
     // 新建名字 按钮点击事件
     $('.js_buyceo').click(function () {
-        $('#vanity').addClass('show');
-        $('#nameInput').val('');
+        if (xyj._account && xyj._account !== '') {
+            $('#vanity').addClass('show');
+            $('#nameInput').val('');
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
     });
 
     // 创建名字弹窗关闭事件
@@ -419,14 +424,14 @@ window.onload = function () {
 
     // 提现点击事件
     $('.js_withdraw').click(function () {
-        xyj.withdraw(function (error, res) {
-            console.log('提现', error, res)
-        })
+        if (xyj._account && xyj._account !== '') {
+            xyj.withdraw(function (error, res) {
+                console.log('提现', error, res)
+            })
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
     });
 
     new ClipboardJS('.js_copy_btn');
-
-    xyj.getCurrentRoundInfo(function (error, data) {
-
-    });
 }
