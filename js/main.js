@@ -1,31 +1,32 @@
 window.onload = function () {
 
     // 格式化金额
-    function numberComma (source, length = 3) {
+    function numberComma(source, length = 3) {
         source = String(source).split('.')
         source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{' + length + '})+$)', 'ig'), '$1,')
         return source.join('.')
     }
 
-    function formatUSDT (eth) {
+    function formatUSDT(eth) {
         var usd = 464.68;
         return numberComma(accMul(usd, eth).toFixed(2))
     }
 
-    function getDefaultAdvisor () {
+    function getDefaultAdvisor() {
         return '0'
     }
 
     // 关闭创建弹窗
-    function closeVanity () {
+    function closeVanity() {
         $('#vanity').removeClass('show');
     }
 
     // 渲染时间
-    function renderTime (hour, min, second) {
-        function formatTime (time) {
+    function renderTime(hour, min, second) {
+        function formatTime(time) {
             return time < 10 ? '0' + time.toString() : time;
         }
+
         if (hour < 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
             clearInterval(xyj._timer);
@@ -37,15 +38,15 @@ window.onload = function () {
     }
 
     // 根据time计算小时 分钟 秒数
-    function calcTime (time) {
+    function calcTime(time) {
         var hour = Math.floor(time / 3600);
         var min = Math.floor((time - (hour * 3600)) / 60);
         var second = (time - (hour * 3600)) % 60;
         return [hour, min, second]
     }
-    
+
     // 更新计数器
-    function updateInterval (time) {
+    function updateInterval(time) {
         if (xyj._timer) {
             clearInterval(xyj._timer);
         }
@@ -58,7 +59,7 @@ window.onload = function () {
     }
 
     // 播报弹窗
-    function showMsg (msg) {
+    function showMsg(msg) {
         if (xyj._msgTimer) {
             // 当前存在播报
         } else {
@@ -72,7 +73,7 @@ window.onload = function () {
     }
 
     // 浮点数乘法
-    function accMul (arg1, arg2) {
+    function accMul(arg1, arg2) {
         let m = 0
         let s1 = arg1.toString()
         let s2 = arg2.toString()
@@ -87,7 +88,7 @@ window.onload = function () {
         return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m)
     }
 
-    function accDiv (arg1, arg2) {
+    function accDiv(arg1, arg2) {
         let t1 = 0
         let t2 = 0
         let r1
@@ -105,24 +106,24 @@ window.onload = function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum8 (num) {
+    function formatNum8(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
-    function formatNum4 (num) {
+    function formatNum4(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
-    function formatNum3 (num) {
+    function formatNum3(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
     }
 
-    function formatNum2 (num) {
+    function formatNum2(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
     }
 
     // 渲染单价
-    function renderPrice () {
+    function renderPrice() {
         var price = xyj._keyPrice;
         price = formatNum8(price);
         $('#ethCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH');
@@ -130,7 +131,7 @@ window.onload = function () {
 
 
     // 获取Key单价
-    function getBuyPrice (fn) {
+    function getBuyPrice(fn) {
         xyj.getBuyPrice(function (error, price) {
             // console.log(price);
             if (error) {
@@ -144,7 +145,7 @@ window.onload = function () {
     }
 
     // 获取我的账号
-    function getAccounts (fn) {
+    function getAccounts(fn) {
         xyj.getAccounts(function (error, account) {
             if (error) {
                 console.log(error)
@@ -157,19 +158,19 @@ window.onload = function () {
     }
 
     // 获取邀请者账号
-    function getAdviceHash () {
+    function getAdviceHash() {
         let str = window.location.pathname.slice(1);
         var type;
         if (str === '') {
             type = 'addr';
             str = getDefaultAdvisor();
+        } else if (str.length > 32) {
+            // addr
+            type = 'addr';
         } else if (!isNaN(Number(str))) {
             // id
             type = 'id';
             str = Number(str);
-        } else if (str.length > 32) {
-            // addr
-            type = 'addr';
         } else {
             // name
             type = 'name';
@@ -180,22 +181,22 @@ window.onload = function () {
         }
     }
 
-    function getRegisterName () {
+    function getRegisterName() {
         return $.trim($('#nameInput').val());
     }
 
-    function isVerifyName (name) {
+    function isVerifyName(name) {
         var regaz = /^[a-z0-9\-\s]+$/;
         var regonlyNum = /^[0-9]+$/;
         return name.length <= 32 && regaz.test(name) && !regonlyNum.test(name) && name.indexOf('  ') === -1;
     }
 
-    function getRandomName () {
+    function getRandomName() {
         var getRandomKey = function (list) {
             return Math.floor(Math.random() * list.length);
         }
         var nouns = ["ninja", "truce", "harj", "finney", "szabo", "gwei", "laser", "justo", "satoshi", "mantso", "3D", "inventor", "theShocker", "aritz", "sumpunk", "cryptoknight", "randazz", "kadaz", "daok", "shenron", "notreally", "thecrypt", "stick figures", "mermaid eggs", "sea barnacles", "dragons", "jellybeans", "snakes", "dolls", "bushes", "cookies", "apples", "ice cream", "ukulele", "kazoo", "banjo", "opera singer", "circus", "trampoline", "carousel", "carnival", "locomotive", "hot air balloon", "praying mantis", "animator", "artisan", "artist", "colorist", "inker", "coppersmith", "director", "designer", "flatter", "stylist", "leadman", "limner", "make-up artist", "model", "musician", "penciller", "producer", "scenographer", "set decorator", "silversmith", "teacher", "auto mechanic", "beader", "bobbin boy", "clerk of the chapel", "filling station attendant", "foreman", "maintenance engineering", "mechanic", "miller", "moldmaker", "panel beater", "patternmaker", "plant operator", "plumber", "sawfiler", "shop foreman", "soaper", "stationary engineer", "wheelwright", "woodworkers"];
-   
+
         var adjectives = ["adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish", "calamitous", "caustic", "cerulean", "comely", "concomitant", "contumacious", "corpulent", "crapulous", "defamatory", "didactic", "dilatory", "dowdy", "efficacious", "effulgent", "egregious", "endemic", "equanimous", "execrable", "fastidious", "feckless", "fecund", "friable", "fulsome", "garrulous", "guileless", "gustatory", "harjd", "heuristic", "histrionic", "hubristic", "incendiary", "insidious", "insolent", "intransigent", "inveterate", "invidious", "irksome", "jejune", "jocular", "judicious", "lachrymose", "limpid", "loquacious", "luminous", "mannered", "mendacious", "meretricious", "minatory", "mordant", "munificent", "nefarious", "noxious", "obtuse", "parsimonious", "pendulous", "pernicious", "pervasive", "petulant", "platitudinous", "precipitate", "propitious", "puckish", "querulous", "quiescent", "rebarbative", "recalcitant", "redolent", "rhadamanthine", "risible", "ruminative", "sagacious", "salubrious", "sartorial", "sclerotic", "serpentine", "spasmodic", "strident", "taciturn", "tenacious", "tremulous", "trenchant", "turbulent", "turgid", "ubiquitous", "uxorious", "verdant", "voluble", "voracious", "wheedling", "withering", "zealous"];
 
         return nouns[getRandomKey(nouns)] + ' ' + adjectives[getRandomKey(adjectives)];
@@ -289,11 +290,11 @@ window.onload = function () {
             $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
             $('.team-grid .share-award').text(data.shareEarn.toString());
             $('.list-content .owner-keys').text(data.keys.toString() + ' 个');
-            
+
             getBuyPrice(function () {
                 $('.team-grid .js_your_key').text(Number(data.keys));
             });
-            
+
             $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
             $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
             $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
@@ -349,8 +350,8 @@ window.onload = function () {
             $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
             $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());
             $('.list-content .js_shaseng').text(formatNum4(data.bears_1).toString());
-            
-    
+
+
             $('.total-usdt').text('= ' + formatUSDT(data.currPot) + ' USDT');
             console.log(data.purchasedTime, formatNum2(data.purchasedTime))
             $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
