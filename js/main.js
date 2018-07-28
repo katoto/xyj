@@ -437,7 +437,7 @@ window.onload = function () {
                         addr: xyj.registerNameXaddr,
                         name: xyj.registerNameXname
                     }[data.type]
-                    fuc(name, data.str, function () {
+                    fuc(name, data.str, function (error) {
                         // TODO: 购买名字成功后
                         if (error) {
                             alertify.error('注册名字已取消');

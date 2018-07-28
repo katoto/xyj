@@ -1878,3 +1878,11 @@ body {
 	padding: 10px 30px 10px;
 	cursor: pointer;
 }
+
+.alertify {
+    z-index: 100000;
+}
+
+.buy-loading {
+    z-index: 10000;
+}
