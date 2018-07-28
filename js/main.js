@@ -58,7 +58,11 @@ window.onload = function () {
             return time < 10 ? '0' + time.toString() : time;
         }
 
-        if (hour < 0) {
+        if (hour === 0 && min === 0 && second < 15 && second !== 0) {
+            window.refreshTime();
+        }
+
+        if (hour <= 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
             $('.js_buy').addClass('isOver');
             $('.js_buy .js_buy_text').text('立即上路取"金"');
@@ -69,6 +73,7 @@ window.onload = function () {
             $('.js_buy').removeClass('isOver');
             $('.js_buy .js_buy_text').text('快速购买一颗金钻，赢得超级奖池！');
         }
+
         $('.headtimer, header .lottery_time').text(formatTime(hour) + ':' + formatTime(min) + ':' + formatTime(second));
         $('.lottery_time p').text(hour.toString() + '小时' + min.toString() + '分' + second.toString() + '秒');
     }
@@ -83,6 +88,7 @@ window.onload = function () {
 
     // 更新计数器
     function updateInterval(time) {
+        console.log('刷新时间')
         if (xyj._timer) {
             clearInterval(xyj._timer);
         }
