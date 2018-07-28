@@ -302,6 +302,7 @@ window.onload = function () {
                 $('#mylink').text('http://xyj/' + account);
                 $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
                 $('#namelink').text('http://xyj/' + data.inviteName);
+                xyj._inviteName = data.inviteName;
             } else {
                 // 没有推广代号
                 $('.js_noid').removeClass('hide');
@@ -432,6 +433,17 @@ window.onload = function () {
             alertify.alert('您的metamask未登录');
         }
     });
+
+    $('.js_share').click(function () {
+        $('#sharing-rewards span').eq(2).click();
+        if (xyj._account && xyj._account !== '') {
+            if (xyj._inviteName) {
+                
+            }
+        } else {
+            alertify.alert('您的metamask未登录');
+        }
+    })
 
     new ClipboardJS('.js_copy_btn');
 }
