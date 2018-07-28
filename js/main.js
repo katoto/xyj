@@ -20,6 +20,16 @@ window.onload = function () {
         $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
     });
 
+    function showLoading () {
+        $('.buy-loading').show();
+        $('html body').addClass('stop');
+    }
+
+    function hideLoading () {
+        $('.buy-loading').hide();
+        $('html body').removeClass('stop');
+    }
+
 
     // 格式化金额
     function numberComma(source, length = 3) {
@@ -298,8 +308,8 @@ window.onload = function () {
     window.refreshPersonInfo = function () {
         // 渲染邀请信息和个人盈利
         getAccounts(function (account) {
-            $('.js_noid, .js_hasid').addClass('hide');
             xyj.getPlayerInfoByAddress(account, function (error, data) {
+                $('.js_noid, .js_hasid').addClass('hide');
                 if (error) {
                     return
                 }
@@ -338,14 +348,21 @@ window.onload = function () {
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
+                showLoading();
                 var data = getAdviceHash();
                 var fuc = {
                     id: xyj.buyXid,
                     addr: xyj.buyXaddr,
                     name: xyj.buyXname
                 }[data.type]
-                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function () {
+                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function (error, data) {
                     // TODO: 购买成功后
+                    hideLoading();
+                    if (error) {
+                        alertify.error('购买Key已取消');
+                    } else {
+                        alertify.success('下单成功');
+                    }
                 });
             }
         });
@@ -408,6 +425,7 @@ window.onload = function () {
     $('#namePurchase').click(function () {
         getAccounts(function (account) {
             if (account) {
+                showLoading();
                 var data = getAdviceHash();
                 var name = getRegisterName();
                 if (isVerifyName(name)) {
@@ -418,7 +436,13 @@ window.onload = function () {
                     }[data.type]
                     fuc(name, data.str, function () {
                         // TODO: 购买名字成功后
-                        closeVanity();
+                        if (error) {
+                            alertify.error('注册名字已取消');
+                        } else {
+                            closeVanity();
+                            alertify.success('下单成功');
+                        }
+                        
                     });
                 } else {
                     alertify.alert('输入的名字不符合规则');
