@@ -58,11 +58,11 @@ window.onload = function () {
             return time < 10 ? '0' + time.toString() : time;
         }
 
-        if (hour === 0 && min === 0 && second < 15 && second !== 0) {
-            window.refreshTime();
-        }
+        // if (hour === 0 && min === 0 && second < 15 && second !== 0) {
+        //     window.refreshTime();
+        // }
 
-        if (hour <= 0) {
+        if (hour < 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
             $('.js_buy').addClass('isOver');
             $('.js_buy .js_buy_text').text('立即上路取"金"');
@@ -88,7 +88,8 @@ window.onload = function () {
 
     // 更新计数器
     function updateInterval(time) {
-        console.log('刷新时间')
+        console.log('刷新时间');
+        console.log(time);
         if (xyj._timer) {
             clearInterval(xyj._timer);
         }
@@ -99,6 +100,10 @@ window.onload = function () {
             xyj._time--;
         }, 1000);
     }
+
+    this.setInterval(function () {
+        window.refreshTime();
+    }, 10000);
 
     // 播报弹窗
     function showMsg(msg) {
@@ -259,7 +264,7 @@ window.onload = function () {
             if (error) {
                 console.log(error);
             } else {
-                updateInterval(time);
+                updateInterval(time === 0 ? -1 : time);
             }
         });
     };
