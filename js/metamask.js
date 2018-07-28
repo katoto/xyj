@@ -100,13 +100,13 @@ xyj.getPlayerInfoByAddress = function (addr, fn) {
                     //     plyr_[_pID].aff,                    //5
                     //     plyrRnds_[_pID][_rID].eth           //6
 
-                    // * @return player ID
-                    // * @return player name
-                    // * @return keys owned (current round)
-                    // * @return winnings vault
-                    // * @return general vault
-                    // * @return affiliate vault  123
-                    // * @return player round eth
+                    // * @return player ID 0
+                    // * @return player name  1
+                    // * @return keys owned (current round)  2
+                    // * @return winnings vault  3
+                    // * @return general vault  4
+                    // * @return affiliate vault  5
+                    // * @return player round eth  6
 
                     fn(null, {
                         id: res[0].toString(),
@@ -117,6 +117,7 @@ xyj.getPlayerInfoByAddress = function (addr, fn) {
                         totalEarn: web3.fromWei(res[5].toNumber() + res[4].toNumber()),
                         shareEarn: web3.fromWei(res[5].toNumber()),
                         payMoney: web3.fromWei(res[6].toNumber()),
+                        winningValue:web3.fromWei(res[3].toNumber())
                     })
                 }
             } else {
