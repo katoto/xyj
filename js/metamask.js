@@ -1589,14 +1589,14 @@ contractNet.allEvents(function (err, res) {
 
     // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
     // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
-
+    
     if (!err) {
         if (res) {
             if (res.event === 'onEndTx') {
                 if (xyj._account === res.args.playerAddress) {
-                    alertify.success('您已成功购买' + Math.floor((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                    alertify.success('您已成功购买' + (res.args.keysBought / (10 ** 18)).toFixed(0) + '个金钻');
                 } else if (web3.toUtf8(res.args.playerName) !== '') {
-                    alertify.success(web3.toUtf8(res.args.playerName) + '已成功购买' + Math.floor((res.args.keysBought) / (10 ** 18)).toString() + '个金钻');
+                    alertify.success(web3.toUtf8(res.args.playerName) + '已成功购买' + (res.args.keysBought / (10 ** 18)).toFixed(0) + '个金钻');
                 }
                 xyj._account && window.refreshPersonInfo();
                 window.refreshInfo();

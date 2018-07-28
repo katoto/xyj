@@ -39,7 +39,7 @@ window.onload = function () {
     }
 
     function formatUSDT(eth) {
-        var usd = 464.68;
+        var usd = 472;
         return numberComma(accMul(usd, eth).toFixed(2))
     }
 
@@ -137,19 +137,23 @@ window.onload = function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum8(num) {
+    function formatNum8 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
-    function formatNum4(num) {
+    function formatNum6 (num) {
+        return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 6))), Math.pow(10, 6));
+    }
+
+    function formatNum4 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
-    function formatNum3(num) {
+    function formatNum3 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
     }
 
-    function formatNum2(num) {
+    function formatNum2 (num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
     }
 
@@ -333,10 +337,10 @@ window.onload = function () {
                     $('.team-grid .js_your_key').text(Number(data.keys));
                 });
 
-                $('.list-content .total-award').text(data.totalEarn.toString() + ' ETH');
+                $('.list-content .total-award').text(formatNum6(data.totalEarn).toString() + ' ETH');
                 $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
                 $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-                $('.team-grid .total-award').text(data.totalEarn.toString());
+                $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
         });
     };
@@ -344,7 +348,12 @@ window.onload = function () {
 
 
     $('.btn-buy, .js_buy').click(function () {
+        var num = Number($('#count').val());
         var isJSBuy = $(this).hasClass('js_buy');
+        if (isNaN(num)) {
+            alertify.alert('请输入正确的金钻数量');
+            return;
+        }
         getAccounts(function (account) {
             if (account) {
                 // 购买Key，自己购买传0，通过邀请购买传邀请者账号
@@ -359,7 +368,7 @@ window.onload = function () {
                     // TODO: 购买成功后
                     hideLoading();
                     if (error) {
-                        alertify.error('购买Key已取消');
+                        alertify.error('已取消购买金钻');
                     } else {
                         alertify.success('下单成功');
                     }
@@ -441,7 +450,7 @@ window.onload = function () {
                         // TODO: 购买名字成功后
                         hideLoading();
                         if (error) {
-                            alertify.error('注册名字已取消');
+                            alertify.error('已取消注册名字');
                         } else {
                             closeVanity();
                             alertify.success('下单成功');
