@@ -996,8 +996,6 @@ body {
 .banner {
     width: 100%;
     padding: 2rem 0 0.75rem;
-    background: url(../images/banner-bg.png) center bottom -2.7rem no-repeat;
-    background-size: 7.4rem auto;
     position: relative
 }
 
