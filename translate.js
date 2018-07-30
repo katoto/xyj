@@ -215,7 +215,7 @@ setTranslate = function (e) {
             }
 
             for (var index = 1; index < arguments.length; index++) {
-                arg = thisString.replace(new RegExp('\\{' + (index - 1) + '\\}', 'g'), arguments[index])
+                arg = arg.replace(new RegExp('\\{' + (index - 1) + '\\}', 'g'), arguments[index])
             }
         }
         return (localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? arg : thisString
