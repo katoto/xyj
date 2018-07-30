@@ -274,7 +274,8 @@ window.onload = function () {
             if (error) {
                 console.log(error);
             } else {
-                if(time.toString() !== js_currTime.toString()){
+                console.log(time);
+                if((time.toString() !== js_currTime.toString()) || time.toString() === '0'){
                     js_currTime = time
                     updateInterval(time === 0 ? -1 : time);
                 }
