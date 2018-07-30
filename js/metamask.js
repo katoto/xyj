@@ -1590,40 +1590,40 @@ contractNet.allEvents(function (err, res) {
             if (res.event === 'onEndTx') {
                 var keyNums = Math.ceil((res.args.keysBought.toNumber()) / (10 ** 18));
                 if (xyj._account === res.args.playerAddress) {
-                    alertify.success('您已成功购买' + keyNums + '个金钻');
+                    alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));
                 } else if (name !== '') {
-                    alertify.success(name + '已成功购买' + keyNums + '个金钻');
+                    alertify.success(keyNums === 1 ? _('{0}已成功购买{1}个金钻', name,  keyNums) : _('{0}已成功购买{1}个金钻 ', name,  keyNums));
                 } else if (name === '') {
-                    alertify.success('有小伙伴已成功购买' + keyNums + '个金钻');
+                    alertify.success(keyNums === 1 ? _('有小伙伴已成功购买{0}个金钻', keyNums) : _('有小伙伴已成功购买{0}个金钻 ', keyNums));
                 }
             } else if (res.event === 'onNewName') {
                 // alertify.success('A new member has been added to our Advisory Board. Please welcome ' + web3.toUtf8(res.args.playerName));
                 // alertify.success('全体起立，热烈欢迎' + web3.toUtf8(res.args.playerName) + '加入到我们推荐大队!');
                 if (name === '') {
-                    alertify.success('有小伙伴已成功购买专属的推广代号');
+                    alertify.success(_('有小伙伴已成功购买专属的推广代号'));
                 } else {
-                    alertify.success('全体起立，欢迎' + name + '成功购买专属的推广代号');
+                    alertify.success(_('全体起立，欢迎{0}成功购买专属的推广代号', name));
                 }
             } else if (res.event === 'onWithdraw' || res.event === 'onWithdrawAndDistribute') {
                 // 提现
                 var withdrawNum = window.formatNum6(web3.fromWei(res.args.ethOut.toNumber()))
                 if (xyj._account === res.args.playerAddress) {
-                    alertify.success('您已成功提现' + withdrawNum + 'ETH!');
+                    alertify.success(_('您已成功提现{0}ETH!', withdrawNum));
                 } else if (name === '') {
-                    alertify.success('有小伙伴已成功提现' + withdrawNum + 'ETH!');
+                    alertify.success(_('有小伙伴已成功提现{0}ETH!', withdrawNum));
                 } else {
-                    alertify.success(name + '已成功提现' + withdrawNum + 'ETH!');
+                    alertify.success(name + _('已成功提现{0}ETH!', withdrawNum));
                 }
                 if (res.event === 'onWithdrawAndDistribute') {
                     setTimeout(function () {
-                        alertify.success('请注意，新一轮的游戏准备开始');
+                        alertify.success(_('请注意，新一轮的游戏准备开始'));
                     }, 1000);
                 }
             } else if (res.event === 'onBuyAndDistribute') {
                 if (xyj._account === res.args.playerAddress) {
-                    alertify.alert('您已成功激活新一轮的游戏，激活游戏不会花费您的ETH，快来马上买钻取“金”吧');
+                    alertify.alert(_('您已成功激活新一轮的游戏，激活游戏不会花费您的ETH，快来马上买钻取“金”吧'));
                 } else {
-                    alertify.success('请注意，新一轮的游戏准备开始');
+                    alertify.success(_('请注意，新一轮的游戏准备开始'));
                 }
             }
         }

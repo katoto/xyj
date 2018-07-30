@@ -1335,7 +1335,8 @@ body {
 	white-space: normal;
 	line-height: .25rem;
 	padding-bottom: .2rem;
-	text-align: center;
+    text-align: center;
+    width: 121px;
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper span strong {
@@ -1893,4 +1894,8 @@ body {
 
 .buy-loading {
     z-index: 10000;
+}
+
+.EN .dead-time {
+    font-size: 20px !important;
 }

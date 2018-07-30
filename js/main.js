@@ -64,19 +64,19 @@ window.onload = function () {
         // }
 
         if (hour < 0) {
-            $('.headtimer, .lottery_time p, header .lottery_time').text('游戏已结束');
+            $('.headtimer, .lottery_time p, header .lottery_time').text(_('游戏已结束'));
             $('.js_buy').addClass('isOver');
-            $('.js_buy .js_buy_text').text('立即上路取"金"');
+            $('.js_buy .js_buy_text').text(_('立即上路取"金"'));
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;
         } else {
             $('.js_buy').removeClass('isOver');
-            $('.js_buy .js_buy_text').text('快速购买一颗金钻，赢得超级奖池！');
+            $('.js_buy .js_buy_text').text(_('快速购买一颗金钻，赢得超级奖池！'));
         }
 
         $('.headtimer, header .lottery_time').text(formatTime(hour) + ':' + formatTime(min) + ':' + formatTime(second));
-        $('.lottery_time p').text(hour.toString() + '小时' + min.toString() + '分' + second.toString() + '秒');
+        $('.lottery_time p').text(hour.toString() + _('小时') + min.toString() + _('分') + second.toString() + _('秒'));
     }
 
     // 根据time计算小时 分钟 秒数
@@ -201,7 +201,7 @@ window.onload = function () {
             xyj._account = account;
             if (error || account === '') {
                 console.log(error);
-                alertify.alert('您的metamask未登录');
+                alertify.alert(_('您的metamask未登录'));
             } else {
                 console.log(account);
                 fn(account);
@@ -355,7 +355,7 @@ window.onload = function () {
 
                 $('.list-content .total-award').text(formatNum6(data.totalEarn).toString() + ' ETH');
                 $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-                $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
+                $('.team-grid .total-award-usdt').text('= ' + formatUSDT(data.totalEarn) + ' USDT');
                 $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
         });
@@ -384,9 +384,9 @@ window.onload = function () {
                     // TODO: 购买成功后
                     hideLoading();
                     if (error) {
-                        alertify.error('已取消购买金钻');
+                        alertify.error(_('已取消购买金钻'));
                     } else {
-                        alertify.success('下单成功');
+                        alertify.success(_('下单成功'));
                     }
                 });
             }
@@ -444,7 +444,7 @@ window.onload = function () {
             $('#vanity').addClass('show');
             $('#nameInput').val('');
         } else {
-            alertify.alert('您的metamask未登录');
+            alertify.alert(_('您的metamask未登录'));
         }
     });
 
@@ -468,15 +468,15 @@ window.onload = function () {
                         // TODO: 购买名字成功后
                         hideLoading();
                         if (error) {
-                            alertify.error('已取消注册推广代号');
+                            alertify.error(_('已取消注册推广代号'));
                         } else {
                             closeVanity();
-                            alertify.success('下单成功');
+                            alertify.success(_('下单成功'));
                         }
                         
                     });
                 } else {
-                    alertify.alert('输入的推广代号不符合规则');
+                    alertify.alert(_('输入的推广代号不符合规则'));
                 }
             }
         });
@@ -493,22 +493,22 @@ window.onload = function () {
             showLoading();
             xyj.withdraw(function (error, res) {
                 if (error) {
-                    alertify.error('提现已取消');
+                    alertify.error(_('提现已取消'));
                 } else {
-                    alertify.success('下单成功');
+                    alertify.success(_('下单成功'));
                 }
                 hideLoading();
                 console.log('提现', error, res)
             })
         } else {
-            alertify.alert('您的metamask未登录');
+            alertify.alert(_('您的metamask未登录'));
         }
     });
 
     $('.js_share').click(function () {
         $('#sharing-rewards span').eq(2).click();
         if (!(xyj._account && xyj._account !== '')) {
-            alertify.alert('您的metamask未登录');
+            alertify.alert(_('您的metamask未登录'));
         }
     })
 
