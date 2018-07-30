@@ -44,10 +44,8 @@ window.onload = function () {
     }
 
     function getDefaultAdvisor() {
-        // 线下的
-        // return '0xfd76dB2AF819978d43e07737771c8D9E8bd8cbbF'
-        // 建成
-        return '0xb0555F2389d9Bf1389C8e548c60a6DDc77F3A4eE'
+        // 线上的
+        return '0xfd76dB2AF819978d43e07737771c8D9E8bd8cbbF'
     }
 
     // 关闭创建弹窗
