@@ -172,13 +172,16 @@
 }
 
 .put-forward-list .put-forward {
+  position: relative;
   padding: 0.656254rem 0 0.525003rem 0;
+  overflow: hidden;
 }
 
 .put-forward-list .put-forward .title {
   position: relative;
+  float: left;
   padding-left: 0.843755rem;
-  line-height: 0.618754rem;
+  line-height: 0.862505rem;
   font-size: 0.300002rem;
   color: #fff;
 }
@@ -188,7 +191,7 @@
   display: block;
   position: absolute;
   left: 0;
-  top: 0.093751rem;
+  top: 0.206251rem;
   width: 0.393752rem;
   height: 0.412503rem;
   background: url(../img/icon-diamond.png) no-repeat center;
@@ -200,7 +203,7 @@
   display: block;
   position: absolute;
   left: 0;
-  top: 0.05625rem;
+  top: 0.187501rem;
   width: 0.450003rem;
   height: 0.487503rem;
   background: url(../img/icon-gift.png) no-repeat center;
@@ -212,7 +215,7 @@
   display: block;
   position: absolute;
   left: 0;
-  top: 0.093751rem;
+  top: 0.225001rem;
   width: 0.450003rem;
   height: 0.450003rem;
   background: url(../img/icon-eth2.png) no-repeat center;
@@ -220,6 +223,7 @@
 }
 
 .put-forward-list .put-forward .eth {
+  float: right;
   line-height: 0.862505rem;
   font-size: 0.562504rem;
   color: #f5c751;
@@ -233,6 +237,7 @@
 }
 
 .put-forward-list .put-forward .count {
+  float: right;
   line-height: 0.862505rem;
   font-size: 0.562504rem;
   color: #f5c751;
@@ -246,6 +251,9 @@
 }
 
 .put-forward-list .put-forward .usdt {
+  position: absolute;
+  left: 0.843755rem;
+  top: 1.312508rem;
   font-size: 0.375002rem;
   color: #39ca68;
 }
