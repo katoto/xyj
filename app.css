@@ -205,7 +205,7 @@ header h1 span.title {
 
 header h1 span {
 	font-size: .24rem;
-	color: #fa02ff;
+	color: #fff;
 	cursor: pointer;
 	white-space: nowrap
 }
@@ -1136,7 +1136,7 @@ body {
 }
 
 .team-grid .btn:hover {
-	background: linear-gradient(#111, #111);
+	background: #423415;
 }
 
 .team-grid .tab-buy {
