@@ -276,6 +276,7 @@ window.onload = function () {
             } else {
                 if(time.toString() !== js_currTime.toString()){
                     js_currTime = time
+                    console.log(time);
                     updateInterval(time === 0 ? -1 : time);
                 }
             }
