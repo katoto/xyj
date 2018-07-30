@@ -1347,7 +1347,9 @@ body {
     text-align: center;
     width: 121px;
 }
-
+.EN .team-grid .tab-buy .select-team .team-container .team-wrapper span.desc {
+	height: 0.5rem;
+}
 .team-grid .tab-buy .select-team .team-container .team-wrapper span strong {
 	color: #f5c751;
 	font-size: .24rem
