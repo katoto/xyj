@@ -163,7 +163,7 @@ setTranslate = function (e) {
         '小时': 'h ',
         '分': 'min ',
         '秒': 's ',
-        '清先登陆您的Metamask钱包': 'Your Metamask did not log in',
+        '请先登陆您的Metamask钱包': 'Your Metamask did not log in',
         '请输入正确的金钻数量': 'Please enter the correct amount',
         '已取消购买金钻': 'Purchase Cancelled',
         '下单成功': 'Order Successful',
