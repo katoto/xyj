@@ -1252,7 +1252,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-bottom: .5rem
+	margin-bottom: .5rem;
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper {
@@ -1290,7 +1290,11 @@ body {
 	-o-transition: .2s;
 	transition: .2s;
 }
-
+@media (max-width: 550px) {
+	.team-wrapper img.pic{
+		max-width: 110px !important;
+	}
+}
 .team-wrapper span.name {
 	position: relative;
 	top: -10px;
