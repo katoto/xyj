@@ -118,26 +118,11 @@ $(function () {
         var a = localStorage.language || window.navigator.language;
         setTranslate(a);
         var t = /^zh/.test(a);
-        $("#locale").text(t ? "EN" : "CN"), $("#locale").on("click", function () {
+        $("#locale").text(t ? "EN" : "CN")
+        $("#locale").off('click').on("click", function () {
             localStorage.setItem("language", t ? "en" : "zh");
             setTranslate(a);
             e();
-            // localStorage.setItem("language", t ? "en" : "zh"), setTranslate(a), e(), getTeamList(function (e) {
-            //     var a = $(".team-container"),
-            //         r = e.rows,
-            //         n = getTranslate("teamDesc"),
-            //         i = getTranslate("teamPics"),
-            //         s = $(document.createDocumentFragment());
-            //     a.empty();
-            //     var u = getTranslate("jackpot"),
-            //         c = getTranslate("reward");
-            //     ["werewolf", "civilian", "witch", "hunter"].forEach(function (a, e) {
-            //         var t = r.find(function (e) {
-            //             return e.name === a
-            //         });
-            //         s.append($('\n                  <div class="team-wrapper' + (0 === e ? " team-wrapper--checked" : "") + "\" data-team='" + a + "'>\n                      <img src=\"./assets/images/" + i(e) + '.png" alt="" class="pic">\n                      <span class="desc">' + n(e) + "</span>\n                      <span>" + u + "\n                        <strong>" + t.pot + "%</strong>\n                      </span>\n                      <span>" + c + "\n                        <strong>" + t.dividend + "%</strong>\n                      </span>\n                  </div>"))
-            //     }), a.append(s)
-            // })
         });
         var r = $("[data-trans]");
         Array.prototype.forEach.call(r, function (e) {
