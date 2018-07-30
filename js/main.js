@@ -2,8 +2,9 @@ window.refreshPersonInfo = null;
 window.refreshInfo = null;
 window.refreshTime = null;
 window.onload = function () {
-
-
+    $('#jumpToContact').click(function () {
+        window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
+    })
     // 购买、提现、推荐奖励 tab 点击事件
     $('.team-grid .tabs .tab-title span').click(function () {
         $('.team-grid .tabs .tab-title span').removeClass('active');
