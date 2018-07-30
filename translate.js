@@ -191,7 +191,9 @@ setTranslate = function (e) {
         '- 没有特殊字符': '-No special characters',
         '- 字符之间不能有多个空格': '-No more than one space between characters',
         '名称是永久性的。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。': 'Names are yours permanently (for vanity URLS). But only your most recent name will show up on the leaderboard/game UI. You can own as many names as you\'d like.',
-        '花费0.01ETH购买': 'Purchase for 0.01 ETH'
+        '花费0.01ETH购买': 'Purchase for 0.01 ETH',
+        '现在购买1颗金钻，您将成为新1轮的第1个投资者！': 'Buy 1 diamond now and you will be the first investor in the new round!',
+        "简易教程": "Easy Play"
     };
     getTranslate = function (e) {
         console.log(e)
