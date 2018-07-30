@@ -86,7 +86,7 @@ window.onload = function () {
         }
 
         $('.headtimer, header .lottery_time').text(formatTime(hour) + ':' + formatTime(min) + ':' + formatTime(second));
-        $('.lottery_time p').text(hour.toString() + _(':') + min.toString() + _(':') + second.toString() + _(':'));
+        $('.lottery_time p').text(hour.toString() + _(':') + min.toString() + _(':') + second.toString());
     }
 
     // 根据time计算小时 分钟 秒数
