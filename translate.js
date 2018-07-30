@@ -203,7 +203,7 @@ setTranslate = function (e) {
         '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!'
     };
     getTranslate = function (e) {
-        return a[e] || (localStorage.getItem('language') === 'zh' ? e : lang[e]) || e
+        return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e
     };
     _ = function () {
         let string = arguments[0] || ''
@@ -214,7 +214,7 @@ setTranslate = function (e) {
                 thisString = thisString.replace(new RegExp('\\{' + (index - 1) + '\\}', 'g'), arguments[index])
             }
         }
-        return localStorage.getItem('language') === 'zh' ? arguments[0] : thisString
+        return (localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? arguments[0] : thisString
     };
 };
 
