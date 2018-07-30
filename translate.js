@@ -1,4 +1,5 @@
 "use strict";
+window.global_lan = 'zh';
 var getTranslate = function () {},
     setTranslate = function (e) {
         var a;
@@ -145,15 +146,16 @@ var getTranslate = function () {},
             return a[e] || e
         }
     };
+
 $(function () {
-    ! function e() {
-        var a = localStorage.language || window.navigator.language;
-        setTranslate(a);
-        var t = /^zh/.test(a);
-        $("#locale").text(t ? "EN" : "CN")
+    (function e() {
+        window.global_lan = localStorage.language || window.navigator.language;
+        setTranslate(global_lan);
+        var t = /^zh/.test(global_lan);
+        $("#locale").text(t ? "EN" : "CN");
         $("#locale").off('click').on("click", function () {
             localStorage.setItem("language", t ? "en" : "zh");
-            setTranslate(a);
+            setTranslate(global_lan);
             e();
         });
         var r = $("[data-trans]");
@@ -161,5 +163,5 @@ $(function () {
             var a = e.getAttribute("data-trans");
             e.textContent = getTranslate(a)
         })
-    }()
+    })()
 });
