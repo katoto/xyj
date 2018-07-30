@@ -193,7 +193,12 @@ setTranslate = function (e) {
         '名称是永久性的。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。': 'Names are yours permanently (for vanity URLS). But only your most recent name will show up on the leaderboard/game UI. You can own as many names as you\'d like.',
         '花费0.01ETH购买': 'Purchase for 0.01 ETH',
         '现在购买1颗金钻，您将成为新1轮的第1个投资者！': 'Buy 1 diamond now and you will be the first investor in the new round!',
-        "简易教程": "Easy Play"
+        "简易教程": "Easy Play",
+        '复制地址': 'copy',
+        '钱包推荐地址：': 'Wallet Referral',
+        '匿名推荐地址：': 'Anyonmous Referral',
+        '名字推荐地址：': 'Vanity Referral',
+        ' 个': ''
     };
     getTranslate = function (e) {
         console.log(e)

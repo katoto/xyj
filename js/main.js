@@ -106,7 +106,7 @@ window.onload = function () {
             var timeTime = calcTime(xyj._time)
             renderTime(timeTime[0], timeTime[1], timeTime[2]);
             xyj._time--;
-        }, 1000);
+        }, 1500);
     }
 
     this.setInterval(function () {
@@ -356,7 +356,7 @@ window.onload = function () {
                 }
                 $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
                 $('.team-grid .share-award').text(data.shareEarn.toString());
-                $('.list-content .owner-keys').text(data.keys.toString() + ' 个');
+                $('.list-content .owner-keys').text(data.keys.toString() + _(' 个'));
 
                 getBuyPrice(function () {
                     $('.team-grid .js_your_key').text(Number(data.keys));

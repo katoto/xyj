@@ -7,6 +7,7 @@ var xyj = {}
 var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
+
 var contractAbi = [
     {
         "constant": true,
@@ -1592,7 +1593,7 @@ contractNet.allEvents(function (err, res) {
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));
                 } else if (name !== '') {
-                    alertify.success(keyNums === 1 ? _('{0}已成功购买{1}个金钻', name,  keyNums) : _('{0}已成功购买{1}个金钻 ', name,  keyNums));
+                    alertify.success(keyNums === 1 ? _('{0}已成功购买{1}个金钻', name, keyNums) : _('{0}已成功购买{1}个金钻 ', name, keyNums));
                 } else if (name === '') {
                     alertify.success(keyNums === 1 ? _('有小伙伴已成功购买{0}个金钻', keyNums) : _('有小伙伴已成功购买{0}个金钻 ', keyNums));
                 }
