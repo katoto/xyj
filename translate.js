@@ -206,15 +206,19 @@ setTranslate = function (e) {
         return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e
     };
     _ = function () {
-        let string = arguments[0] || ''
-        let thisString = a[string] || lang[string] || string
-
+        var string = arguments[0] || '';
+        var thisString = a[string] || lang[string] || string;
+        var arg = arguments[0]
         if (arguments.length > 1) {
-            for (let index = 1; index < arguments.length; index++) {
+            for (var index = 1; index < arguments.length; index++) {
                 thisString = thisString.replace(new RegExp('\\{' + (index - 1) + '\\}', 'g'), arguments[index])
             }
+
+            for (var index = 1; index < arguments.length; index++) {
+                arg = arg.replace(new RegExp('\\{' + (index - 1) + '\\}', 'g'), arguments[index])
+            }
         }
-        return (localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? arguments[0] : thisString
+        return (localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? arg : thisString
     };
 };
 
