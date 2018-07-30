@@ -470,7 +470,7 @@ window.onload = function () {
                         // TODO: 购买名字成功后
                         hideLoading();
                         if (error) {
-                            alertify.error('已取消注册名字');
+                            alertify.error('已取消注册推广代号');
                         } else {
                             closeVanity();
                             alertify.success('下单成功');
@@ -478,7 +478,7 @@ window.onload = function () {
                         
                     });
                 } else {
-                    alertify.alert('输入的名字不符合规则');
+                    alertify.alert('输入的推广代号不符合规则');
                 }
             }
         });
