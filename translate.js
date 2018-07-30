@@ -229,7 +229,7 @@ $(function () {
             localStorage.setItem("language", t ? "en" : "zh");
             setTranslate(global_lan);
             window.location.reload();
-            // e();
+            //e();
         });
         var r = $("[data-trans], [placeholder]");
         Array.prototype.forEach.call(r, function (e) {
