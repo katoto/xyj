@@ -7,7 +7,6 @@ var xyj = {}
 var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
-
 var contractAbi = [
     {
         "constant": true,
