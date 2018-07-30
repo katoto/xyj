@@ -74,7 +74,7 @@ setTranslate = function (e) {
             js_morePeop:'让更多人参与造梦西游游戏',
         },
         en: {
-            js_morePeop:'让更多人参与造梦西游游戏',
+            js_morePeop:'Invite more friend to join the game!',
             js_linkMsg:'Buy referral links to invite friends,you can get 10% of your friends\' investment!',
             js_buyLink:'Buy a Link',
             js_keys:'Diamond',
