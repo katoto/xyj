@@ -4,6 +4,12 @@ var getTranslate = function () {},
         var a;
         a = {
             zh: {
+                js_gloTitle:"这是最后的机会",
+                js_gloTitle2:"快来西方取“金”！",
+                js_team1:"悟空",
+                js_team2:"唐僧",
+                js_team3:"八戒",
+                js_team4:"沙僧",
                 gameName: "造梦西游",
                 briefingTrader: "实时成交",
                 tabBuyTitle: "购买",
@@ -57,6 +63,12 @@ var getTranslate = function () {},
                 submitFail: "提交失败"
             },
             en: {
+                js_gloTitle:"Dream of Your West Journey",
+                js_gloTitle2:"Journey to Your Best Diamond",
+                js_team1:"Sun Wukong",
+                js_team2:"Tang Sanzang",
+                js_team3:"Zhu Bajie",
+                js_team4:"Sha Wujing",
                 gameName: "DARK WOOD",
                 briefingTrader: "Briefing Trader",
                 tabBuyTitle: "Buy",
