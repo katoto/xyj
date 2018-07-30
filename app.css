@@ -171,7 +171,11 @@ header {
 	width: 100%;
 	z-index: 100
 }
-
+header h1>div{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
 header h1 {
 	height: 1.312rem;
 	display: -webkit-box;
