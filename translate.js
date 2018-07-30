@@ -197,7 +197,8 @@ setTranslate = function (e) {
         '复制地址': 'copy',
         '钱包推荐地址：': 'Wallet Referral',
         '匿名推荐地址：': 'Anyonmous Referral',
-        '名字推荐地址：': 'Vanity Referral'
+        '名字推荐地址：': 'Vanity Referral',
+        ' 个': ''
     };
     getTranslate = function (e) {
         console.log(e)
