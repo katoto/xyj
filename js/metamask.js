@@ -383,7 +383,7 @@ contractNet.allEvents(function (err, res) {
             window.refreshInfo();
             console.log(res.event, res.args);
             if (res.event === 'onEndTx') {
-                var keyNums = (res.args.keysBought / (10 ** 18)).toFixed(0);
+                var keyNums = Math.ceil((res.args.keysBought.toNumber()) / (10 ** 18));
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success('您已成功购买' + keyNums + '个金钻');
                 } else if (name !== '') {
