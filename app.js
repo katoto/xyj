@@ -175,7 +175,7 @@ $(function () {
                         var e = t.rows;
                         if (e.length) {
                             var a = e[0];
-                            if (a.locked) return clearInterval(l), clearInterval(f), $(".timer.lottery_time").html("<p>恭喜最后购买者，本轮游戏已结束！</p><span>你的所有奖励将自动提现至授权\b账号</span>"), $(".winner").find("span.account").text(a.winner), clearInterval(s), $("body").addClass("stop");
+                            if (a.locked) return clearInterval(l), clearInterval(f), $(".timer.lottery_time").html("<p>恭喜最后购买者，本轮！</p><span>你的所有奖励将自动提现至授权\b账号</span>"), $(".winner").find("span.account").text(a.winner), clearInterval(s), $("body").addClass("stop");
                             clearInterval(l);
                             var n = $(".lottery_time"),
                                 r = $("header .lottery_time"),

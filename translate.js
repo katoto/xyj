@@ -157,7 +157,7 @@ setTranslate = function (e) {
         '{0}已成功提现{1}ETH!': '{0} has withdrawn {1} ETH!',
         '请注意，新一轮的游戏准备开始': 'Attention! Another round of the game is ready to start!',
         '您已成功激活新一轮的游戏，激活游戏不会花费您的ETH，快来马上买钻取“金”吧': 'You\'ve just activated a new round for free! Buy diamonds and start your journey now!',
-        '游戏已结束': 'Game Finished',
+        '点击按钮重启游戏': 'Click the button to restart the game!',
         '立即上路取"金"': 'Buy diamonds and start your journey now！',
         '快速购买一颗金钻，赢得超级奖池！': 'Buy one diamond to hit the pool！',
         '小时': 'h ',
