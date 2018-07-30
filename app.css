@@ -205,7 +205,7 @@ header h1 span.title {
 
 header h1 span {
 	font-size: .24rem;
-	color: #fa02ff;
+	color: #fff;
 	cursor: pointer;
 	white-space: nowrap
 }

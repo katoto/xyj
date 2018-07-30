@@ -10,16 +10,16 @@
 }
 
 .head-share {
-  margin-right: 0.187501rem;
+  margin-right: 0.375002rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
 .head-share p {
-  margin-left: 0.187501rem;
+  margin-left: 0.075rem;
   font-size: 0.300002rem;
-  color: #39ca68;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -660,4 +660,8 @@
     width: 92%;
     margin: 0 auto 0.5rem;
   }
+}
+
+.EN .put-forward-list .put-forward .count::after {
+  content: '';
 }

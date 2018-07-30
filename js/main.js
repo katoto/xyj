@@ -6,7 +6,11 @@ window.onload = function () {
         window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
     })
     $('#jumpToEdu').click(function () {
-        window.location.href = '../edu.pdf'
+        if(global_lan==='zh'){
+            window.location.href = '../edu_zh.pdf'
+        }else{
+            window.location.href = '../edu_cn.pdf'
+        }
     })
 
     // 购买、提现、推荐奖励 tab 点击事件
@@ -71,7 +75,7 @@ window.onload = function () {
         if (hour < 0) {
             $('.headtimer, .lottery_time p, header .lottery_time').text(_('游戏已结束'));
             $('.js_buy').addClass('isOver');
-            $('.js_buy .js_buy_text').text(_('立即上路取"金"'));
+            $('.js_buy .js_buy_text').text(_('现在购买1颗金钻，您将成为新1轮的第1个投资者！'));
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;
