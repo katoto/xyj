@@ -198,7 +198,9 @@ setTranslate = function (e) {
         '钱包推荐地址：': 'Wallet Referral',
         '匿名推荐地址：': 'Anyonmous Referral',
         '名字推荐地址：': 'Vanity Referral',
-        ' 个': ' '
+        ' 个': ' ',
+        '邀请说明：': 'Referral:',
+        '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!'
     };
     getTranslate = function (e) {
         return a[e] || (localStorage.getItem('language') === 'zh' ? e : lang[e]) || e
