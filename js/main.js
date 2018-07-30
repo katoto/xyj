@@ -211,7 +211,7 @@ window.onload = function () {
             xyj._account = account;
             if (error || account === '') {
                 console.log(error);
-                alertify.alert(_('您的metamask未登录'));
+                alertify.error(_('您的metamask未登录'));
             } else {
                 console.log(account);
                 fn(account);
@@ -458,7 +458,7 @@ window.onload = function () {
             $('#vanity').addClass('show');
             $('#nameInput').val('');
         } else {
-            alertify.alert(_('您的metamask未登录'));
+            alertify.error(_('您的metamask未登录'));
         }
     });
 
@@ -515,14 +515,14 @@ window.onload = function () {
                 console.log('提现', error, res)
             })
         } else {
-            alertify.alert(_('您的metamask未登录'));
+            alertify.error(_('您的metamask未登录'));
         }
     });
 
     $('.js_share').click(function () {
         $('#sharing-rewards span').eq(2).click();
         if (!(xyj._account && xyj._account !== '')) {
-            alertify.alert(_('您的metamask未登录'));
+            alertify.error(_('您的metamask未登录'));
         }
     })
 
