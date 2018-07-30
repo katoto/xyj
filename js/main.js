@@ -44,7 +44,7 @@ window.onload = function () {
     }
 
     function getDefaultAdvisor() {
-        return '0'
+        return '0xfd76dB2AF819978d43e07737771c8D9E8bd8cbbF'
     }
 
     // 关闭创建弹窗
