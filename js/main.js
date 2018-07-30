@@ -369,7 +369,7 @@ window.onload = function () {
 
                 $('.list-content .total-award').text(formatNum6(data.totalEarn).toString() + ' ETH');
                 $('.round-list .total-award-usdt').text('= ' + formatUSDT(data.totalEarn));
-                $('.team-grid .total-award-usdt').text('≙= ' + formatUSDT(data.totalEarn) + ' USDT');
+                $('.team-grid .total-award-usdt').text('≙ ' + formatUSDT(data.totalEarn) + ' USDT');
                 $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
         });
