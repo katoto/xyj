@@ -106,7 +106,7 @@ window.onload = function () {
             var timeTime = calcTime(xyj._time)
             renderTime(timeTime[0], timeTime[1], timeTime[2]);
             xyj._time--;
-        }, 1000);
+        }, 1500);
     }
 
     this.setInterval(function () {
