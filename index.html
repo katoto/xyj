@@ -470,7 +470,7 @@
                     <!-- Name chooser -->
                     <div class="row">
                         <div class="col">
-                            <p class="lead nomarginb">Graffiti your name on the Blockchain</p>
+                            <p class="lead nomarginb" data-trans="在区块链上记录你的名字">在区块链上记录你的名字</p>
                         </div>
                         <div class="col-auto">
                             <p class="text-right nomarginb">
@@ -492,32 +492,27 @@
                                     <div class="input-group mb-3" style="margin-top: 10px; font-size: 16px;">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-yel" type="button" id="randomName">
-                                                Random
+                                                <span data-trans="随机">随机</span>
                                             </button>
                                         </div>
-                                        <input class="form-control text-center" type="text" placeholder="type here" id="nameInput">
+                                        <input class="form-control text-center" type="text" id="nameInput">
                                     </div>
                                 </div>
                             </div>
                             <p class="small">
-                                <br> Names must follow these rules:
-                                <br> -Must be unique
-                                <i>[
-                                    <a style="color:#00c9ed" href="https://fomo3d.eu/">database of unique names</a>]</i>
-                                <br> -32 Characters or Less
-                                <br> -A-Z (lowercase)
-                                <br> -Name cannot be
-                                <i>just</i> numbers, but numbers are allowed
-                                <br> -No special characters
-                                <br> -No more than one space between characters
                                 <br>
-                                <br> If the transaction fails, one of these criteria was not met properly.
+                                <div data-trans="名称必须遵循以下规则：">名称必须遵循以下规则：</div>
+                                <span data-trans="- 必须是唯一的">- 必须是唯一的</span>
+                                [<a style="color:#00c9ed" href="https://fomo3d.eu/" data-trans="数据库唯一的名称">数据库唯一的名称</a>]
+                                <div data-trans="-32个字符或更少">-32个字符或更少</div>
+                                <div data-trans="-A-Z（小写）">-A-Z（小写）</div>
+                                <div data-trans="-名称不能只是数字，但允许使用数字">-名称不能只是数字，但允许使用数字</div>
+                                <div data-trans="- 没有特殊字符">- 没有特殊字符</div>
+                                <div data-trans="- 字符之间不能有多个空格">- 字符之间不能有多个空格</div>
                                 <br>
-                                <br> Names are yours permanently (for vanity URLS). But only your most recent name will show
-                                up on the leaderboard/game UI. You can own as many names as you'd like.
                                 <br>
-                                <br> Make it good.
-
+                                <div data-trans="名称是永久性的。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。">名称是永久性的（对于虚荣URLS）。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。</div>
+                                <br>
                             </p>
                         </div>
                     </div>
@@ -528,7 +523,9 @@
                                     viewBox="0 0 320 512" data-fa-i2svg="">
                                     <path fill="currentColor" d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"></path>
                                 </svg>
-                                <!-- <i class="fab fa-ethereum"></i> -->Purchase for 0.01 ETH</button>
+                                <!-- <i class="fab fa-ethereum"></i> -->
+                                <span data-trans="花费0.01ETH购买">花费0.01ETH购买</span>
+                            </button>
                         </div>
                     </div>
                     <!-- /Name chooser -->

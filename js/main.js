@@ -74,9 +74,10 @@ window.onload = function () {
         // }
 
         if (hour < 0) {
-            $('.headtimer, .lottery_time p, header .lottery_time').text(_('点击按钮重启游戏'));
+            $('.headtimer').text(_('想开启新的轮回吗？'));
+            $('header .lottery_time, .lottery_time p').text(_('本回合已结束'));
             $('.js_buy').addClass('isOver');
-            $('.js_buy .js_buy_text').text(_('现在购买1颗金钻，您将成为新1轮的第1个投资者！'));
+            $('.js_buy .js_buy_text').text(_('现在购买1颗金钻，您将激活新一回合的游戏！'));
             clearInterval(xyj._timer);
             xyj._timer = null;
             return;

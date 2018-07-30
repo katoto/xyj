@@ -97,10 +97,10 @@ setTranslate = function (e) {
             Recommended: "Referrals",
             chooseTeam: "Choose a Team",
             withdraw: "WITHDRAW",
-            buyTip: "*The price of Gems will increase with the number of users purchased",
+            buyTip: "*The price of Diamonds will increase with the number of users purchased",
             drawTip: "*Minimum withdrawal amount: 10 ETH；Your rewards will be automatically withdrawn to your ETH account if the round ends",
             totalAward: "Your Rewards",
-            rebate: "Rebate",
+            rebate: "Referral",
             withdrawAvailable: "Your Diamond",
             yourGems: "Your Diamond",
             remainingTime: "Round 1 Contract will drain in :",
@@ -157,7 +157,7 @@ setTranslate = function (e) {
         '{0}已成功提现{1}ETH!': '{0} has withdrawn {1} ETH!',
         '请注意，新一轮的游戏准备开始': 'Attention! Another round of the game is ready to start!',
         '您已成功激活新一轮的游戏，激活游戏不会花费您的ETH，快来马上买钻取“金”吧': 'You\'ve just activated a new round for free! Buy diamonds and start your journey now!',
-        '点击按钮重启游戏': 'Click the button to restart the game!',
+        '想开启新的轮回吗？': 'Wanna restart a new round?',
         '立即上路取"金"': 'Buy diamonds and start your journey now！',
         '快速购买一颗金钻，赢得超级奖池！': 'Buy one diamond to hit the pool！',
         '小时': 'h ',
@@ -192,7 +192,7 @@ setTranslate = function (e) {
         '- 字符之间不能有多个空格': '-No more than one space between characters',
         '名称是永久性的。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。': 'Names are yours permanently (for vanity URLS). But only your most recent name will show up on the leaderboard/game UI. You can own as many names as you\'d like.',
         '花费0.01ETH购买': 'Purchase for 0.01 ETH',
-        '现在购买1颗金钻，您将成为新1轮的第1个投资者！': 'Buy 1 diamond now and you will be the first investor in the new round!',
+        '现在购买1颗金钻，您将激活新一回合的游戏！': 'Buy 1 diamond now and you will activate a new round!',
         "教程": "Easy Play",
         '复制地址': 'copy',
         '钱包推荐地址：': 'Wallet Referral',
@@ -200,7 +200,8 @@ setTranslate = function (e) {
         '名字推荐地址：': 'Vanity Referral',
         ' 个': ' ',
         '邀请说明：': 'Referral:',
-        '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!'
+        '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!',
+        '本回合已结束': 'This Round Finished'
     };
     getTranslate = function (e) {
         return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e
