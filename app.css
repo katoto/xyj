@@ -199,6 +199,7 @@ header h1 span.title {
 
 @media (max-width: 550px) {
 	header h1 span.title {
+		display: none;
 		font-size: .3rem
 	}
 }
@@ -1243,9 +1244,17 @@ body {
 
 .team-grid .tab-buy .count-container .count-wrapper:first-child,
 .team-grid .tab-buy .count-container .count-wrapper:nth-child(2) {
-	width: 14% !important
+	width: 14% !important;
 }
-
+@media (max-width: 550px) {
+	.team-grid .tab-buy .select-team .team-container .team-wrapper:first-child,
+	.team-grid .tab-buy .select-team .team-container .team-wrapper:nth-child(2) {
+		margin-bottom:10px;
+	}
+	.count-wrapper .hidexs{
+	display: none;
+	}
+}
 .team-grid .tab-buy .count-container .count-wrapper:last-child {
 	margin-right: 0
 }
