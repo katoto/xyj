@@ -201,7 +201,6 @@ setTranslate = function (e) {
         ' 个': ' '
     };
     getTranslate = function (e) {
-        console.log(e)
         return a[e] || (localStorage.getItem('language') === 'zh' ? e : lang[e]) || e
     };
     _ = function () {
