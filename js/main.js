@@ -527,4 +527,14 @@ window.onload = function () {
     })
 
     new ClipboardJS('.js_copy_btn');
+
+    var xyjindex = {
+        showPop: function (a) {
+            $(a).show(200)
+        },
+        closePop: function (a) {
+            $(a).hide(200)
+        }
+    }
+
 }
