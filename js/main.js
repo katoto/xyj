@@ -6,7 +6,11 @@ window.onload = function () {
         window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
     })
     $('#jumpToEdu').click(function () {
-        window.location.href = '../edu.pdf'
+        if(global_lan==='zh'){
+            window.location.href = '../edu_zh.pdf'
+        }else{
+            window.location.href = '../edu_cn.pdf'
+        }
     })
 
     // 购买、提现、推荐奖励 tab 点击事件
