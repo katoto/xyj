@@ -99,12 +99,12 @@ setTranslate = function (e) {
             withdraw: "WITHDRAW",
             buyTip: "*The price of Diamonds will increase with the number of users purchased",
             drawTip: "*Minimum withdrawal amount: 10 ETH；Your rewards will be automatically withdrawn to your ETH account if the round ends",
-            totalAward: "Your Rewards",
-            rebate: "Referral",
-            withdrawAvailable: "Your Diamond",
-            yourGems: "Your Diamond",
-            remainingTime: "Round 1 Contract will drain in :",
-            totalJackpot: "Jackpot",
+            totalAward: "Total Earnings:",
+            rebate: "Referral Reward:",
+            withdrawAvailable: "Your Diamond:",
+            yourGems: "Your Diamond:",
+            remainingTime: "Time Left:",
+            totalJackpot: "Prize Pool:",
             recentBuyer: "Recent Buyer:",
             buyBtn: "Pay in ETH",
             round: function (e) {
@@ -199,7 +199,7 @@ setTranslate = function (e) {
         '匿名推荐地址：': 'Anyonmous Referral',
         '名字推荐地址：': 'Vanity Referral',
         ' 个': ' ',
-        '邀请说明：': 'Referral:',
+        '邀请说明：': 'Referral Reward:',
         '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!',
         '本回合已结束': 'This Round Finished'
     };
