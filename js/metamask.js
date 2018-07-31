@@ -1419,9 +1419,11 @@ xyj.iWantXKeys = function (keyNum, fn) {
         return 'keyNum need number'
     }
     if (contractNet) {
-        contractNet.iWantXKeys(parseFloat(keyNum), function (err, res) {
+        contractNet.iWantXKeys(web3.toWei(parseFloat(keyNum)), function (err, res) {
             if (!err) {
                 if (res) {
+                    console.log(res);
+                    console.log(web3.fromWei(res.toNumber()));
                     fn(null, true)
                 }
             } else {
