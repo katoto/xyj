@@ -41,7 +41,10 @@ $(function () {
     }
 
     // 格式化金额
-    function numberComma(source, length = 3) {
+    function numberComma(source, length) {
+        if (!length) {
+            length = 3;
+        }
         source = String(source).split('.')
         source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{' + length + '})+$)', 'ig'), '$1,')
         return source.join('.')
@@ -128,9 +131,9 @@ $(function () {
 
     // 浮点数乘法
     function accMul(arg1, arg2) {
-        let m = 0
-        let s1 = arg1.toString()
-        let s2 = arg2.toString()
+        var m = 0
+        var s1 = arg1.toString()
+        var s2 = arg2.toString()
         try {
             m += s1.split('.')[1].length
         } catch (e) {
@@ -143,10 +146,10 @@ $(function () {
     }
 
     function accDiv(arg1, arg2) {
-        let t1 = 0
-        let t2 = 0
-        let r1
-        let r2
+        var t1 = 0
+        var t2 = 0
+        var r1
+        var r2
         try {
             t1 = arg1.toString().split('.')[1].length
         } catch (e) {
@@ -215,7 +218,7 @@ $(function () {
 
     // 获取邀请者账号
     function getAdviceHash() {
-        let str = window.location.pathname.slice(1);
+        var str = window.location.pathname.slice(1);
         var type;
         if (str === '') {
             type = 'addr';
@@ -233,7 +236,7 @@ $(function () {
         }
         return {
             type: type,
-            str, str
+            str: str
         }
     }
 

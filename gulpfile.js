@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     px2rem = require('postcss-px2rem'),
     notify = require("gulp-notify"),
     uglify = require("gulp-uglify"),
+    gutil = require('gulp-util'),
     babel = require('gulp-babel');
 
 
@@ -29,8 +30,10 @@ gulp.task('less', function () {
 // 压缩js
 gulp.task('script',function () {
     gulp.src(['./js/main.js','./js/metamask.js','./js/translate.js'])
-        .pipe(babel())
-        .pipe(uglify({mangle:false}))
+        .pipe(uglify().on('error', function(err){
+            gutil.log(err);
+            this.emit('end');
+        }))
         .pipe(rename({
             suffix: '.min'
         }))
@@ -49,7 +52,7 @@ gulp.task('webserver', function () {
 // 监控
 gulp.task('watch', function () {
     gulp.watch('./css/*.less', ['less']);
-    gulp.watch('./js/main.js', ['script']);
+    gulp.watch(['./js/main.js','./js/metamask.js','./js/translate.js'], ['script']);
 });
 
 // 预设任务
