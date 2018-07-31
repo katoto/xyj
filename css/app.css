@@ -194,7 +194,10 @@ header h1 {
 header h1 span.title {
 	font-size: .44rem;
 	color: #fff;
-	white-space: nowrap
+	white-space: nowrap;
+	background-image: -webkit-linear-gradient(top, #fff, #f5c751);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 550px) {
@@ -203,7 +206,9 @@ header h1 span.title {
 		font-size: .3rem
 	}
 }
-
+.owner-keys{
+	margin-left: 10px;
+}
 header h1 span {
 	font-size: .24rem;
 	color: #fff;

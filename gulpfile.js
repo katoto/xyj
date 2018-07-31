@@ -48,7 +48,7 @@ gulp.task('webserver', function () {
 // 监控
 gulp.task('watch', function () {
     gulp.watch('./css/*.less', ['less']);
-    gulp.watch('./js/*.js', ['script']);
+    // gulp.watch('./js/*.js', ['script']);
 });
 
 // 预设任务

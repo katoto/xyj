@@ -33,7 +33,7 @@
         }
     </script>
     <script src="./js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="./js/translate.min.js"></script>
+    <script type="text/javascript" src="./js/translate.js"></script>
 </head>
 
 <body>
@@ -43,26 +43,28 @@
                 <div>
                     <img class="logo" src="./img/logo.png" alt="">
                     <span class="title" data-trans="gameName">造梦西游</span>
-                    <ul class="info ">
-                        <li class="lottery-time-wrapper">
-                            <i class="iconfont icon-daojishi"></i>
-                            <span class="lottery_time" style="color: #fff;">00:00:00</span>
-                        </li>
-                        <li>
-                            <span target="_blank"  class="owner-keys" style="color: #fff;" id="jumpToContact" data-trans="合约">合约</span>
-                        </li>
-                        <li>
-                            <span class="owner-keys" style="color: #fff;" id="jumpToEdu" data-trans="教程">教程</span>
-                        </li>
-                    </ul>
                 </div>
-                <div>
-                    <a class="head-share js_share fr" href="#sharing-rewards">
-                        <img src="./img/icon-gift.png" alt="">
-                        <p data-trans="Recommended">推荐奖励</p>
-                    </a>
-                    <span class="fr" id="locale">EN</span>
-                </div>
+                <ul class="info ">
+                    <!--<li class="lottery-time-wrapper">-->
+                    <!--<i class="iconfont icon-daojishi"></i>-->
+                    <!--<span class="lottery_time" style="color: #fff;">00:00:00</span>-->
+                    <!--</li>-->
+                    <li>
+                        <a class="head-share js_share fr" href="#sharing-rewards">
+                            <img src="./img/icon-gift.png" alt="">
+                            <p data-trans="Recommended">推荐奖励</p>
+                        </a>
+                    </li>
+                    <li>
+                        <span target="_blank"  class="owner-keys" style="color: #fff;" id="jumpToContact" data-trans="合约">合约</span>
+                    </li>
+                    <li>
+                        <span class="owner-keys" style="color: #fff;" id="jumpToEdu" data-trans="教程">教程</span>
+                    </li>
+                    <li>
+                        <span class="fr" id="locale">EN</span>
+                    </li>
+                </ul>
             </h1>
             <div class="notice hide" id="notice">
                 <h6>【公告】西游游戏已升级上线</h6>
@@ -266,7 +268,7 @@
                     </div>
                     <div class="tab-content ">
                         <div class="tab-put-forward">
-                            <div class="tip hide" data-trans="drawTip">*提示：最低10个ETH起提，本轮结束自动提现至账户</div>
+                            <div class="tip " data-trans="drawTip">*提示：您的收益可随时提现</div>
                             <div class="put-forward-list">
                                 <div class="put-forward">
                                     <h6 class="title icon-diao" data-trans="withdrawAvailable">你的金钻</h6>
