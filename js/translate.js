@@ -1,5 +1,5 @@
 window.global_lan = 'zh';
-var _ = null,
+var _ = null ,
 getTranslate = null,
 setTranslate = function (e) {
     var a = {
