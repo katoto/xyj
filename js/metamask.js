@@ -3,7 +3,10 @@ window.xyj = {}
 // test
 // var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
 // online
-var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
+// var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
+// online 24
+var contractAddr = '0x4e71b5e47a7e4f8eaccff4ade0e3292f80780cf0'
+
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
 var contractAbi = [
