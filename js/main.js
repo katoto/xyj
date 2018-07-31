@@ -5,13 +5,13 @@ window.js_currTime = 0;
 
 $(function () {
     $('#jumpToContact').click(function () {
-        window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
+        window.open('https://etherscan.io/address/'+ contractAddr +'#code')
     })
     $('#jumpToEdu').click(function () {
         if(global_lan==='zh'){
-            window.location.href = '../edu_zh.pdf'
+            window.open('../edu_zh.pdf')
         }else{
-            window.location.href = '../edu_cn.pdf'
+            window.open('../edu_en.pdf')
         }
     })
     // 购买、提现、推荐奖励 tab 点击事件  b 点击事件
