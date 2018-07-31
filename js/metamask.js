@@ -1,10 +1,10 @@
 var global_Second = 30
-var xyj = {}
+window.xyj = {}
 
 // test
-// var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
+var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
 // online
-var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
+// var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
 var contractAbi = [

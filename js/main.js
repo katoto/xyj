@@ -185,24 +185,20 @@ window.onload = function () {
 
     // 渲染单价
     function renderPrice() {
-        var price = xyj._keyPrice;
-        price = formatNum8(price);
-        $('#ethCount').text('@ ' + accMul(xyj._keyNums, price).toString() + ' ETH');
+        xyj.iWantXKeys(xyj._keyNums, function (error, data) {
+            if (error) {
+                return;
+            }
+            xyj._allPrice = Number(data);
+            $('#ethCount').text('@ ' + formatNum8(data).toString() + ' ETH');
+        });
     }
 
 
     // 获取Key单价
     function getBuyPrice(fn) {
-        xyj.getBuyPrice(function (error, price) {
-            // console.log(price);
-            if (error) {
-                console.log(error);
-            } else {
-                xyj._keyPrice = price;
-                fn && fn();
-                renderPrice();
-            }
-        });
+        fn && fn();
+        renderPrice();
     }
 
     // 获取我的账号
@@ -394,7 +390,7 @@ window.onload = function () {
                     addr: xyj.buyXaddr,
                     name: xyj.buyXname
                 }[data.type]
-                fuc(data.str, Number(xyj._team), accMul(xyj._keyPrice, isJSBuy ? 1 : xyj._keyNums), function (error, data) {
+                fuc(data.str, Number(xyj._team), xyj._allPrice, function (error, data) {
                     // TODO: 购买成功后
                     hideLoading();
                     if (error) {
