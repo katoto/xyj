@@ -41,7 +41,8 @@ gulp.task('script',function () {
 gulp.task('webserver', function () {
     connect.server({
         livereload: true,
-        port: 1234
+        port: 1234,
+        host: '0.0.0.0'
     });
 });
 

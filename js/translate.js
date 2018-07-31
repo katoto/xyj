@@ -1,4 +1,3 @@
-"use strict";
 window.global_lan = 'zh';
 var _ = null,
 getTranslate = null,
