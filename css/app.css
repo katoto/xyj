@@ -173,7 +173,6 @@ header {
 }
 header h1>div{
 	display: flex;
-	justify-content: flex-start;
 	align-items: center;
 }
 header h1 {
@@ -206,9 +205,6 @@ header h1 span.title {
 		font-size: .3rem
 	}
 }
-.owner-keys{
-	margin-left: 10px;
-}
 header h1 span {
 	font-size: .24rem;
 	color: #fff;
@@ -216,9 +212,6 @@ header h1 span {
     white-space: nowrap;
 }
 
-header h1 span:hover, header .head-share:hover {
-    text-decoration: underline;
-}
 
 header h1 .lottery_time {
     cursor: default;
@@ -235,17 +228,27 @@ header h1 span em {
 header .info {
 	height: .4rem;
 	font-size: 0;
-	color: #fff;
+	color: #39ca68;
+	height: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: start;
 	-ms-flex-pack: start;
 	justify-content: flex-start;
+	align-items: center;
 	padding: 0;
 	margin-left: 1rem
 }
-
+header .info a{
+	text-decoration: underline;
+	font-size: 16px;
+	color: #fff;
+	transition: all 0.2s;
+}
+header .info a:hover{
+	color: rgba(255,255,255,0.7);
+}
 @media (max-width: 550px) {
 	header .info {
 		margin-left: 16px
@@ -263,7 +266,7 @@ header .info li {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	padding-right: .1rem
+	padding-right: .3rem
 }
 
 header .info li i,
@@ -334,9 +337,11 @@ header .notice .operator span:hover {
 	color: #fff;
 	line-height: 1.06rem;
 	border-radius: .08rem .08rem 0 0;
-	font-weight: 700
 }
 
+.list-content .list-title.active em{
+	font-weight: bold;
+}
 /*
 .list-content .round-list li {
     margin-top: .36rem;
@@ -963,7 +968,7 @@ body {
 
 .banner {
 	width: 100%;
-	padding: 2rem 0 0.75rem;
+	padding: 1rem 0 0.75rem;
 	position: relative
 }
 
@@ -1095,7 +1100,7 @@ body {
 
 .team-grid .tip {
 	font-size: .2rem;
-	color: #b9bac5;
+	color: #949494;
 	line-height: .28rem;
 	position: relative
 }
@@ -1146,15 +1151,15 @@ body {
 	border-radius: .08rem;
 	font-weight: 900;
 	cursor: pointer;
-	transition: all 0.2s;
 	padding: 0;
 	line-height: 0.88rem;
 	color: #fff;
 	margin-top: 0.8rem;
+	transition: all 0.2s;
 }
 
 .team-grid .btn:hover {
-	background: #423415;
+	background: linear-gradient(rgba(210,170,70,0.8), rgba(123,100,44,0.8));
 }
 
 .team-grid .tab-buy {
@@ -1248,7 +1253,7 @@ body {
 	-ms-flex-pack: center;
 	justify-content: center;
 	color: #deb54b;
-	font-size: .24rem;
+	font-size: .30rem;
 	width: 24%;
 	height: 72px;
 	line-height: .33rem;
@@ -1294,14 +1299,14 @@ body {
 	-ms-flex-direction: column;
 	flex-direction: column;
 	padding: 5px 5px 10px;
-	border-radius: .08rem;
+	border-radius: 8px;
 	font-size: .18rem;
 	color: #fff;
 	-webkit-transition: .2s;
 	-o-transition: .2s;
 	transition: .2s;
 	cursor: pointer;
-	background: #000;
+	background: #171717;
 }
 
 .tab-buy .count-wrapper:hover {
@@ -1314,11 +1319,16 @@ body {
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper img.pic {
 	width: 100%;
-	max-width: 121px;
+	max-width: 115px;
 	margin: 0 auto;
 	-webkit-transition: .2s;
 	-o-transition: .2s;
 	transition: .2s;
+	border: 2px solid #a28338;
+	border-radius: 8px;
+}
+.team-grid .tab-buy .select-team .team-container .team-wrapper:hover{
+	transform: scale(1.02);
 }
 @media (max-width: 550px) {
 	.team-wrapper img.pic,.team-wrapper span.name{
@@ -1329,7 +1339,7 @@ body {
 	position: relative;
 	top: -10px;
 	display: block !important;
-	max-width: 121px;
+	max-width: 115px;
 	margin: 0 auto !important;
 	height: 26px;
 	line-height: 26px !important;
@@ -1337,7 +1347,7 @@ body {
 	line-height: 26px;
 	font-size: 0.26415rem;
 	font-weight: bold;
-	color: #fff;
+	color: #fff !important;
 	border-bottom-left-radius: .08rem;
 	border-bottom-right-radius: .08rem;
 }
@@ -1354,7 +1364,8 @@ body {
 	width: 100%;
 	text-align: center;
 	margin: .02rem;
-	line-height: .32rem
+	line-height: .32rem;
+	color: #949494;
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper span.desc {
@@ -1364,12 +1375,15 @@ body {
     text-align: center;
     width: 121px;
 }
+.team-grid .tab-buy .select-team .team-container .team-wrapper.team-wrapper--checked span.desc{
+	font-weight: bold;
+}
 .EN .team-grid .tab-buy .select-team .team-container .team-wrapper span.desc {
 	height: 0.5rem;
 }
 .team-grid .tab-buy .select-team .team-container .team-wrapper span strong {
 	color: #f5c751;
-	font-size: .24rem
+	font-size: .3rem
 }
 
 .team-grid .tab-buy .select-team .team-container .team-wrapper.team-wrapper--checked {
@@ -1444,13 +1458,13 @@ body {
 	text-align: center;
 	color: #b9bac5;
 	background: #111111;
-	font-weight: 900;
 	cursor: pointer
 }
 
 .tabs .tab-title span.active {
 	color: #fff;
-	background: 0 0
+	background: 0 0;
+	font-weight: bold;
 }
 
 .tabs .tab-content {
@@ -1881,6 +1895,9 @@ body {
 }
 
 @media (max-width: 550px) {
+	.banner{
+		padding-top: 0.5rem;
+	}
 	.pop-success {
 		font-size: 0.2rem
 	}

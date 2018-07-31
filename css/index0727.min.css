@@ -14,12 +14,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  text-decoration: none !important;
 }
 
 .head-share p {
   margin-left: 0.075rem;
   font-size: 0.300002rem;
-  color: #fff;
+  color: #39ca68;
   font-weight: bold;
 }
 
@@ -40,13 +41,13 @@
 
 .banner .msg1,
 .banner .msg2 {
-  line-height: 1.350008rem;
+  line-height: 1.462509rem;
   font-size: 1.125007rem;
 }
 
 .banner .msg3 {
   position: relative;
-  margin-top: 0.187501rem;
+  margin-top: 0.750005rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +60,7 @@
 }
 
 .banner .msg3 p {
+  font-weight: bold;
   background-image: -webkit-linear-gradient(top, #fff, #f5c751);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -80,7 +82,6 @@
   height: 1.350008rem;
   line-height: 0.862505rem;
   font-size: 0.637504rem;
-  font-weight: bold;
   color: #f5c751;
 }
 
@@ -97,6 +98,7 @@
   background: linear-gradient(to right, #5a4822, #bb9540, #5a4822);
   -webkit-animation: pulse 0.75s infinite;
           animation: pulse 0.75s infinite;
+  border-radius: 0.150001rem;
 }
 
 .banner a i {
@@ -121,12 +123,6 @@
 }
 
 .banner a:hover {
-  -webkit-animation: none;
-          animation: none;
-}
-
-.banner a.isOver {
-  background: #684AFF;
   -webkit-animation: none;
           animation: none;
 }
@@ -250,7 +246,7 @@
 }
 
 .put-forward-list .put-forward .count::after {
-  content: "个";
+  content: "";
   display: inline;
   font-size: 0.375002rem;
   margin-left: 0.187501rem;
@@ -258,7 +254,7 @@
 
 .put-forward-list .put-forward .usdt {
   position: absolute;
-  left: 0.843755rem;
+  right: 0;
   top: 1.312508rem;
   font-size: 0.375002rem;
   color: #39ca68;
@@ -392,7 +388,7 @@
 }
 
 .round .round-list .total_prize_pool::after {
-  content: 'ETH';
+  content: ' ETH';
   display: inline;
   font-size: 0.375002rem;
 }
@@ -455,6 +451,7 @@
 }
 
 .round .round-list2 li p {
+  font-size: 0.375002rem;
   color: #f5c751;
 }
 
@@ -609,7 +606,7 @@
   .banner .msg1,
   .banner .msg2 {
     line-height: 0.675004rem;
-    font-size: 0.562504rem;
+    font-size: 0.412503rem;
   }
 
   .banner .msg3 {

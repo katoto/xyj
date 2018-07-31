@@ -13,10 +13,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    text-decoration: none !important;
     p {
         margin-left: 4px;
         font-size: 16px;
-        color: #fff;
+        color: #39ca68;
         font-weight: bold;
         @media (max-width: 550px) {
             display: none;
@@ -34,12 +35,12 @@
     color: #fff;
     .msg1,
     .msg2 {
-        line-height: 72px;
+        line-height: 78px;
         font-size: 60px;
     }
     .msg3 {
         position: relative;
-        margin-top: 10px;
+        margin-top: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -50,6 +51,7 @@
         background: url(../img/bg-bannereth.png) no-repeat center;
         background-size: 611px;
         p {
+            font-weight: bold;
             background-image: -webkit-linear-gradient(top, #fff, #f5c751);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -70,7 +72,6 @@
         height: 72px;
         line-height: 46px;
         font-size: 34px;
-        font-weight: bold;
         color: #f5c751;
     }
     a {
@@ -85,6 +86,7 @@
         color: #fff;
         background: linear-gradient(to right, #5a4822, #bb9540, #5a4822);
         animation: pulse 0.75s infinite;
+        border-radius: 8px;
         i {
             display: block;
             position: absolute;
@@ -108,8 +110,7 @@
             animation: none;
         }
         &.isOver{
-            background: #684AFF;
-            animation: none;
+
         }
     }
 }
@@ -211,7 +212,7 @@
             font-size: 30px;
             color: #f5c751;
             &::after {
-                content: "个";
+                content: "";
                 display: inline;
                 font-size: 20px;
                 margin-left: 10px;
@@ -219,7 +220,7 @@
         }
         .usdt {
             position: absolute;
-            left: 45px;
+            right: 0px;
             top: 70px;
             font-size: 20px;
             color: #39ca68;
@@ -333,7 +334,7 @@
             font-size: 30px;
             color: #f5c751;
             &::after{
-                content: 'ETH';
+                content: ' ETH';
                 display: inline;
                 font-size: 20px;
             }
@@ -395,6 +396,7 @@
                 }
             }
             p{
+                font-size: 20px;
                 color: #f5c751;
             }
         }
@@ -533,7 +535,7 @@
         .msg1,
         .msg2 {
             line-height: 36px;
-            font-size: 30px;
+            font-size: 22px;
         }
         .msg3 {
             margin-top: 10/1.8px;
