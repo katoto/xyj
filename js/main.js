@@ -411,10 +411,12 @@ $(function () {
             if (error) {
                 return
             }
-            console.log(data)
             getBuyPrice(function () {
-                console.log(data)
-                $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString());
+                if(formatNum4(data.currPot).toString() === '0'){
+                    $('.banner .msg3, .total_prize_pool').html('<p>0.0000</p>');
+                }else{
+                    $('.banner .msg3, .total_prize_pool').html('<p>'+ formatNum4(data.currPot).toString() +'</p>');
+                }
                 $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
                 $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
                 $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());

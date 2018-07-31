@@ -97,7 +97,7 @@ setTranslate = function (e) {
             tabDrawTitle: "Withdraw",
             Recommended: "Referrals",
             chooseTeam: "Choose a Team",
-            withdraw: "WITHDRAW",
+            withdraw: "Withdraw",
             buyTip: "*Diamond value is increasing as number of buyer rises",
             drawTip: "*Tip: Your earnings can be withdrawn at any time",
             totalAward: "Total Earnings:",
