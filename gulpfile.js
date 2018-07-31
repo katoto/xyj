@@ -6,7 +6,9 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     px2rem = require('postcss-px2rem'),
     notify = require("gulp-notify"),
-    uglify = require("gulp-uglify");
+    uglify = require("gulp-uglify"),
+    babel = require('gulp-babel');
+
 
 gulp.task('less', function () {
     var processors = [px2rem({
@@ -26,8 +28,12 @@ gulp.task('less', function () {
 
 // 压缩js
 gulp.task('script',function () {
-    gulp.src('./js/*.js')
+    gulp.src(['./js/main.js','./js/metamask.js','./js/translate.js'])
+        .pipe(babel())
         .pipe(uglify({mangle:false}))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest('./js'))
 })
 
@@ -39,11 +45,10 @@ gulp.task('webserver', function () {
     });
 });
 
-
-
 // 监控
 gulp.task('watch', function () {
     gulp.watch('./css/*.less', ['less']);
+    gulp.watch('./js/*.js', ['script']);
 });
 
 // 预设任务

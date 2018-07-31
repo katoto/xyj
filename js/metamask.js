@@ -1238,7 +1238,7 @@ if (typeof web3 === "undefined") {
 }
 
 // 通过abi 和地址获取已部署的合约对象
-contractNet = web3.eth.contract(contractAbi).at(contractAddr)
+var contractNet = web3.eth.contract(contractAbi).at(contractAddr)
 
 // activate  一旦部署合约  就停用
 // airDropPot_ 空头相关
@@ -1587,7 +1587,7 @@ contractNet.allEvents(function (err, res) {
             xyj._account && window.refreshPersonInfo();
             window.refreshInfo();
             console.log(res.event, res.args);
-            if (res.event === 'onEndTx') {
+            if (res.event === 'onEndTx') { 
                 var keyNums = Math.ceil((res.args.keysBought.toNumber()) / (10 ** 18));
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));

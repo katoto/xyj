@@ -13,8 +13,7 @@ window.onload = function () {
             window.location.href = '../edu_cn.pdf'
         }
     })
-
-    // 购买、提现、推荐奖励 tab 点击事件
+    // 购买、提现、推荐奖励 tab 点击事件  b 点击事件
     $('.team-grid .tabs .tab-title span').click(function () {
         $('.team-grid .tabs .tab-title span').removeClass('active');
         $(this).addClass('active');
