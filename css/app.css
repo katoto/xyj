@@ -208,7 +208,19 @@ header h1 span {
 	font-size: .24rem;
 	color: #fff;
 	cursor: pointer;
-	white-space: nowrap
+    white-space: nowrap;
+}
+
+header h1 span:hover, header .head-share:hover {
+    text-decoration: underline;
+}
+
+header h1 .lottery_time {
+    cursor: default;
+}
+
+header h1 .lottery_time:hover {
+    text-decoration: none;
 }
 
 header h1 span em {
@@ -1909,4 +1921,8 @@ body {
 
 .EN .dead-time {
     font-size: 15px !important;
+}
+
+.EN .referrals-tip {
+    white-space: nowrap;
 }
