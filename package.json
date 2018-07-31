@@ -8,6 +8,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
     "postcss-px2rem": "^0.3.0"
   }
 }

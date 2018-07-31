@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     postcss = require('gulp-postcss'),
     px2rem = require('postcss-px2rem'),
-    notify = require("gulp-notify");
+    notify = require("gulp-notify"),
+    uglify = require("gulp-uglify");
 
 gulp.task('less', function () {
     var processors = [px2rem({
@@ -23,6 +24,13 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./css'))
 });
 
+// 压缩js
+gulp.task('script',function () {
+    gulp.src('./js/*.js')
+        .pipe(uglify({mangle:false}))
+        .pipe(gulp.dest('./js'))
+})
+
 //服务器
 gulp.task('webserver', function () {
     connect.server({
@@ -30,6 +38,8 @@ gulp.task('webserver', function () {
         port: 1234
     });
 });
+
+
 
 // 监控
 gulp.task('watch', function () {
