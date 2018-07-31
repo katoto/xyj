@@ -443,7 +443,6 @@ $(function () {
         if (error) {
             return;
         }
-        console.log(data);
         $('.js_keys_value').text(formatNum3(data.totalEth));
         $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth));
         $('.js_dis_value').text(formatNum3(data.distributionEth));

@@ -1424,7 +1424,6 @@ xyj.iWantXKeys = function (keyNum, fn) {
         contractNet.iWantXKeys(web3.toWei(parseFloat(keyNum)), function (err, res) {
             if (!err) {
                 if (res) {
-                    console.log(web3.fromWei(res.toNumber()));
                     fn(null, web3.fromWei(res.toNumber()))
                 }
             } else {
@@ -1589,8 +1588,7 @@ contractNet.allEvents(function (err, res) {
             window.refreshTime();
             xyj._account && window.refreshPersonInfo();
             window.refreshInfo();
-            console.log(res.event, res.args);
-            if (res.event === 'onEndTx') { 
+            if (res.event === 'onEndTx') {
                 var keyNums = Math.ceil((res.args.keysBought.toNumber()) / Math.pow(10,18));
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));
@@ -1633,7 +1631,6 @@ contractNet.allEvents(function (err, res) {
     } else {
         console.error('allEvents' + error);
     }
-    console.log('== 用于 实时播报 ====');
 })
 
 xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {
