@@ -350,7 +350,7 @@ $(function () {
                     $('.js_hasid').removeClass('hide');
                     $('#mylink').text('http://www.exitedscam.me/' + account);
                     $('#idlink').text('http://www.exitedscam.me/' + (data.id === '0' ? '' : data.id));
-                    $('#namelink').text('http://www.exitedscam.me/' + encodeURIComponent('data.inviteName'));
+                    $('#namelink').text('http://www.exitedscam.me/' + encodeURIComponent(data.inviteName));
                     xyj._inviteName = data.inviteName;
                 } else {
                     // 没有推广代号
