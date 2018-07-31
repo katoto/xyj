@@ -2,7 +2,8 @@ window.refreshPersonInfo = null;
 window.refreshInfo = null;
 window.refreshTime = null;
 window.js_currTime = 0;
-window.onload = function () {
+
+$(function () {
     $('#jumpToContact').click(function () {
         window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
     })
@@ -39,7 +40,6 @@ window.onload = function () {
         $('html body').removeClass('stop');
     }
 
-
     // 格式化金额
     function numberComma(source, length = 3) {
         source = String(source).split('.')
@@ -67,11 +67,9 @@ window.onload = function () {
         function formatTime(time) {
             return (parseInt(time, 10)) < 10 ? '0' + time.toString() : time;
         }
-
         // if (hour === 0 && min === 0 && second < 15 && second !== 0) {
         //     window.refreshTime();
         // }
-
         if (hour < 0) {
             $('.headtimer').text(_('想开启新的轮回吗？'));
             $('header .lottery_time, .lottery_time p').text(_('本回合已结束'));
@@ -110,7 +108,7 @@ window.onload = function () {
         }, 1500);
     }
 
-    this.setInterval(function () {
+    window.setInterval(function () {
         window.refreshTime();
     }, 10000);
 
@@ -483,7 +481,7 @@ window.onload = function () {
                             closeVanity();
                             alertify.success(_('下单成功'));
                         }
-                        
+
                     });
                 } else {
                     alertify.alert(_('输入的推广代号不符合规则'));
@@ -521,9 +519,7 @@ window.onload = function () {
             alertify.error(_('请先登陆您的Metamask钱包'));
         }
     })
-
     new ClipboardJS('.js_copy_btn');
-
     var xyjindex = {
         showPop: function (a) {
             $(a).show(200)
@@ -532,5 +528,4 @@ window.onload = function () {
             $(a).hide(200)
         }
     }
-
-}
+})
