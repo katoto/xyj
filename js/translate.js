@@ -31,7 +31,7 @@ setTranslate = function (e) {
             withdrawAvailable: "你的金钻",
             yourGems: "你的金钻",
             remainingTime: "本轮剩余时间：",
-            totalJackpot: "奖励池总数",
+            totalJackpot: "奖池总数",
             recentBuyer: "最后购买者：",
             buyBtn: "使用 ETH 购买",
             round: function (e) {
