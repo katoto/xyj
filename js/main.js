@@ -348,9 +348,9 @@ $(function () {
                 if (data && data.inviteName !== '') {
                     // 有推广代号
                     $('.js_hasid').removeClass('hide');
-                    $('#mylink').text('http://xyj/' + account);
-                    $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
-                    $('#namelink').text('http://xyj/' + data.inviteName);
+                    $('#mylink').text('http://www.exitedscam.me/' + account);
+                    $('#idlink').text('http://www.exitedscam.me/' + (data.id === '0' ? '' : data.id));
+                    $('#namelink').text('http://www.exitedscam.me/' + data.inviteName);
                     xyj._inviteName = data.inviteName;
                 } else {
                     // 没有推广代号
