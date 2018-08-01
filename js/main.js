@@ -7,7 +7,7 @@ $(function () {
     $('#jumpToContact').click(function () {
         window.open('https://etherscan.io/address/' + contractAddr + '#code')
     })
-    $('#jumpToEdu').click(function () {
+    $('.js_jumpToEdu').click(function () {
         if (global_lan === 'zh') {
             window.open('../edu_zh.pdf')
         } else {
@@ -536,12 +536,11 @@ $(function () {
                     /* mobile 端 */
                     if (!(window.navigator.userAgent.indexOf('Trust') > -1)) {
                         /* 弹窗 */
-                        console.log('mobile')
+                        $('.js_showMobile').removeClass('hide')
                     }
-                    console.log('trust')
                 }else{
                     // pc 端
-
+                    $('.js_showPc').removeClass('hide')
                 }
                 // alertify.error(_('请先登陆您的Metamask钱包'));
             } else {
@@ -565,7 +564,6 @@ $(function () {
         }
         return flag;
     }
-
 
 })
 
