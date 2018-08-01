@@ -77,11 +77,15 @@ setTranslate = function (e) {
             js_mobile_1:'手机版参与游戏，需先安装Trust钱包',
             js_mobile_2:'在Trust钱包中，打开网站',
             js_pc_tip:'游戏提示',
-            js_pc_install:'请先安装并登录Metamask钱包'
+            js_mobile_down:'下载安装',
+            js_pc_install:'请先安装并登录Metamask钱包',
+            js_pc_noWall:'没有钱包，如何安装'
         },
         en: {
+            js_pc_noWall:'No Metamask,how to install?',
             js_pc_install:'Please install and log in your Metamask',
             js_pc_tip:'Game Tip',
+            js_mobile_down:'Download',
             js_mobile_2:'Open the website in Trust Wallet',
             js_mobile_1:'Install Trust Wallet',
             js_mobileTitle:'Mobile Version Game Step',
