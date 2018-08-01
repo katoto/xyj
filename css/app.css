@@ -1221,10 +1221,9 @@ body {
 .team-grid .tab-buy .input-container .eth-count {
 	width: 2.97rem;
 	text-align: center;
-	color: #fff;
+	color: #111;
 	padding: 0 .18rem;
 	white-space: nowrap;
-	font-weight: 900
 }
 
 .team-grid .tab-buy .count-container {
