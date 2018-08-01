@@ -358,8 +358,8 @@ $(function () {
                     // 没有推广代号
                     $('.js_noid').removeClass('hide');
                 }
-                $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
-                $('.team-grid .share-award').text(data.shareEarn.toString());
+                $('.list-content .share-award').text(formatNum6(data.shareEarn).toString() + ' ETH');
+                $('.team-grid .share-award').text(formatNum6(data.shareEarn).toString());
                 $('.list-content .owner-keys').text(data.keys.toString() + _(' 个'));
 
                 getBuyPrice(function () {
