@@ -4,6 +4,7 @@ getTranslate = null,
 setTranslate = function (e) {
     var a = {
         zh: {
+            js_mobileTitle:'',
             js_gloTitle:"这是最后的机会",
             js_gloTitle2:"快来西方取“金”！",
             js_team1:"悟空",

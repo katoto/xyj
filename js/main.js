@@ -5,12 +5,12 @@ window.js_currTime = 0;
 
 $(function () {
     $('#jumpToContact').click(function () {
-        window.open('https://etherscan.io/address/'+ contractAddr +'#code')
+        window.open('https://etherscan.io/address/' + contractAddr + '#code')
     })
     $('#jumpToEdu').click(function () {
-        if(global_lan==='zh'){
+        if (global_lan === 'zh') {
             window.open('../edu_zh.pdf')
-        }else{
+        } else {
             window.open('../edu_en.pdf')
         }
     })
@@ -30,12 +30,12 @@ $(function () {
         $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
     });
 
-    function showLoading () {
+    function showLoading() {
         $('.buy-loading').show();
         $('html body').addClass('stop');
     }
 
-    function hideLoading () {
+    function hideLoading() {
         $('.buy-loading').hide();
         $('html body').removeClass('stop');
     }
@@ -70,6 +70,7 @@ $(function () {
         function formatTime(time) {
             return (parseInt(time, 10)) < 10 ? '0' + time.toString() : time;
         }
+
         // if (hour === 0 && min === 0 && second < 15 && second !== 0) {
         //     window.refreshTime();
         // }
@@ -163,24 +164,25 @@ $(function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum8 (num) {
+    function formatNum8(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
-    function formatNum6 (num) {
+    function formatNum6(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 6))), Math.pow(10, 6));
     }
+
     window.formatNum6 = formatNum6;
 
-    function formatNum4 (num) {
+    function formatNum4(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
-    function formatNum3 (num) {
+    function formatNum3(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
     }
 
-    function formatNum2 (num) {
+    function formatNum2(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
     }
 
@@ -272,7 +274,7 @@ $(function () {
                 console.log(error);
             } else {
                 console.log(time);
-                if((time.toString() !== js_currTime.toString()) || time.toString() === '0'){
+                if ((time.toString() !== js_currTime.toString()) || time.toString() === '0') {
                     js_currTime = time
                     updateInterval(time === 0 ? -1 : time);
                 }
@@ -412,10 +414,10 @@ $(function () {
                 return
             }
             getBuyPrice(function () {
-                if(formatNum4(data.currPot).toString() === '0'){
+                if (formatNum4(data.currPot).toString() === '0') {
                     $('.banner .msg3, .total_prize_pool').html('<p>0.0000</p>');
-                }else{
-                    $('.banner .msg3, .total_prize_pool').html('<p>'+ formatNum4(data.currPot).toString() +'</p>');
+                } else {
+                    $('.banner .msg3, .total_prize_pool').html('<p>' + formatNum4(data.currPot).toString() + '</p>');
                 }
                 $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
                 $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
@@ -532,4 +534,33 @@ $(function () {
             $(a).hide(200)
         }
     }
+
+    /* trust 判断 */
+    if (!isPC()) {
+        /* mobile 端 */
+        if (window.navigator.userAgent.indexOf('Trust') > -1) {
+            console.log('trust')
+        } else {
+            /* 弹窗 */
+            console.log('mobile')
+        }
+    }
+
+    function isPC() {
+        var userAgentInfo = window.navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+
 })
+
