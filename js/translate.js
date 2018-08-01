@@ -1,5 +1,5 @@
 window.global_lan = 'zh';
-var _ = null,
+var _ = null ,
 getTranslate = null,
 setTranslate = function (e) {
     var a = {
@@ -31,7 +31,7 @@ setTranslate = function (e) {
             withdrawAvailable: "你的金钻",
             yourGems: "你的金钻",
             remainingTime: "本轮剩余时间：",
-            totalJackpot: "奖励池总数",
+            totalJackpot: "奖池总数",
             recentBuyer: "最后购买者：",
             buyBtn: "使用 ETH 购买",
             round: function (e) {
@@ -97,7 +97,7 @@ setTranslate = function (e) {
             tabDrawTitle: "Withdraw",
             Recommended: "Referrals",
             chooseTeam: "Choose a Team",
-            withdraw: "WITHDRAW",
+            withdraw: "Withdraw",
             buyTip: "*Diamond value is increasing as number of buyer rises",
             drawTip: "*Tip: Your earnings can be withdrawn at any time",
             totalAward: "Total Earnings:",
@@ -193,7 +193,7 @@ setTranslate = function (e) {
         '- 字符之间不能有多个空格': '-No more than one space between characters',
         '名称是永久性的。 但只有您最近的名字才会显示在排行榜/游戏用户界面上。 您可以拥有任意数量的名称。': 'Names are yours permanently (for vanity URLS). But only your most recent name will show up on the leaderboard/game UI. You can own as many names as you\'d like.',
         '花费0.01ETH购买': 'Purchase for 0.01 ETH',
-        '现在购买1颗金钻，您将激活新一回合的游戏！': 'Buy 1 diamond now and you will activate a new round!',
+        '现在购买1颗金钻，您将激活新一回合的游戏！': 'Buy 1 diamond now and activate a new round!',
         "教程": "Easy Play",
         '复制地址': 'copy',
         '钱包推荐地址：': 'Wallet Referral',
@@ -235,7 +235,6 @@ $(function () {
             localStorage.setItem("language", t ? "en" : "zh");
             setTranslate(global_lan);
             window.location.reload();
-            // e();
         });
         var r = $("[data-trans], [placeholder]");
         Array.prototype.forEach.call(r, function (e) {

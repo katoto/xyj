@@ -33,7 +33,7 @@
         }
     </script>
     <script src="./js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="./js/translate.js"></script>
+    <script type="text/javascript" src="./js/translate.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                         <a href="javascript:;" target="_blank"  class="owner-keys" id="jumpToContact" data-trans="合约">合约</a>
                     </li>
                     <li>
-                        <a href="javascript:;" class="owner-keys"  id="jumpToEdu" data-trans="教程">教程</a>
+                        <a target="_blank" href="javascript:;" class="owner-keys"  id="jumpToEdu" data-trans="教程">教程</a>
                     </li>
                     <li>
                         <a href="javascript:;" id="locale">EN</a>
@@ -355,7 +355,7 @@
                                 </li>
                                 <li>
                                     <div>
-                                        <em data-trans="js_round2">回 合</em>: #<em class="js_round">0</em>
+                                        <em data-trans="js_round2">回 合</em><em class="js_round"> 0</em>
                                     </div>
                                 </li>
                                 <li class="lottery_time">
@@ -376,7 +376,7 @@
                             <ul class="round-list2">
                                 <li>
                                     <span class="icon-diao" data-trans="yourGems">你的金钻</span>
-                                    <p class="owner-keys">0 ETH</p>
+                                    <p class="owner-keys">0 </p>
                                 </li>
                                 <li>
                                     <span class="icon-gift" data-trans="rebate">分享奖励</span>
@@ -586,6 +586,43 @@
     <div class="buy-loading show">
         Please check your Metamask...
     </div>
+    <div class="xyj-step hide">
+        <div class="main">
+            <a href="javascript:;" class="btn-close"></a>
+            <p class="p1">
+                手机游戏步骤
+            </p>
+            <p class="p2">
+                1.手机版参与游戏,需要安装,需要安装
+            </p>
+            <a href="javascript:;" class="btn-down">
+                下载安装
+            </a>
+            <p class="p3">
+                2.打开网站
+            </p>
+            <div class="input-box">
+                exitedscam.me
+                <a href="javascript:;">
+                    复制
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="xyj-tips hide">
+        <div class="main">
+            <a href="javascript:;" class="btn-close"></a>
+            <p class="p1">游戏提示</p>
+            <p class="p2">
+                请先安装并登陆Metamask钱包
+            </p>
+            <div class="bottom-main">
+                没有钱包，如何安装
+                <a href="javascript:;">查看</a>
+            </div>
+        </div>
+
+    </div>
 
     <script src="./js/alertify.min.js"></script>
     <script src="./js/web3.min.js"></script>
@@ -593,4 +630,12 @@
     <script src="./js/clipboard.min.js"></script>
     <script src="./js/main.min.js"></script>
 </body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123155565-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-123155565-1');
+</script>
 </html>

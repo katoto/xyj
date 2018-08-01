@@ -1,10 +1,12 @@
 var global_Second = 30
 window.xyj = {}
-
 // test
-var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
+// var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
 // online
 // var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
+// online 24
+var contractAddr = '0x4e71b5e47a7e4f8eaccff4ade0e3292f80780cf0'
+
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
 var contractAbi = [
@@ -1324,7 +1326,7 @@ xyj.getPlayerInfoByAddress = function (addr, fn) {
                     fn(null, {
                         id: res[0].toString(),
                         inviteName: web3.toUtf8(res[1]),
-                        keys: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+                        keys: Math.ceil((res[2].toNumber()) / Math.pow(10,18)),
                         earn: web3.fromWei(res[4].toNumber()),
                         totalEarn: web3.fromWei(res[5].toNumber() + res[3].toNumber() + res[4].toNumber()),
                         shareEarn: web3.fromWei(res[5].toNumber()),
@@ -1373,7 +1375,7 @@ xyj.getCurrentRoundInfo = function (fn) {
                 if (res) {
                     fn(null, {
                         roundNum: res[1].toNumber(),
-                        totalKey: Math.ceil((res[2].toNumber()) / (10 ** 18)),
+                        totalKey: Math.ceil((res[2].toNumber()) / Math.pow(10,18)),
                         currPot: web3.fromWei(res[5].toNumber()),
                         startedTime: res[4].toNumber(),
                         endedTime: res[3].toNumber(),
@@ -1383,8 +1385,8 @@ xyj.getCurrentRoundInfo = function (fn) {
                         sneks_2: web3.fromWei(res[11].toNumber()),
                         bulls_3: web3.fromWei(res[12].toNumber()),
 
-                        purchasedSeconds: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second),
-                        purchasedTime: (Math.ceil((res[2].toNumber()) / (10 ** 18)) * global_Second) / (3600 * 24 * 365),
+                        purchasedSeconds: (Math.ceil((res[2].toNumber()) / Math.pow(10,18)) * global_Second),
+                        purchasedTime: (Math.ceil((res[2].toNumber()) / Math.pow(10,18)) * global_Second) / (3600 * 24 * 365),
 
                         lastBuyAddr: res[7].toString(),
                         lastBuyName: web3.toUtf8(res[8])
@@ -1407,7 +1409,7 @@ xyj.getBuyPrice = function (fn) {
         if (!err) {
             if (res) {
                 var web3_getBuyPrice = res.toNumber(10)
-                fn(null, web3_getBuyPrice / (10 ** 18))
+                fn(null, web3_getBuyPrice / Math.pow(10,18))
             }
         } else {
             fn('getBuyPrice error', null)
@@ -1422,7 +1424,6 @@ xyj.iWantXKeys = function (keyNum, fn) {
         contractNet.iWantXKeys(web3.toWei(parseFloat(keyNum)), function (err, res) {
             if (!err) {
                 if (res) {
-                    console.log(web3.fromWei(res.toNumber()));
                     fn(null, web3.fromWei(res.toNumber()))
                 }
             } else {
@@ -1587,9 +1588,8 @@ contractNet.allEvents(function (err, res) {
             window.refreshTime();
             xyj._account && window.refreshPersonInfo();
             window.refreshInfo();
-            console.log(res.event, res.args);
-            if (res.event === 'onEndTx') { 
-                var keyNums = Math.ceil((res.args.keysBought.toNumber()) / (10 ** 18));
+            if (res.event === 'onEndTx') {
+                var keyNums = Math.ceil((res.args.keysBought.toNumber()) / Math.pow(10,18));
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));
                 } else if (name !== '') {
@@ -1631,7 +1631,6 @@ contractNet.allEvents(function (err, res) {
     } else {
         console.error('allEvents' + error);
     }
-    console.log('== 用于 实时播报 ====');
 })
 
 xyj.buyXaddr = function (_affCode, _team, totalVal, fn) {

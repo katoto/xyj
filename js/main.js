@@ -2,15 +2,16 @@ window.refreshPersonInfo = null;
 window.refreshInfo = null;
 window.refreshTime = null;
 window.js_currTime = 0;
-window.onload = function () {
+
+$(function () {
     $('#jumpToContact').click(function () {
-        window.location.href = 'https://etherscan.io/address/'+ contractAddr +'#code'
+        window.open('https://etherscan.io/address/'+ contractAddr +'#code')
     })
     $('#jumpToEdu').click(function () {
         if(global_lan==='zh'){
-            window.location.href = '../edu_zh.pdf'
+            window.open('../edu_zh.pdf')
         }else{
-            window.location.href = '../edu_cn.pdf'
+            window.open('../edu_en.pdf')
         }
     })
     // 购买、提现、推荐奖励 tab 点击事件  b 点击事件
@@ -39,9 +40,11 @@ window.onload = function () {
         $('html body').removeClass('stop');
     }
 
-
     // 格式化金额
-    function numberComma(source, length = 3) {
+    function numberComma(source, length) {
+        if (!length) {
+            length = 3;
+        }
         source = String(source).split('.')
         source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{' + length + '})+$)', 'ig'), '$1,')
         return source.join('.')
@@ -67,11 +70,9 @@ window.onload = function () {
         function formatTime(time) {
             return (parseInt(time, 10)) < 10 ? '0' + time.toString() : time;
         }
-
         // if (hour === 0 && min === 0 && second < 15 && second !== 0) {
         //     window.refreshTime();
         // }
-
         if (hour < 0) {
             $('.headtimer').text(_('想开启新的轮回吗？'));
             $('header .lottery_time, .lottery_time p').text(_('本回合已结束'));
@@ -110,7 +111,7 @@ window.onload = function () {
         }, 1500);
     }
 
-    this.setInterval(function () {
+    window.setInterval(function () {
         window.refreshTime();
     }, 10000);
 
@@ -130,9 +131,9 @@ window.onload = function () {
 
     // 浮点数乘法
     function accMul(arg1, arg2) {
-        let m = 0
-        let s1 = arg1.toString()
-        let s2 = arg2.toString()
+        var m = 0
+        var s1 = arg1.toString()
+        var s2 = arg2.toString()
         try {
             m += s1.split('.')[1].length
         } catch (e) {
@@ -145,10 +146,10 @@ window.onload = function () {
     }
 
     function accDiv(arg1, arg2) {
-        let t1 = 0
-        let t2 = 0
-        let r1
-        let r2
+        var t1 = 0
+        var t2 = 0
+        var r1
+        var r2
         try {
             t1 = arg1.toString().split('.')[1].length
         } catch (e) {
@@ -217,7 +218,7 @@ window.onload = function () {
 
     // 获取邀请者账号
     function getAdviceHash() {
-        let str = window.location.pathname.slice(1);
+        var str = window.location.pathname.slice(1);
         var type;
         if (str === '') {
             type = 'addr';
@@ -235,7 +236,7 @@ window.onload = function () {
         }
         return {
             type: type,
-            str, str
+            str: str
         }
     }
 
@@ -347,9 +348,9 @@ window.onload = function () {
                 if (data && data.inviteName !== '') {
                     // 有推广代号
                     $('.js_hasid').removeClass('hide');
-                    $('#mylink').text('http://xyj/' + account);
-                    $('#idlink').text('http://xyj/' + (data.id === '0' ? '' : data.id));
-                    $('#namelink').text('http://xyj/' + data.inviteName);
+                    $('#mylink').text('http://www.exitedscam.me/' + account);
+                    $('#idlink').text('http://www.exitedscam.me/' + (data.id === '0' ? '' : data.id));
+                    $('#namelink').text('http://www.exitedscam.me/' + encodeURIComponent(data.inviteName));
                     xyj._inviteName = data.inviteName;
                 } else {
                     // 没有推广代号
@@ -410,10 +411,12 @@ window.onload = function () {
             if (error) {
                 return
             }
-            console.log(data)
             getBuyPrice(function () {
-                console.log(data)
-                $('.banner .msg3, .total_prize_pool').text(formatNum4(data.currPot).toString());
+                if(formatNum4(data.currPot).toString() === '0'){
+                    $('.banner .msg3, .total_prize_pool').html('<p>0.0000</p>');
+                }else{
+                    $('.banner .msg3, .total_prize_pool').html('<p>'+ formatNum4(data.currPot).toString() +'</p>');
+                }
                 $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
                 $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
                 $('.list-content .js_bajie').text(formatNum4(data.bulls_3).toString());
@@ -424,7 +427,7 @@ window.onload = function () {
                 console.log(data.purchasedTime, formatNum2(data.purchasedTime))
                 $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
                 $('.js_second').text(numberComma(data.purchasedSeconds));
-                $('.js_round').text('#' + data.roundNum);
+                $('.js_round').text(' ' + data.roundNum);
                 /* hide lastBuy Name */
                 // if (data.lastBuyName && data.lastBuyName !== '') {
                 //     $('.round-list .winner').removeClass('hide');
@@ -440,7 +443,6 @@ window.onload = function () {
         if (error) {
             return;
         }
-        console.log(data);
         $('.js_keys_value').text(formatNum3(data.totalEth));
         $('.js_keys_usdt').text('≙ ' + formatUSDT(data.totalEth));
         $('.js_dis_value').text(formatNum3(data.distributionEth));
@@ -483,7 +485,7 @@ window.onload = function () {
                             closeVanity();
                             alertify.success(_('下单成功'));
                         }
-                        
+
                     });
                 } else {
                     alertify.alert(_('输入的推广代号不符合规则'));
@@ -521,9 +523,7 @@ window.onload = function () {
             alertify.error(_('请先登陆您的Metamask钱包'));
         }
     })
-
     new ClipboardJS('.js_copy_btn');
-
     var xyjindex = {
         showPop: function (a) {
             $(a).show(200)
@@ -532,5 +532,4 @@ window.onload = function () {
             $(a).hide(200)
         }
     }
-
-}
+})
