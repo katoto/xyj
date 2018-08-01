@@ -56,7 +56,7 @@ $(function () {
     }
 
     function getDefaultAdvisor() {
-        // 线上的
+        // 线上的  0xa4b6ce77e56c10f2caf11baae7416612c5ec98b0
         return '0xfd76dB2AF819978d43e07737771c8D9E8bd8cbbF'
     }
 
@@ -532,4 +532,7 @@ $(function () {
             $(a).hide(200)
         }
     }
+
+    /* use vault  */
+
 })

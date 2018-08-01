@@ -1,11 +1,11 @@
 var global_Second = 30
 window.xyj = {}
 // test
-// var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
+var contractAddr = '0x07229c22297b443e8b10cf29eaf4a10969aea0a9'
 // online
 // var contractAddr = '0x623dbcb14e4f6f9d74fe987a6c0718467722062c'
 // online 24
-var contractAddr = '0x4e71b5e47a7e4f8eaccff4ade0e3292f80780cf0'
+// var contractAddr = '0x4e71b5e47a7e4f8eaccff4ade0e3292f80780cf0'
 
 // 3d
 // var contractAddr = '0xA62142888ABa8370742bE823c1782D17A0389Da1'
@@ -1242,6 +1242,7 @@ if (typeof web3 === "undefined") {
 // 通过abi 和地址获取已部署的合约对象
 var contractNet = web3.eth.contract(contractAbi).at(contractAddr)
 
+console.log(contractNet);
 // activate  一旦部署合约  就停用
 // airDropPot_ 空头相关
 // airDropTracker_  用于制胜空头
@@ -1326,7 +1327,7 @@ xyj.getPlayerInfoByAddress = function (addr, fn) {
                     fn(null, {
                         id: res[0].toString(),
                         inviteName: web3.toUtf8(res[1]),
-                        keys: Math.ceil((res[2].toNumber()) / Math.pow(10,18)),
+                        keys: Math.ceil((res[2].toNumber()) / Math.pow(10, 18)),
                         earn: web3.fromWei(res[4].toNumber()),
                         totalEarn: web3.fromWei(res[5].toNumber() + res[3].toNumber() + res[4].toNumber()),
                         shareEarn: web3.fromWei(res[5].toNumber()),
@@ -1375,7 +1376,7 @@ xyj.getCurrentRoundInfo = function (fn) {
                 if (res) {
                     fn(null, {
                         roundNum: res[1].toNumber(),
-                        totalKey: Math.ceil((res[2].toNumber()) / Math.pow(10,18)),
+                        totalKey: Math.ceil((res[2].toNumber()) / Math.pow(10, 18)),
                         currPot: web3.fromWei(res[5].toNumber()),
                         startedTime: res[4].toNumber(),
                         endedTime: res[3].toNumber(),
@@ -1385,8 +1386,8 @@ xyj.getCurrentRoundInfo = function (fn) {
                         sneks_2: web3.fromWei(res[11].toNumber()),
                         bulls_3: web3.fromWei(res[12].toNumber()),
 
-                        purchasedSeconds: (Math.ceil((res[2].toNumber()) / Math.pow(10,18)) * global_Second),
-                        purchasedTime: (Math.ceil((res[2].toNumber()) / Math.pow(10,18)) * global_Second) / (3600 * 24 * 365),
+                        purchasedSeconds: (Math.ceil((res[2].toNumber()) / Math.pow(10, 18)) * global_Second),
+                        purchasedTime: (Math.ceil((res[2].toNumber()) / Math.pow(10, 18)) * global_Second) / (3600 * 24 * 365),
 
                         lastBuyAddr: res[7].toString(),
                         lastBuyName: web3.toUtf8(res[8])
@@ -1409,7 +1410,7 @@ xyj.getBuyPrice = function (fn) {
         if (!err) {
             if (res) {
                 var web3_getBuyPrice = res.toNumber(10)
-                fn(null, web3_getBuyPrice / Math.pow(10,18))
+                fn(null, web3_getBuyPrice / Math.pow(10, 18))
             }
         } else {
             fn('getBuyPrice error', null)
@@ -1579,17 +1580,19 @@ contractNet.allEvents(function (err, res) {
 
     // "onWithdraw"  // "onNewName"  // "onAffiliatePayout"  // "onEndTx"
     // NewName 弹窗 A new member has been added to our Advisory Board. Please welcome jumpson2
-
     //onBuyAndDistribute
 
     if (!err) {
         if (res) {
-            var name = web3.toUtf8(res.args.playerName);
+            var name = ''
+            if (res.args.playerName) {
+                name = web3.toUtf8(res.args.playerName);
+            }
             window.refreshTime();
             xyj._account && window.refreshPersonInfo();
             window.refreshInfo();
             if (res.event === 'onEndTx') {
-                var keyNums = Math.ceil((res.args.keysBought.toNumber()) / Math.pow(10,18));
+                var keyNums = Math.ceil((res.args.keysBought.toNumber()) / Math.pow(10, 18));
                 if (xyj._account === res.args.playerAddress) {
                     alertify.success(keyNums === 1 ? _('您已成功购买{0}个金钻', keyNums) : _('您已成功购买{0}个金钻 ', keyNums));
                 } else if (name !== '') {
@@ -1717,6 +1720,83 @@ xyj.buyXid = function (_affCode, _team, totalVal, fn) {
                 fn(null, res)
             } else {
                 fn('buyXid error', null)
+            }
+        } else {
+            fn(err, null)
+        }
+    })
+}
+
+/* rebuy 用收益进行购买 */
+xyj.reLoadXaddr = function (_affCode, _team, totalVal, fn) {
+    if (typeof _affCode !== 'string') {
+        fn('_affCode param 1 need Sting ( addr )', null)
+        return '_affCode param 1 need Sting ( addr )'
+    }
+    if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
+        return '_team param 2 need number (0,1,2,3)'
+    }
+    if (typeof totalVal === 'string') {
+        totalVal = parseFloat(totalVal)
+    }
+    //  默认用2 (孙悟空)
+    contractNet.reLoadXaddr(_affCode, parseInt(_team), web3.toWei(totalVal, "ether"), function (err, res) {
+        if (!err) {
+            if (res) {
+                fn(null, res)
+            } else {
+                fn('reLoadXaddr error', null)
+            }
+        } else {
+            fn(err, null)
+        }
+    })
+}
+xyj.reLoadXname = function (_affCode, _team, totalVal, fn) {
+    if (typeof _affCode !== 'string') {
+        fn('_affCode param 1 need Sting ( addr )', null)
+        return '_affCode param 1 need Sting ( addr )'
+    }
+    if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
+        return '_team param 2 need number (0,1,2,3)'
+    }
+    if (typeof totalVal === 'string') {
+        totalVal = parseFloat(totalVal)
+    }
+    //  默认用2 (孙悟空)
+    contractNet.reLoadXname(_affCode, parseInt(_team), web3.toWei(totalVal, "ether"), function (err, res) {
+        if (!err) {
+            if (res) {
+                fn(null, res)
+            } else {
+                fn('reLoadXname error', null)
+            }
+        } else {
+            fn(err, null)
+        }
+    })
+}
+xyj.reLoadXid = function (_affCode, _team, totalVal, fn) {
+    if (typeof _affCode !== 'number') {
+        fn('_affCode param 1 need number ( id )', null)
+        return '_affCode param 1 need number ( id )'
+    }
+    if (typeof _team !== 'number') {
+        fn('_team param 2 need number (0,1,2,3)', null)
+        return '_team param 2 need number (0,1,2,3)'
+    }
+    if (typeof totalVal === 'string') {
+        totalVal = parseFloat(totalVal)
+    }
+    //  默认用2 (孙悟空)
+    contractNet.reLoadXid(_affCode, parseInt(_team), web3.toWei(totalVal, "ether"), function (err, res) {
+        if (!err) {
+            if (res) {
+                fn(null, res)
+            } else {
+                fn('reLoadXid error', null)
             }
         } else {
             fn(err, null)

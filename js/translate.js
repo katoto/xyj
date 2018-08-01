@@ -72,6 +72,7 @@ setTranslate = function (e) {
             js_buyLink:'注册一个专属的推广代号',
             js_linkMsg:'购买一个代号来生成推广链接，并直接分享高达10%的佣金',
             js_morePeop:'让更多人参与造梦西游游戏',
+            buyBtn_earn:'使用收益购买'
         },
         en: {
             js_morePeop:'Invite more friend to join the game!',
@@ -141,7 +142,8 @@ setTranslate = function (e) {
             exitSuccess: "You have Exited Successfully ",
             exitFail: "Opt Out Failed",
             submitSuccess: "Submitted successfully",
-            submitFail: "Submission Failed"
+            submitFail: "Submission Failed",
+            buyBtn_earn:'Use Vault'
         }
     }[/^zh/.test(e) ? "zh" : "en"],
     lang = {

@@ -1141,10 +1141,12 @@ body {
 } */
 
 .team-grid .btn {
+	display: inline-block;
+	width: 49%;
+
 	outline: 0;
 	border: 0;
 	font-size: .36rem;
-	width: 100%;
 	height: .88rem;
 	background-color: #987a35;
 	background: linear-gradient(#d2aa46, #7b642c);
