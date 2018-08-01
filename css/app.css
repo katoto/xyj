@@ -1276,6 +1276,9 @@ body {
 	.count-wrapper .hidexs{
 	display: none;
 	}
+	.team-grid .tab-buy .input-container .eth-count{
+		font-size: 0.15rem;
+	}
 }
 .team-grid .tab-buy .count-container .count-wrapper:last-child {
 	margin-right: 0
