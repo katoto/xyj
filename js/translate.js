@@ -4,7 +4,7 @@ getTranslate = null,
 setTranslate = function (e) {
     var a = {
         zh: {
-            js_mobileTitle:'',
+
             js_gloTitle:"这是最后的机会",
             js_gloTitle2:"快来西方取“金”！",
             js_team1:"悟空",
@@ -73,8 +73,18 @@ setTranslate = function (e) {
             js_buyLink:'注册一个专属的推广代号',
             js_linkMsg:'购买一个代号来生成推广链接，并直接分享高达10%的佣金',
             js_morePeop:'让更多人参与造梦西游游戏',
+            js_mobileTitle:'手机游戏步骤',
+            js_mobile_1:'手机版参与游戏，需先安装Trust钱包',
+            js_mobile_2:'在Trust钱包中，打开网站',
+            js_pc_tip:'游戏提示',
+            js_pc_install:'请先安装并登录Metamask钱包'
         },
         en: {
+            js_pc_install:'Please install and log in your Metamask',
+            js_pc_tip:'Game Tip',
+            js_mobile_2:'Open the website in Trust Wallet',
+            js_mobile_1:'Install Trust Wallet',
+            js_mobileTitle:'Mobile Version Game Step',
             js_morePeop:'Invite more friend to join the game!',
             js_linkMsg:'Buy referral links to invite friends, you can get 10% of your friends\' investment!',
             js_buyLink:'Buy a Link',

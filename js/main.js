@@ -204,19 +204,7 @@ $(function () {
         renderPrice();
     }
 
-    // 获取我的账号
-    function getAccounts(fn) {
-        xyj.getAccounts(function (error, account) {
-            xyj._account = account;
-            if (error || account === '') {
-                console.log(error);
-                alertify.error(_('请先登陆您的Metamask钱包'));
-            } else {
-                console.log(account);
-                fn(account);
-            }
-        })
-    }
+
 
     // 获取邀请者账号
     function getAdviceHash() {
@@ -535,15 +523,32 @@ $(function () {
         }
     }
 
+
     /* trust 判断 */
-    if (!isPC()) {
-        /* mobile 端 */
-        if (window.navigator.userAgent.indexOf('Trust') > -1) {
-            console.log('trust')
-        } else {
-            /* 弹窗 */
-            console.log('mobile')
-        }
+
+    // 获取我的账号
+    function getAccounts(fn) {
+        xyj.getAccounts(function (error, account) {
+            xyj._account = account;
+            if (error || account === '') {
+                // 修改游戏提示  用弹窗形式
+                if (!isPC()) {
+                    /* mobile 端 */
+                    if (!(window.navigator.userAgent.indexOf('Trust') > -1)) {
+                        /* 弹窗 */
+                        console.log('mobile')
+                    }
+                    console.log('trust')
+                }else{
+                    // pc 端
+
+                }
+                // alertify.error(_('请先登陆您的Metamask钱包'));
+            } else {
+                console.log(account);
+                fn(account);
+            }
+        })
     }
 
     function isPC() {
