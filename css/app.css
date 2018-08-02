@@ -1139,10 +1139,12 @@ body {
     height: .28rem;
     background-color: #fff
 } */
-
+.team-grid .btn.btn-put{
+	width: 100% !important;
+}
 .team-grid .btn {
 	display: inline-block;
-	width: 49%;
+	width: 65%;
 
 	outline: 0;
 	border: 0;
@@ -1158,6 +1160,17 @@ body {
 	color: #fff;
 	margin-top: 0.8rem;
 	transition: all 0.2s;
+}
+.team-grid .btn-buy2{
+	float: right;
+	background: transparent !important;
+	border: 1px solid #deb54b;
+	width: 30%;
+	color: #deb54b !important;
+}
+.team-grid .btn-buy2:hover{
+	background: #7b642c !important;
+	color: #fff !important;
 }
 
 .team-grid .btn:hover {
@@ -1279,6 +1292,9 @@ body {
 	}
 	.team-grid .tab-buy .input-container .eth-count{
 		font-size: 0.15rem;
+	}
+	.team-grid .btn{
+		font-size: 0.2rem;
 	}
 }
 .team-grid .tab-buy .count-container .count-wrapper:last-child {

@@ -409,7 +409,7 @@ $(function () {
                         alertify.error(_('你的收益金额不足'));
                         return false
                     }
-                    console.log(xyj);
+                    console.log(xyj)  ;
                     // 购买Key，自己购买传0，通过邀请购买传邀请者账号
                     showLoading();
                     var data = getAdviceHash();
