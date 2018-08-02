@@ -205,7 +205,6 @@ $(function () {
     }
 
 
-
     // 获取邀请者账号
     function getAdviceHash() {
         var str = window.location.pathname.slice(1);
@@ -359,7 +358,7 @@ $(function () {
                 $('.team-grid .total-award-usdt').text('≙ ' + formatUSDT(data.totalEarn) + ' USDT');
                 $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
-        });
+        }, true);
     };
     window.refreshPersonInfo();
 
@@ -513,7 +512,15 @@ $(function () {
             alertify.error(_('请先登陆您的Metamask钱包'));
         }
     })
-    new ClipboardJS('.js_copy_btn');
+
+    var clip = new ClipboardJS('.js_copy_btn');
+    clip.on('success', function () {
+        alertify.success(_('复制成功'));
+    })
+    // clip.on('error',function () {
+    //     alertify.error(_('复制失败'));
+    // })
+
     var xyjindex = {
         showPop: function (a) {
             $(a).show(200)
@@ -526,24 +533,23 @@ $(function () {
     /* trust 判断 */
 
     // 获取我的账号
-    function getAccounts(fn) {
+    function getAccounts(fn, isRefresh) {
         xyj.getAccounts(function (error, account) {
             xyj._account = account;
-            if (error || account === '') {
+            if ((error || account === '') && isRefresh !== true) {
                 // 修改游戏提示  用弹窗形式
                 if (!isPC()) {
                     /* mobile 端 */
-                    if (!(window.navigator.userAgent.indexOf('Trust') > -1)) {
+                    if (!(window.navigator.userAgent.indexOf('Trust') > -1 || window.navigator.userAgent.indexOf('Cipher') > -1 || window.navigator.userAgent.indexOf('Toshi') > -1)) {
                         /* 弹窗 */
                         $('.js_showMobile').removeClass('hide')
                     }
-                }else{
+                } else {
                     // pc 端
                     $('.js_showPc').removeClass('hide')
                 }
                 // alertify.error(_('请先登陆您的Metamask钱包'));
             } else {
-                console.log(account);
                 fn(account);
             }
         })
@@ -563,6 +569,7 @@ $(function () {
         }
         return flag;
     }
+
 
 })
 

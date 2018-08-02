@@ -221,7 +221,8 @@ setTranslate = function (e) {
         ' 个': ' ',
         '邀请说明：': 'Referral Reward:',
         '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!',
-        '本回合已结束': 'This Round Finished'
+        '本回合已结束': 'This Round Finished',
+        '复制成功':'copied to clipboard'
     };
     getTranslate = function (e) {
         return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e
