@@ -362,7 +362,6 @@ $(function () {
     };
     window.refreshPersonInfo();
 
-
     $('.btn-buy, .js_buy').click(function () {
         var num = Number($('#count').val());
         var isJSBuy = $(this).hasClass('js_buy');
@@ -392,6 +391,47 @@ $(function () {
             }
         });
     });
+
+    $('.js_btn_earn').click(function () {
+        var num = Number($('#count').val());
+        var isJSBuy = $(this).hasClass('js_buy');
+        if (isNaN(num) || parseInt($('#count').val(), 10) === 0 || num !== parseInt(num, 10) || num < 0) {
+            alertify.alert('请输入正确的金钻数量');
+            return;
+        }
+        getAccounts(function (account) {
+            if (account) {
+                xyj.getPlayerInfoByAddress(account, function (err, msg) {
+                    if (err) {
+                        return false
+                    }
+                    if (msg && parseFloat(msg.totalEarn) < parseFloat(xyj._allPrice)) {
+                        alertify.error(_('你的收益金额不足'));
+                        return false
+                    }
+                    console.log(xyj);
+                    // 购买Key，自己购买传0，通过邀请购买传邀请者账号
+                    showLoading();
+                    var data = getAdviceHash();
+                    var fuc = {
+                        id: xyj.reLoadXid,
+                        addr: xyj.reLoadXaddr,
+                        name: xyj.reLoadXname
+                    }[data.type]
+                    fuc(data.str, Number(xyj._team), xyj._allPrice, function (error, data) {
+                        // TODO: 购买成功后
+                        hideLoading();
+                        if (error) {
+                            alertify.error(_('已取消购买金钻'));
+                        } else {
+                            alertify.success(_('下单成功'));
+                        }
+                    });
+                })
+
+            }
+        });
+    })
 
 
     window.refreshInfo = function () {

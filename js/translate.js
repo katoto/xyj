@@ -4,7 +4,6 @@ getTranslate = null,
 setTranslate = function (e) {
     var a = {
         zh: {
-
             js_gloTitle:"这是最后的机会",
             js_gloTitle2:"快来西方取“金”！",
             js_team1:"悟空",
@@ -224,7 +223,8 @@ setTranslate = function (e) {
         '邀请说明：': 'Referral Reward:',
         '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!',
         '本回合已结束': 'This Round Finished',
-        '复制成功':'copied to clipboard'
+        '复制成功':'copied to clipboard',
+        '你的收益金额不足':'Your vault balance is insufficient'
     };
     getTranslate = function (e) {
         return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e
