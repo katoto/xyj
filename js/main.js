@@ -5,12 +5,12 @@ window.js_currTime = 0;
 
 $(function () {
     $('#jumpToContact').click(function () {
-        window.open('https://etherscan.io/address/'+ contractAddr +'#code')
+        window.open('https://etherscan.io/address/' + contractAddr + '#code')
     })
-    $('#jumpToEdu').click(function () {
-        if(global_lan==='zh'){
+    $('.js_jumpToEdu').click(function () {
+        if (global_lan === 'zh') {
             window.open('../edu_zh.pdf')
-        }else{
+        } else {
             window.open('../edu_en.pdf')
         }
     })
@@ -30,12 +30,12 @@ $(function () {
         $('.list-content .tabs .tab-content').eq($(this).index()).addClass('active');
     });
 
-    function showLoading () {
+    function showLoading() {
         $('.buy-loading').show();
         $('html body').addClass('stop');
     }
 
-    function hideLoading () {
+    function hideLoading() {
         $('.buy-loading').hide();
         $('html body').removeClass('stop');
     }
@@ -70,6 +70,7 @@ $(function () {
         function formatTime(time) {
             return (parseInt(time, 10)) < 10 ? '0' + time.toString() : time;
         }
+
         // if (hour === 0 && min === 0 && second < 15 && second !== 0) {
         //     window.refreshTime();
         // }
@@ -163,24 +164,25 @@ $(function () {
         return (r1 / r2) * Math.pow(10, t2 - t1)
     }
 
-    function formatNum8 (num) {
+    function formatNum8(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 8))), Math.pow(10, 8));
     }
 
-    function formatNum6 (num) {
+    function formatNum6(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 6))), Math.pow(10, 6));
     }
+
     window.formatNum6 = formatNum6;
 
-    function formatNum4 (num) {
+    function formatNum4(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 4))), Math.pow(10, 4));
     }
 
-    function formatNum3 (num) {
+    function formatNum3(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 3))), Math.pow(10, 3));
     }
 
-    function formatNum2 (num) {
+    function formatNum2(num) {
         return accDiv(Math.floor(accMul(Number(num), Math.pow(10, 2))), Math.pow(10, 2));
     }
 
@@ -202,19 +204,6 @@ $(function () {
         renderPrice();
     }
 
-    // 获取我的账号
-    function getAccounts(fn) {
-        xyj.getAccounts(function (error, account) {
-            xyj._account = account;
-            if (error || account === '') {
-                console.log(error);
-                alertify.error(_('请先登陆您的Metamask钱包'));
-            } else {
-                console.log(account);
-                fn(account);
-            }
-        })
-    }
 
     // 获取邀请者账号
     function getAdviceHash() {
@@ -272,7 +261,7 @@ $(function () {
                 console.log(error);
             } else {
                 console.log(time);
-                if((time.toString() !== js_currTime.toString()) || time.toString() === '0'){
+                if ((time.toString() !== js_currTime.toString()) || time.toString() === '0') {
                     js_currTime = time
                     updateInterval(time === 0 ? -1 : time);
                 }
@@ -356,8 +345,8 @@ $(function () {
                     // 没有推广代号
                     $('.js_noid').removeClass('hide');
                 }
-                $('.list-content .share-award').text(data.shareEarn.toString() + ' ETH');
-                $('.team-grid .share-award').text(data.shareEarn.toString());
+                $('.list-content .share-award').text(formatNum6(data.shareEarn).toString() + ' ETH');
+                $('.team-grid .share-award').text(formatNum6(data.shareEarn).toString());
                 $('.list-content .owner-keys').text(data.keys.toString() + _(' 个'));
 
                 getBuyPrice(function () {
@@ -369,7 +358,7 @@ $(function () {
                 $('.team-grid .total-award-usdt').text('≙ ' + formatUSDT(data.totalEarn) + ' USDT');
                 $('.team-grid .total-award').text(formatNum6(data.totalEarn).toString());
             });
-        });
+        }, true);
     };
     window.refreshPersonInfo();
 
@@ -412,10 +401,10 @@ $(function () {
                 return
             }
             getBuyPrice(function () {
-                if(formatNum4(data.currPot).toString() === '0'){
+                if (formatNum4(data.currPot).toString() === '0') {
                     $('.banner .msg3, .total_prize_pool').html('<p>0.0000</p>');
-                }else{
-                    $('.banner .msg3, .total_prize_pool').html('<p>'+ formatNum4(data.currPot).toString() +'</p>');
+                } else {
+                    $('.banner .msg3, .total_prize_pool').html('<p>' + formatNum4(data.currPot).toString() + '</p>');
                 }
                 $('.list-content .js_wukong').text(formatNum4(data.sneks_2).toString());
                 $('.list-content .js_shifu').text(formatNum4(data.whales_0).toString());
@@ -427,7 +416,7 @@ $(function () {
                 console.log(data.purchasedTime, formatNum2(data.purchasedTime))
                 $('.js_year').text(data.purchasedTime > 1 ? formatNum2(data.purchasedTime).toString() : formatNum4(data.purchasedTime).toString());
                 $('.js_second').text(numberComma(data.purchasedSeconds));
-                $('.js_round').text('#' + data.roundNum);
+                $('.js_round').text(' ' + data.roundNum);
                 /* hide lastBuy Name */
                 // if (data.lastBuyName && data.lastBuyName !== '') {
                 //     $('.round-list .winner').removeClass('hide');
@@ -523,7 +512,15 @@ $(function () {
             alertify.error(_('请先登陆您的Metamask钱包'));
         }
     })
-    new ClipboardJS('.js_copy_btn');
+
+    var clip = new ClipboardJS('.js_copy_btn');
+    clip.on('success', function () {
+        alertify.success(_('复制成功'));
+    })
+    // clip.on('error',function () {
+    //     alertify.error(_('复制失败'));
+    // })
+
     var xyjindex = {
         showPop: function (a) {
             $(a).show(200)
@@ -533,6 +530,46 @@ $(function () {
         }
     }
 
-    /* use vault  */
+    /* trust 判断 */
+
+    // 获取我的账号
+    function getAccounts(fn, isRefresh) {
+        xyj.getAccounts(function (error, account) {
+            xyj._account = account;
+            if ((error || account === '') && isRefresh !== true) {
+                // 修改游戏提示  用弹窗形式
+                if (!isPC()) {
+                    /* mobile 端 */
+                    if (!(window.navigator.userAgent.indexOf('Trust') > -1 || window.navigator.userAgent.indexOf('Cipher') > -1 || window.navigator.userAgent.indexOf('Toshi') > -1)) {
+                        /* 弹窗 */
+                        $('.js_showMobile').removeClass('hide')
+                    }
+                } else {
+                    // pc 端
+                    $('.js_showPc').removeClass('hide')
+                }
+                // alertify.error(_('请先登陆您的Metamask钱包'));
+            } else {
+                fn(account);
+            }
+        })
+    }
+
+    function isPC() {
+        var userAgentInfo = window.navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
 
 })
+

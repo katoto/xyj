@@ -4,6 +4,7 @@ getTranslate = null,
 setTranslate = function (e) {
     var a = {
         zh: {
+
             js_gloTitle:"这是最后的机会",
             js_gloTitle2:"快来西方取“金”！",
             js_team1:"悟空",
@@ -71,10 +72,28 @@ setTranslate = function (e) {
             js_keys:'金钻',
             js_buyLink:'注册一个专属的推广代号',
             js_linkMsg:'购买一个代号来生成推广链接，并直接分享高达10%的佣金',
-            js_morePeop:'让更多人参与造梦西游游戏',
-            buyBtn_earn:'使用收益购买'
+            buyBtn_earn:'使用收益购买',
+            js_morePeop:'*让更多人参与造梦西游游戏',
+            js_mobileTitle:'手机游戏步骤',
+            js_mobile_1:'1. 手机版参与游戏，需先安装Trust钱包',
+            js_mobile_2:'2. 在Trust钱包中，打开网站',
+            js_pc_tip:'游戏提示',
+            js_mobile_down:'下载安装',
+            js_pc_install:'请先安装并登录Metamask钱包',
+            js_pc_noWall:'没有Metamask钱包，如何安装？',
+            js_chakan:'查看',
+            js_copyLink:'复制'
         },
         en: {
+            js_copyLink:'Copy',
+            js_chakan:'Install now',
+            js_pc_noWall:'No Metamask, how to play?',
+            js_pc_install:'Please install and log in your Metamask',
+            js_pc_tip:'Game Tip',
+            js_mobile_down:'Download',
+            js_mobile_2:'2. Open the website in Trust Wallet',
+            js_mobile_1:'1. Install Trust Wallet',
+            js_mobileTitle:'Mobile Version Game Step',
             js_morePeop:'Invite more friend to join the game!',
             js_linkMsg:'Buy referral links to invite friends, you can get 10% of your friends\' investment!',
             js_buyLink:'Buy a Link',
@@ -173,7 +192,7 @@ setTranslate = function (e) {
         '已取消注册推广代号': 'Registration Cancelled',
         '输入的推广代号不符合规则': 'Please enter the correct referral link.',
         '提现已取消': 'Withdrawal Cancelled',
-        '让更多人参与造梦西游游戏': 'Invite more friends to the game.',
+        '*让更多人参与造梦西游游戏': '*Invite more friends to the game.',
         '1金钻': '1 Diamond',
         '大部分收益': 'Sooner buy, better joy.',
         '平均分配': 'Less risky choice.',
@@ -204,7 +223,8 @@ setTranslate = function (e) {
         ' 个': ' ',
         '邀请说明：': 'Referral Reward:',
         '邀请其他玩家参与，你将获得他们的10%投注': 'Invite friends and you can get 10% of your friends\' investment!',
-        '本回合已结束': 'This Round Finished'
+        '本回合已结束': 'This Round Finished',
+        '复制成功':'copied to clipboard'
     };
     getTranslate = function (e) {
         return a[e] || ((localStorage.getItem('language') === 'zh' || localStorage.getItem('language') === null) ? e : lang[e]) || e

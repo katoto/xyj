@@ -668,3 +668,142 @@
 .EN .put-forward-list .put-forward .count::after {
   content: '';
 }
+
+.xyj-step {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.xyj-step .btn-close {
+  display: block;
+  position: absolute;
+  top: 0.187501rem;
+  right: 0.187501rem;
+  width: 0.375002rem;
+  height: 0.375002rem;
+  font-size: 0.375002rem;
+  background: url("../img/btn-close.png") no-repeat center;
+}
+
+.xyj-step .main {
+  position: absolute;
+  width: 92%;
+  padding: 0.375002rem 0.375002rem 0.562504rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #262626;
+  color: #fff;
+  border-radius: 0.112501rem;
+}
+
+.xyj-step .p1 {
+  margin-bottom: 0.375002rem;
+  text-align: center;
+  font-size: 0.337502rem;
+  color: #fff;
+}
+
+.xyj-step .p2,
+.xyj-step .p3 {
+  font-size: 0.262502rem;
+}
+
+.xyj-step .p3 {
+  margin-bottom: 0.187501rem;
+}
+
+.xyj-step .btn-down {
+  display: block;
+  width: 50%;
+  line-height: 3;
+  margin: 0.375002rem auto;
+  background: linear-gradient(#d2aa46, #7b642c);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.112501rem;
+  font-size: 0.262502rem;
+}
+
+.xyj-step .input-box {
+  width: 80%;
+  margin: 0 auto 0;
+  line-height: 3;
+  overflow: hidden;
+  background: #fff;
+  color: #111;
+  border-radius: 0.112501rem;
+  font-size: 0.262502rem;
+  text-align: center;
+}
+
+.xyj-step .input-box a {
+  display: block;
+  padding: 0 0.375002rem;
+  float: right;
+  background: #b9bac5;
+  background: linear-gradient(#d2aa46, #7b642c);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.262502rem;
+}
+
+.xyj-tips {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.xyj-tips .btn-close {
+  display: block;
+  position: absolute;
+  top: 0.187501rem;
+  right: 0.187501rem;
+  width: 0.375002rem;
+  height: 0.375002rem;
+  font-size: 0.375002rem;
+  background: url("../img/btn-close.png") no-repeat center;
+}
+
+.xyj-tips .main {
+  position: absolute;
+  width: 30%;
+  padding: 0.375002rem 0.375002rem 0.562504rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #262626;
+  color: #fff;
+  border-radius: 0.112501rem;
+}
+
+.xyj-tips .p1 {
+  font-size: 0.375002rem;
+  line-height: 3;
+}
+
+.xyj-tips .p2 {
+  margin-top: 0.187501rem;
+  font-size: 0.300002rem;
+}
+
+.xyj-tips .bottom-main {
+  margin-top: 0.937506rem;
+}
+
+.xyj-tips .bottom-main a {
+  margin-left: 0.375002rem;
+  text-decoration: underline;
+}

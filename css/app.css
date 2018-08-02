@@ -1223,10 +1223,9 @@ body {
 .team-grid .tab-buy .input-container .eth-count {
 	width: 2.97rem;
 	text-align: center;
-	color: #fff;
+	color: #111;
 	padding: 0 .18rem;
 	white-space: nowrap;
-	font-weight: 900
 }
 
 .team-grid .tab-buy .count-container {
@@ -1277,6 +1276,9 @@ body {
 	}
 	.count-wrapper .hidexs{
 	display: none;
+	}
+	.team-grid .tab-buy .input-container .eth-count{
+		font-size: 0.15rem;
 	}
 }
 .team-grid .tab-buy .count-container .count-wrapper:last-child {
@@ -1948,5 +1950,4 @@ body {
 }
 
 .EN .referrals-tip {
-
 }
