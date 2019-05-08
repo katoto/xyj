@@ -189,7 +189,7 @@ setTranslate = function (e) {
         '已取消购买金钻': 'Purchase Cancelled',
         '下单成功': 'Order Successful',
         '已取消注册推广代号': 'Registration Cancelled',
-        '输入的推广代号不符合规则': 'Please enter the correct referral link.',
+        '': 'Please enter the correct referral link.',
         '提现已取消': 'Withdrawal Cancelled',
         '*让更多人参与造梦西游游戏': '*Invite more friends to the game.',
         '1金钻': '1 Diamond',
